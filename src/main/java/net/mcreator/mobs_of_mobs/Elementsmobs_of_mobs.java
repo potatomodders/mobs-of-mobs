@@ -19,6 +19,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.storage.WorldSavedData;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.tags.Tag;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.item.Item;
@@ -65,6 +66,10 @@ public class Elementsmobs_of_mobs {
 	}
 
 	public void registerSounds(RegistryEvent.Register<net.minecraft.util.SoundEvent> event) {
+		ResourceLocation sound0 = new ResourceLocation("mobs_of_mobs", "taken_die");
+		event.getRegistry().register(new net.minecraft.util.SoundEvent(sound0).setRegistryName(sound0));
+		ResourceLocation sound1 = new ResourceLocation("mobs_of_mobs", "taken_live");
+		event.getRegistry().register(new net.minecraft.util.SoundEvent(sound1).setRegistryName(sound1));
 	}
 
 	@SubscribeEvent

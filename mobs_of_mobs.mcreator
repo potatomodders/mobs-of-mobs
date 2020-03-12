@@ -1,10 +1,49 @@
 {
   "id_map": {},
-  "mod_elements": [],
+  "mod_elements": [
+    {
+      "name": "Taken",
+      "type": "mob",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "TakenOnEntityTickUpdate",
+      "type": "procedure",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    }
+  ],
   "variable_elements": [],
-  "sound_elements": [],
+  "sound_elements": [
+    {
+      "name": "taken_die",
+      "file": "death",
+      "category": "hostile"
+    },
+    {
+      "name": "taken_live",
+      "file": "say1",
+      "category": "hostile"
+    }
+  ],
   "language_map": {
-    "en_us": {}
+    "en_us": {
+      "entity.mobs_of_mobs.taken": "Taken",
+      "item.mobs_of_mobs.taken": "Taken Spawn Egg"
+    }
   },
   "workspaceSettings": {
     "modid": "mobs_of_mobs",

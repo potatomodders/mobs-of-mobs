@@ -19,6 +19,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
@@ -94,7 +96,7 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 				biomeCriteria = true;
 			if (!biomeCriteria)
 				continue;
-			biome.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(entity, 10, 2, 4));
+			biome.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(entity, 8, 2, 4));
 		}
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				MonsterEntity::func_223315_a);
@@ -105,7 +107,7 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	public void registerModels(ModelRegistryEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(CustomEntity.class, renderManager -> {
-			return new MobRenderer(renderManager, new Modelcustom_model(), 0.5f) {
+			return new MobRenderer(renderManager, new Modeltakenmodel(), 0.5f) {
 				protected ResourceLocation getEntityTexture(Entity entity) {
 					return new ResourceLocation("mobs_of_mobs:textures/taken.png");
 				}
@@ -142,6 +144,7 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 
 		protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
 			super.dropSpecialItems(source, looting, recentlyHitIn);
+			this.entityDropItem(new ItemStack(Items.ROTTEN_FLESH, (int) (1)));
 		}
 
 		@Override
@@ -181,7 +184,7 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 	// Made with Blockbench
 	// Paste this code into your mod.
 	// Make sure to generate all required imports
-	public static class Modelcustom_model extends EntityModel<Entity> {
+	public static class Modeltakenmodel extends EntityModel<Entity> {
 		private final RendererModel head;
 		private final RendererModel headwear;
 		private final RendererModel body;
@@ -189,7 +192,7 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 		private final RendererModel right_arm;
 		private final RendererModel left_leg;
 		private final RendererModel right_leg;
-		public Modelcustom_model() {
+		public Modeltakenmodel() {
 			textureWidth = 64;
 			textureHeight = 64;
 			head = new RendererModel(this);
@@ -197,7 +200,7 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 			head.cubeList.add(new ModelBox(head, 0, 0, -4.0F, -8.0F, -4.0F, 8, 8, 8, 0.0F, true));
 			headwear = new RendererModel(this);
 			headwear.setRotationPoint(0.0F, 0.0F, 0.0F);
-			headwear.cubeList.add(new ModelBox(headwear, 32, 0, -4.0F, -7.75F, -4.0F, 8, 8, 8, 0.25F, true));
+			headwear.cubeList.add(new ModelBox(headwear, 32, 0, -4.0F, -8.0F, -4.0F, 8, 8, 8, 0.25F, true));
 			body = new RendererModel(this);
 			body.setRotationPoint(0.0F, 0.0F, 0.0F);
 			body.cubeList.add(new ModelBox(body, 16, 16, -4.0F, 0.0F, -2.0F, 8, 12, 4, 0.0F, true));
@@ -236,8 +239,8 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4, float f5) {
 			super.setRotationAngles(e, f, f1, f2, f3, f4, f5);
-			this.headwear.rotateAngleY = f3 / (180F / (float) Math.PI);
-			this.headwear.rotateAngleX = f4 / (180F / (float) Math.PI);
+			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
+			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 			this.right_arm.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
 			this.left_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
 			this.left_arm.rotateAngleX = MathHelper.cos(f * 0.6662F) * f1;

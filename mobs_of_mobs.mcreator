@@ -49,8 +49,9 @@
     "modid": "mobs_of_mobs",
     "modName": "Mobs of Mobs",
     "version": "1.0.0",
-    "author": "luke",
-    "websiteURL": "https://mcreator.net",
+    "description": "Mobs of Dangerous Mobs!",
+    "author": "crispy_chips1234",
+    "websiteURL": "I don\u0027t have a website lol",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
     "requiredMods": [],
@@ -58,8 +59,9 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "1.14.4",
-    "usesProFeatures": false,
+    "credits": "I don\u0027t want to credit anyone now go away",
+    "modElementsPackage": "com.crispy.mobs_of_mobs",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202000209617
+  "mcreatorVersion": 202000211618
 }

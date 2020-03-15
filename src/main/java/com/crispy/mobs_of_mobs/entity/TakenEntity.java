@@ -1,5 +1,5 @@
 
-package net.mcreator.mobs_of_mobs;
+package com.crispy.mobs_of_mobs.entity;
 
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.network.FMLPlayMessages;
@@ -15,33 +15,38 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.World;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
-import net.minecraft.entity.monster.ZombieEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
-import net.minecraft.entity.ai.goal.PanicGoal;
+import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
+import net.minecraft.entity.ai.goal.BreakDoorGoal;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.CreatureAttribute;
-import net.minecraft.client.renderer.entity.model.BipedModel;
-import net.minecraft.client.renderer.entity.layers.BipedArmorLayer;
-import net.minecraft.client.renderer.entity.BipedRenderer;
+import net.minecraft.client.renderer.model.ModelBox;
+import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.MobRenderer;
 
-@Elementsmobs_of_mobs.ModElement.Tag
-public class MCreatorTaken extends Elementsmobs_of_mobs.ModElement {
+import com.crispy.mobs_of_mobs.MobsofMobsElements;
+
+@MobsofMobsElements.ModElement.Tag
+public class TakenEntity extends MobsofMobsElements.ModElement {
 	public static EntityType entity = null;
-	public MCreatorTaken(Elementsmobs_of_mobs instance) {
+	public TakenEntity(MobsofMobsElements instance) {
 		super(instance, 1);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
@@ -49,7 +54,7 @@ public class MCreatorTaken extends Elementsmobs_of_mobs.ModElement {
 	@Override
 	public void initElements() {
 		entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER).setShouldReceiveVelocityUpdates(true)
-				.setTrackingRange(64).setUpdateInterval(1).setCustomClientFactory(CustomEntity::new).size(0.6f, 1.8f)).build("taken")
+				.setTrackingRange(128).setUpdateInterval(1).setCustomClientFactory(CustomEntity::new).size(0.6f, 1.8f)).build("taken")
 						.setRegistryName("taken");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -9470354, -7493982, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("taken"));
@@ -89,7 +94,7 @@ public class MCreatorTaken extends Elementsmobs_of_mobs.ModElement {
 				biomeCriteria = true;
 			if (!biomeCriteria)
 				continue;
-			biome.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(entity, 15, 1, 4));
+			biome.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(entity, 10, 2, 4));
 		}
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				MonsterEntity::func_223315_a);
@@ -100,34 +105,34 @@ public class MCreatorTaken extends Elementsmobs_of_mobs.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	public void registerModels(ModelRegistryEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(CustomEntity.class, renderManager -> {
-			BipedRenderer customRender = new BipedRenderer(renderManager, new BipedModel(), 0.5f) {
+			return new MobRenderer(renderManager, new Modelcustom_model(), 0.5f) {
 				protected ResourceLocation getEntityTexture(Entity entity) {
 					return new ResourceLocation("mobs_of_mobs:textures/taken.png");
 				}
 			};
-			customRender.addLayer(new BipedArmorLayer(customRender, new BipedModel(0.5f), new BipedModel(1)));
-			return customRender;
 		});
 	}
-	public static class CustomEntity extends ZombieEntity {
+	public static class CustomEntity extends MonsterEntity {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
 
 		public CustomEntity(EntityType<CustomEntity> type, World world) {
 			super(type, world);
-			experienceValue = 8;
+			experienceValue = 6;
 			setNoAI(false);
 		}
 
 		@Override
 		protected void registerGoals() {
-			this.goalSelector.addGoal(1, new RandomWalkingGoal(this, 1));
-			this.goalSelector.addGoal(2, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(3, new SwimGoal(this));
-			this.goalSelector.addGoal(4, new LeapAtTargetGoal(this, (float) 0.8));
-			this.goalSelector.addGoal(5, new PanicGoal(this, 1.2));
-			this.targetSelector.addGoal(6, new HurtByTargetGoal(this));
+			this.goalSelector.addGoal(1, new BreakDoorGoal(this, e -> true));
+			this.targetSelector.addGoal(2, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
+			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, PlayerEntity.class, false, false));
+			this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.4, true));
+			this.targetSelector.addGoal(5, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
+			this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1.1));
+			this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
+			this.goalSelector.addGoal(8, new SwimGoal(this));
 		}
 
 		@Override
@@ -160,30 +165,83 @@ public class MCreatorTaken extends Elementsmobs_of_mobs.ModElement {
 		}
 
 		@Override
-		public void baseTick() {
-			super.baseTick();
-			int x = (int) this.posX;
-			int y = (int) this.posY;
-			int z = (int) this.posZ;
-			Entity entity = this;
-			{
-				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
-				$_dependencies.put("entity", entity);
-				MCreatorTakenOnEntityTickUpdate.executeProcedure($_dependencies);
-			}
-		}
-
-		@Override
 		protected void registerAttributes() {
 			super.registerAttributes();
 			if (this.getAttribute(SharedMonsterAttributes.ARMOR) != null)
-				this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(0);
+				this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(0.2);
 			if (this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED) != null)
 				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3);
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
 				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(25);
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) != null)
-				this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5);
+				this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4);
+		}
+	}
+
+	// Made with Blockbench
+	// Paste this code into your mod.
+	// Make sure to generate all required imports
+	public static class Modelcustom_model extends EntityModel<Entity> {
+		private final RendererModel head;
+		private final RendererModel headwear;
+		private final RendererModel body;
+		private final RendererModel left_arm;
+		private final RendererModel right_arm;
+		private final RendererModel left_leg;
+		private final RendererModel right_leg;
+		public Modelcustom_model() {
+			textureWidth = 64;
+			textureHeight = 64;
+			head = new RendererModel(this);
+			head.setRotationPoint(0.0F, 0.0F, 0.0F);
+			head.cubeList.add(new ModelBox(head, 0, 0, -4.0F, -8.0F, -4.0F, 8, 8, 8, 0.0F, true));
+			headwear = new RendererModel(this);
+			headwear.setRotationPoint(0.0F, 0.0F, 0.0F);
+			headwear.cubeList.add(new ModelBox(headwear, 32, 0, -4.0F, -7.75F, -4.0F, 8, 8, 8, 0.25F, true));
+			body = new RendererModel(this);
+			body.setRotationPoint(0.0F, 0.0F, 0.0F);
+			body.cubeList.add(new ModelBox(body, 16, 16, -4.0F, 0.0F, -2.0F, 8, 12, 4, 0.0F, true));
+			left_arm = new RendererModel(this);
+			left_arm.setRotationPoint(-5.0F, 2.0F, 0.0F);
+			setRotationAngle(left_arm, -1.5708F, 0.0F, 0.0F);
+			left_arm.cubeList.add(new ModelBox(left_arm, 40, 16, 9.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, true));
+			right_arm = new RendererModel(this);
+			right_arm.setRotationPoint(5.0F, 2.0F, 0.0F);
+			setRotationAngle(right_arm, -1.5708F, 0.0F, 0.0F);
+			right_arm.cubeList.add(new ModelBox(right_arm, 40, 16, -13.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, true));
+			left_leg = new RendererModel(this);
+			left_leg.setRotationPoint(-1.9F, 12.0F, 0.0F);
+			left_leg.cubeList.add(new ModelBox(left_leg, 0, 16, 1.9F, 0.0F, -2.0F, 4, 12, 4, 0.0F, true));
+			right_leg = new RendererModel(this);
+			right_leg.setRotationPoint(1.9F, 12.0F, 0.0F);
+			right_leg.cubeList.add(new ModelBox(right_leg, 0, 16, -5.9F, 0.0F, -2.0F, 4, 12, 4, 0.0F, true));
+		}
+
+		@Override
+		public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+			head.render(f5);
+			headwear.render(f5);
+			body.render(f5);
+			left_arm.render(f5);
+			right_arm.render(f5);
+			left_leg.render(f5);
+			right_leg.render(f5);
+		}
+
+		public void setRotationAngle(RendererModel modelRenderer, float x, float y, float z) {
+			modelRenderer.rotateAngleX = x;
+			modelRenderer.rotateAngleY = y;
+			modelRenderer.rotateAngleZ = z;
+		}
+
+		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4, float f5) {
+			super.setRotationAngles(e, f, f1, f2, f3, f4, f5);
+			this.headwear.rotateAngleY = f3 / (180F / (float) Math.PI);
+			this.headwear.rotateAngleX = f4 / (180F / (float) Math.PI);
+			this.right_arm.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
+			this.left_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
+			this.left_arm.rotateAngleX = MathHelper.cos(f * 0.6662F) * f1;
+			this.right_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 		}
 	}
 }

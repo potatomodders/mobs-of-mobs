@@ -5,9 +5,12 @@ loaderVersion="[28,)"
 modId="mobs_of_mobs"
 version="1.0.0"
 displayName="Mobs of Mobs"
-credits="Created using mod maker MCreator - https://mcreator.net/about"
+credits="I don't want to credit anyone now go away"
 displayURL="https://mcreator.net"
-authors="luke, MCreator"
+authors="crispy_chips1234, MCreator"
+description='''
+Mobs of Dangerous Mobs!
+'''
 
 [[dependencies.mobs_of_mobs]]
     modId="minecraft"

@@ -1,4 +1,6 @@
 {
+  "item.mobs_of_mobs.stalker": "Stalker Spawn Egg",
   "entity.mobs_of_mobs.taken": "Wight",
-  "item.mobs_of_mobs.taken": "Wight Spawn Egg"
+  "item.mobs_of_mobs.taken": "Wight Spawn Egg",
+  "entity.mobs_of_mobs.stalker": "Stalker"
 }

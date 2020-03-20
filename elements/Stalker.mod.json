@@ -2,21 +2,21 @@
   "_fv": 6,
   "_type": "mob",
   "definition": {
-    "mobName": "Wight",
+    "mobName": "Stalker",
     "mobLabel": "",
-    "mobModelTexture": "taken.png",
+    "mobModelTexture": "fire_elemental.png",
     "mobModelName": "Modeltakencool",
     "modelWidth": 0.6,
     "modelHeight": 1.8,
     "modelShadowSize": 0.5,
-    "armorBaseValue": 0.19999999999999998,
+    "armorBaseValue": 0.0,
     "hasSpawnEgg": true,
     "spawnEggBaseColor": {
-      "value": -9470354,
+      "value": -2303784,
       "falpha": 0.0
     },
     "spawnEggDotColor": {
-      "value": -7493982,
+      "value": -1,
       "falpha": 0.0
     },
     "creativeTab": {
@@ -45,11 +45,11 @@
     },
     "mobBehaviourType": "Mob",
     "mobCreatureType": "UNDEAD",
-    "attackStrength": 4,
+    "attackStrength": 3,
     "movementSpeed": 0.3,
     "trackingRange": 128,
-    "health": 25,
-    "xpAmount": 5,
+    "health": 20,
+    "xpAmount": 8,
     "waterMob": false,
     "flyingMob": false,
     "disableCollisions": false,
@@ -65,16 +65,16 @@
     "immuneToPotions": false,
     "immuneToPlayer": false,
     "mobDrop": {
-      "value": "Items.ROTTEN_FLESH"
+      "value": ""
     },
     "livingSound": {
-      "value": "CUSTOM:taken_live"
+      "value": ""
     },
     "hurtSound": {
-      "value": "entity.zombie.hurt"
+      "value": ""
     },
     "deathSound": {
-      "value": "CUSTOM:taken_die"
+      "value": ""
     },
     "spawnParticles": false,
     "particleToSpawn": {
@@ -84,9 +84,15 @@
     "particleSpawningRadious": 0.5,
     "particleAmount": 4,
     "particleSpawningCondition": "ALWAYS",
+    "onMobTickUpdate": {
+      "name": "TakenOnEntityTickUpdateOnEntityTickUpdate"
+    },
+    "onInitialSpawn": {
+      "name": "TakenOnEntityTickUpdateOnInitialEntitySpawn"
+    },
     "hasAI": true,
     "aiBase": "(none)",
-    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"0\" y=\"0\"><next><block type=\"attack_action\"><field name=\"callhelp\">TRUE</field><next><block type=\"attack_entity\"><field name=\"insight\">FALSE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">EntityPlayer</field><next><block type=\"attack_on_collide\"><field name=\"speed\">1.2</field><field name=\"longmemory\">TRUE</field><next><block type=\"attack_action\"><field name=\"callhelp\">TRUE</field><next><block type=\"doors_break\"><next><block type=\"wander\"><field name=\"speed\">1.4</field><next><block type=\"look_around\"><next><block type=\"swim_in_water\"/></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"0\" y=\"0\"><next><block type=\"attack_action\"><field name=\"callhelp\">TRUE</field><next><block type=\"attack_entity\"><field name=\"insight\">FALSE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">EntityPlayer</field><next><block type=\"attack_on_collide\"><field name=\"speed\">1.2</field><field name=\"longmemory\">TRUE</field><next><block type=\"attack_action\"><field name=\"callhelp\">TRUE</field><next><block type=\"doors_break\"><next><block type=\"wander\"><field name=\"speed\">1.3</field><next><block type=\"look_around\"><next><block type=\"swim_in_water\"/></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
     "breedable": false,
     "breedTriggerItems": [],
     "ranged": false,
@@ -95,10 +101,10 @@
     },
     "spawnThisMob": true,
     "doesDespawnWhenIdle": true,
-    "spawningProbability": 6,
+    "spawningProbability": 4,
     "mobSpawningType": "monster",
-    "minNumberOfMobsPerGroup": 2,
-    "maxNumberOfMobsPerGroup": 4,
+    "minNumberOfMobsPerGroup": 1,
+    "maxNumberOfMobsPerGroup": 1,
     "restrictionBiomes": [
       {
         "value": "plains"
@@ -143,6 +149,6 @@
         "value": "badlands"
       }
     ],
-    "spawnInDungeons": true
+    "spawnInDungeons": false
   }
 }

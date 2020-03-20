@@ -1,0 +1,11 @@
+{
+  "parent": "mobs_of_mobs:custom/pyrotechtable",
+  "textures": {
+    "all": "mobs_of_mobs:blocks/nether_bricks",
+    "particle": "mobs_of_mobs:blocks/nether_bricks",
+    "0": "mobs_of_mobs:blocks/netherrack",
+    "2": "mobs_of_mobs:blocks/nether_wart_block",
+    "3": "mobs_of_mobs:blocks/campfire_log_lit",
+    "4": "mobs_of_mobs:blocks/nether_bricks"
+  }
+}

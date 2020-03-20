@@ -4,7 +4,7 @@
   "definition": {
     "mobName": "Stalker",
     "mobLabel": "",
-    "mobModelTexture": "taken.png",
+    "mobModelTexture": "fire_elemental.png",
     "mobModelName": "Modeltakencool",
     "modelWidth": 0.6,
     "modelHeight": 1.8,
@@ -76,13 +76,13 @@
     "deathSound": {
       "value": "item.trident.hit"
     },
-    "spawnParticles": false,
+    "spawnParticles": true,
     "particleToSpawn": {
-      "value": "EXPLOSION_NORMAL"
+      "value": "PORTAL"
     },
     "particleSpawningShape": "Spread",
-    "particleSpawningRadious": 0.5,
-    "particleAmount": 4,
+    "particleSpawningRadious": 1.500000001490116,
+    "particleAmount": 1,
     "particleSpawningCondition": "ALWAYS",
     "onMobTickUpdate": {
       "name": "TakenOnEntityTickUpdateOnEntityTickUpdate"

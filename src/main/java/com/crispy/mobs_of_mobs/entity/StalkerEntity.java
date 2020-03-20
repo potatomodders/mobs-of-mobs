@@ -19,6 +19,7 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemGroup;
@@ -44,6 +45,8 @@ import net.minecraft.client.renderer.model.ModelBox;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
+
+import java.util.Random;
 
 import com.crispy.mobs_of_mobs.procedures.TakenOnEntityTickUpdateOnInitialEntitySpawnProcedure;
 import com.crispy.mobs_of_mobs.procedures.TakenOnEntityTickUpdateOnEntityTickUpdateProcedure;
@@ -112,7 +115,7 @@ public class StalkerEntity extends MobsofMobsElements.ModElement {
 		RenderingRegistry.registerEntityRenderingHandler(CustomEntity.class, renderManager -> {
 			return new MobRenderer(renderManager, new Modeltakencool(), 0.5f) {
 				protected ResourceLocation getEntityTexture(Entity entity) {
-					return new ResourceLocation("mobs_of_mobs:textures/taken.png");
+					return new ResourceLocation("mobs_of_mobs:textures/fire_elemental.png");
 				}
 			};
 		});
@@ -194,7 +197,6 @@ public class StalkerEntity extends MobsofMobsElements.ModElement {
 			Entity entity = this;
 			{
 				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
-				$_dependencies.put("entity", entity);
 				$_dependencies.put("x", x);
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
@@ -214,6 +216,25 @@ public class StalkerEntity extends MobsofMobsElements.ModElement {
 				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20);
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) != null)
 				this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3);
+		}
+
+		public void livingTick() {
+			super.livingTick();
+			int i = (int) this.posX;
+			int j = (int) this.posY;
+			int k = (int) this.posZ;
+			Random random = this.rand;
+			if (true)
+				for (int l = 0; l < 1; ++l) {
+					double d0 = (i + random.nextFloat());
+					double d1 = (j + random.nextFloat());
+					double d2 = (k + random.nextFloat());
+					int i1 = random.nextInt(2) * 2 - 1;
+					double d3 = (random.nextFloat() - 0.5D) * 1.500000001490116D;
+					double d4 = (random.nextFloat() - 0.5D) * 1.500000001490116D;
+					double d5 = (random.nextFloat() - 0.5D) * 1.500000001490116D;
+					world.addParticle(ParticleTypes.PORTAL, d0, d1, d2, d3, d4, d5);
+				}
 		}
 	}
 

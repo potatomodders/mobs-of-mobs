@@ -43,10 +43,6 @@
       "metadata": {
         "dependencies": [
           {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
             "name": "x",
             "type": "int"
           },
@@ -80,6 +76,14 @@
           }
         ]
       }
+    },
+    {
+      "name": "PyroForge",
+      "type": "block",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
     }
   ],
   "variable_elements": [],
@@ -103,6 +107,7 @@
   "language_map": {
     "en_us": {
       "item.mobs_of_mobs.stalker": "Stalker Spawn Egg",
+      "block.mobs_of_mobs.pyroforge": "PyroForge",
       "entity.mobs_of_mobs.taken": "Wight",
       "item.mobs_of_mobs.taken": "Wight Spawn Egg",
       "entity.mobs_of_mobs.stalker": "Stalker"

@@ -43,6 +43,10 @@
       "metadata": {
         "dependencies": [
           {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "x",
             "type": "int"
           },
@@ -88,6 +92,11 @@
     {
       "name": "taken_live",
       "file": "say1",
+      "category": "hostile"
+    },
+    {
+      "name": "stalker",
+      "file": "say2",
       "category": "hostile"
     }
   ],

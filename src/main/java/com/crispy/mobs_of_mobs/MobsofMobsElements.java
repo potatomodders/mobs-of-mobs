@@ -52,6 +52,8 @@ public class MobsofMobsElements {
 				new net.minecraft.util.SoundEvent(new ResourceLocation("mobs_of_mobs", "taken_die")));
 		sounds.put(new ResourceLocation("mobs_of_mobs", "taken_live"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("mobs_of_mobs", "taken_live")));
+		sounds.put(new ResourceLocation("mobs_of_mobs", "stalker"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("mobs_of_mobs", "stalker")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("mobs_of_mobs").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();

@@ -16,5 +16,14 @@
         "stream": false
       }
     ]
+  },
+  "stalker": {
+    "category": "hostile",
+    "sounds": [
+      {
+        "name": "mobs_of_mobs:say2",
+        "stream": false
+      }
+    ]
   }
 }

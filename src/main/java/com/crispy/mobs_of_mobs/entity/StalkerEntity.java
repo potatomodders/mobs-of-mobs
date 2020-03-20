@@ -112,7 +112,7 @@ public class StalkerEntity extends MobsofMobsElements.ModElement {
 		RenderingRegistry.registerEntityRenderingHandler(CustomEntity.class, renderManager -> {
 			return new MobRenderer(renderManager, new Modeltakencool(), 0.5f) {
 				protected ResourceLocation getEntityTexture(Entity entity) {
-					return new ResourceLocation("mobs_of_mobs:textures/fire_elemental.png");
+					return new ResourceLocation("mobs_of_mobs:textures/taken.png");
 				}
 			};
 		});
@@ -151,17 +151,17 @@ public class StalkerEntity extends MobsofMobsElements.ModElement {
 
 		@Override
 		public net.minecraft.util.SoundEvent getAmbientSound() {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
+			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("mobs_of_mobs:stalker"));
 		}
 
 		@Override
 		public net.minecraft.util.SoundEvent getHurtSound(DamageSource ds) {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
+			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.blaze.hurt"));
 		}
 
 		@Override
 		public net.minecraft.util.SoundEvent getDeathSound() {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
+			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.trident.hit"));
 		}
 
 		@Override
@@ -194,6 +194,7 @@ public class StalkerEntity extends MobsofMobsElements.ModElement {
 			Entity entity = this;
 			{
 				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
+				$_dependencies.put("entity", entity);
 				$_dependencies.put("x", x);
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
@@ -274,6 +275,8 @@ public class StalkerEntity extends MobsofMobsElements.ModElement {
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4, float f5) {
 			super.setRotationAngles(e, f, f1, f2, f3, f4, f5);
+			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
+			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 			this.left_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
 			this.right_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 		}

@@ -107,7 +107,7 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	public void registerModels(ModelRegistryEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(CustomEntity.class, renderManager -> {
-			return new MobRenderer(renderManager, new Modeltakenmodel(), 0.5f) {
+			return new MobRenderer(renderManager, new Modeltakencool(), 0.5f) {
 				protected ResourceLocation getEntityTexture(Entity entity) {
 					return new ResourceLocation("mobs_of_mobs:textures/taken.png");
 				}
@@ -127,12 +127,12 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 
 		@Override
 		protected void registerGoals() {
-			this.goalSelector.addGoal(1, new BreakDoorGoal(this, e -> true));
-			this.targetSelector.addGoal(2, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
-			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, PlayerEntity.class, false, false));
-			this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.4, true));
-			this.targetSelector.addGoal(5, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
-			this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1.1));
+			this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
+			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, PlayerEntity.class, false, false));
+			this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.2, true));
+			this.targetSelector.addGoal(4, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
+			this.goalSelector.addGoal(5, new BreakDoorGoal(this, e -> true));
+			this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1.4));
 			this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
 			this.goalSelector.addGoal(8, new SwimGoal(this));
 		}
@@ -184,7 +184,7 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 	// Made with Blockbench
 	// Paste this code into your mod.
 	// Make sure to generate all required imports
-	public static class Modeltakenmodel extends EntityModel<Entity> {
+	public static class Modeltakencool extends EntityModel<Entity> {
 		private final RendererModel head;
 		private final RendererModel headwear;
 		private final RendererModel body;
@@ -192,7 +192,7 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 		private final RendererModel right_arm;
 		private final RendererModel left_leg;
 		private final RendererModel right_leg;
-		public Modeltakenmodel() {
+		public Modeltakencool() {
 			textureWidth = 64;
 			textureHeight = 64;
 			head = new RendererModel(this);
@@ -200,7 +200,7 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 			head.cubeList.add(new ModelBox(head, 0, 0, -4.0F, -8.0F, -4.0F, 8, 8, 8, 0.0F, true));
 			headwear = new RendererModel(this);
 			headwear.setRotationPoint(0.0F, 0.0F, 0.0F);
-			headwear.cubeList.add(new ModelBox(headwear, 32, 0, -4.0F, -8.0F, -4.0F, 8, 8, 8, 0.25F, true));
+			headwear.cubeList.add(new ModelBox(headwear, 32, 0, -4.0F, -7.75F, -4.0F, 8, 8, 8, 0.25F, true));
 			body = new RendererModel(this);
 			body.setRotationPoint(0.0F, 0.0F, 0.0F);
 			body.cubeList.add(new ModelBox(body, 16, 16, -4.0F, 0.0F, -2.0F, 8, 12, 4, 0.0F, true));
@@ -239,11 +239,7 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4, float f5) {
 			super.setRotationAngles(e, f, f1, f2, f3, f4, f5);
-			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
-			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
-			this.right_arm.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
 			this.left_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
-			this.left_arm.rotateAngleX = MathHelper.cos(f * 0.6662F) * f1;
 			this.right_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 		}
 	}

@@ -45,7 +45,7 @@
     },
     "mobBehaviourType": "Mob",
     "mobCreatureType": "UNDEAD",
-    "attackStrength": 3,
+    "attackStrength": 2,
     "movementSpeed": 0.3,
     "trackingRange": 128,
     "health": 20,

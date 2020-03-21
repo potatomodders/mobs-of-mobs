@@ -215,7 +215,7 @@ public class StalkerEntity extends MobsofMobsElements.ModElement {
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
 				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20);
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) != null)
-				this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3);
+				this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2);
 		}
 
 		public void livingTick() {

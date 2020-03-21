@@ -74,7 +74,7 @@
       "value": "item.shield.break"
     },
     "deathSound": {
-      "value": "item.trident.hit"
+      "value": "block.anvil.hit"
     },
     "spawnParticles": true,
     "particleToSpawn": {

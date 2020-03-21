@@ -5,7 +5,7 @@
     "mobName": "Pyromancer",
     "mobLabel": "",
     "mobModelTexture": "flaming_raider.png",
-    "mobModelName": "Modeltakencool",
+    "mobModelName": "Biped",
     "modelWidth": 0.6,
     "modelHeight": 1.8,
     "modelShadowSize": 0.5,
@@ -74,7 +74,7 @@
       "value": "entity.blaze.hurt"
     },
     "deathSound": {
-      "value": "item.trident.hit_ground"
+      "value": "entity.wither.death"
     },
     "spawnParticles": true,
     "particleToSpawn": {

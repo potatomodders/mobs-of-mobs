@@ -16,7 +16,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.World;
 import net.minecraft.world.ServerBossInfo;
 import net.minecraft.world.BossInfo;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.particles.ParticleTypes;
@@ -39,10 +38,9 @@ import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.CreatureAttribute;
-import net.minecraft.client.renderer.model.ModelBox;
-import net.minecraft.client.renderer.entity.model.RendererModel;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.model.BipedModel;
+import net.minecraft.client.renderer.entity.layers.BipedArmorLayer;
+import net.minecraft.client.renderer.entity.BipedRenderer;
 
 import java.util.Random;
 
@@ -84,11 +82,13 @@ public class PyromancerEntity extends MobsofMobsElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	public void registerModels(ModelRegistryEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(CustomEntity.class, renderManager -> {
-			return new MobRenderer(renderManager, new Modeltakencool(), 0.5f) {
+			BipedRenderer customRender = new BipedRenderer(renderManager, new BipedModel(), 0.5f) {
 				protected ResourceLocation getEntityTexture(Entity entity) {
 					return new ResourceLocation("mobs_of_mobs:textures/flaming_raider.png");
 				}
 			};
+			customRender.addLayer(new BipedArmorLayer(customRender, new BipedModel(0.5f), new BipedModel(1)));
+			return customRender;
 		});
 	}
 	public static class CustomEntity extends MonsterEntity {
@@ -135,7 +135,7 @@ public class PyromancerEntity extends MobsofMobsElements.ModElement {
 
 		@Override
 		public net.minecraft.util.SoundEvent getDeathSound() {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.trident.hit_ground"));
+			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.wither.death"));
 		}
 
 		@Override
@@ -196,71 +196,6 @@ public class PyromancerEntity extends MobsofMobsElements.ModElement {
 					double d5 = (random.nextFloat() - 0.5D) * 0.4999999985098839D;
 					world.addParticle(ParticleTypes.FLAME, d0, d1, d2, d3, d4, d5);
 				}
-		}
-	}
-
-	// Made with Blockbench
-	// Paste this code into your mod.
-	// Make sure to generate all required imports
-	public static class Modeltakencool extends EntityModel<Entity> {
-		private final RendererModel head;
-		private final RendererModel headwear;
-		private final RendererModel body;
-		private final RendererModel left_arm;
-		private final RendererModel right_arm;
-		private final RendererModel left_leg;
-		private final RendererModel right_leg;
-		public Modeltakencool() {
-			textureWidth = 64;
-			textureHeight = 64;
-			head = new RendererModel(this);
-			head.setRotationPoint(0.0F, 0.0F, 0.0F);
-			head.cubeList.add(new ModelBox(head, 0, 0, -4.0F, -8.0F, -4.0F, 8, 8, 8, 0.0F, true));
-			headwear = new RendererModel(this);
-			headwear.setRotationPoint(0.0F, 0.0F, 0.0F);
-			headwear.cubeList.add(new ModelBox(headwear, 32, 0, -4.0F, -7.75F, -4.0F, 8, 8, 8, 0.25F, true));
-			body = new RendererModel(this);
-			body.setRotationPoint(0.0F, 0.0F, 0.0F);
-			body.cubeList.add(new ModelBox(body, 16, 16, -4.0F, 0.0F, -2.0F, 8, 12, 4, 0.0F, true));
-			left_arm = new RendererModel(this);
-			left_arm.setRotationPoint(-5.0F, 2.0F, 0.0F);
-			setRotationAngle(left_arm, -1.5708F, 0.0F, 0.0F);
-			left_arm.cubeList.add(new ModelBox(left_arm, 40, 16, 9.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, true));
-			right_arm = new RendererModel(this);
-			right_arm.setRotationPoint(5.0F, 2.0F, 0.0F);
-			setRotationAngle(right_arm, -1.5708F, 0.0F, 0.0F);
-			right_arm.cubeList.add(new ModelBox(right_arm, 40, 16, -13.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, true));
-			left_leg = new RendererModel(this);
-			left_leg.setRotationPoint(-1.9F, 12.0F, 0.0F);
-			left_leg.cubeList.add(new ModelBox(left_leg, 0, 16, 1.9F, 0.0F, -2.0F, 4, 12, 4, 0.0F, true));
-			right_leg = new RendererModel(this);
-			right_leg.setRotationPoint(1.9F, 12.0F, 0.0F);
-			right_leg.cubeList.add(new ModelBox(right_leg, 0, 16, -5.9F, 0.0F, -2.0F, 4, 12, 4, 0.0F, true));
-		}
-
-		@Override
-		public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-			head.render(f5);
-			headwear.render(f5);
-			body.render(f5);
-			left_arm.render(f5);
-			right_arm.render(f5);
-			left_leg.render(f5);
-			right_leg.render(f5);
-		}
-
-		public void setRotationAngle(RendererModel modelRenderer, float x, float y, float z) {
-			modelRenderer.rotateAngleX = x;
-			modelRenderer.rotateAngleY = y;
-			modelRenderer.rotateAngleZ = z;
-		}
-
-		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4, float f5) {
-			super.setRotationAngles(e, f, f1, f2, f3, f4, f5);
-			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
-			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
-			this.left_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
-			this.right_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 		}
 	}
 }

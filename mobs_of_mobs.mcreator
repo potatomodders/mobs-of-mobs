@@ -140,6 +140,22 @@
       "compiles": true,
       "locked_code": false,
       "ids": {}
+    },
+    {
+      "name": "PyromancerPlayerCollidesWithThisEntity",
+      "type": "procedure",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [],
@@ -178,10 +194,10 @@
   "workspaceSettings": {
     "modid": "mobs_of_mobs",
     "modName": "Mobs of Mobs",
-    "version": "1.0.0",
-    "description": "Mobs of Dangerous Mobs!",
+    "version": "R10",
+    "description": "More Mobs",
     "author": "crispy_chips1234",
-    "websiteURL": "I don\u0027t have a website lol",
+    "websiteURL": "https://mcreator.net",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
     "requiredMods": [],

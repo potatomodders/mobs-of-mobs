@@ -3,13 +3,13 @@ loaderVersion="[28,)"
 
 [[mods]]
 modId="mobs_of_mobs"
-version="1.0.0"
+version="R10"
 displayName="Mobs of Mobs"
 credits="I don't want to credit anyone now go away"
 displayURL="https://mcreator.net"
 authors="crispy_chips1234, MCreator"
 description='''
-Mobs of Dangerous Mobs!
+More Mobs
 '''
 
 [[dependencies.mobs_of_mobs]]

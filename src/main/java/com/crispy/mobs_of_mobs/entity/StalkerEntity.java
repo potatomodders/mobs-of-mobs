@@ -103,7 +103,7 @@ public class StalkerEntity extends MobsofMobsElements.ModElement {
 				biomeCriteria = true;
 			if (!biomeCriteria)
 				continue;
-			biome.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(entity, 4, 1, 1));
+			biome.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(entity, 8, 1, 1));
 		}
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				MonsterEntity::func_223315_a);
@@ -115,7 +115,7 @@ public class StalkerEntity extends MobsofMobsElements.ModElement {
 		RenderingRegistry.registerEntityRenderingHandler(CustomEntity.class, renderManager -> {
 			return new MobRenderer(renderManager, new Modeltakencool(), 0.5f) {
 				protected ResourceLocation getEntityTexture(Entity entity) {
-					return new ResourceLocation("mobs_of_mobs:textures/fire_elemental.png");
+					return new ResourceLocation("mobs_of_mobs:textures/talkerew.png");
 				}
 			};
 		});

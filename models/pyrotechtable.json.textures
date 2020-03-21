@@ -4,7 +4,7 @@
       "map": {
         "0": "netherrack",
         "2": "nether_wart_block",
-        "3": "campfire_log_lit",
+        "3": "flamepart",
         "4": "nether_bricks"
       },
       "name": "default"

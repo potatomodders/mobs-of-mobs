@@ -68,7 +68,8 @@ public class CursedArmorEntity extends MobsofMobsElements.ModElement {
 				.setTrackingRange(128).setUpdateInterval(1).setCustomClientFactory(CustomEntity::new).immuneToFire().size(0.6f, 1.8f))
 						.build("cursedarmor").setRegistryName("cursedarmor");
 		elements.entities.add(() -> entity);
-		elements.items.add(() -> new SpawnEggItem(entity, -2303784, -1, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("cursedarmor"));
+		elements.items
+				.add(() -> new SpawnEggItem(entity, -10066330, -530200, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("cursedarmor"));
 	}
 
 	@Override
@@ -153,7 +154,7 @@ public class CursedArmorEntity extends MobsofMobsElements.ModElement {
 
 		@Override
 		public CreatureAttribute getCreatureAttribute() {
-			return CreatureAttribute.UNDEAD;
+			return CreatureAttribute.UNDEFINED;
 		}
 
 		protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
@@ -167,7 +168,7 @@ public class CursedArmorEntity extends MobsofMobsElements.ModElement {
 
 		@Override
 		public net.minecraft.util.SoundEvent getHurtSound(DamageSource ds) {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.blaze.hurt"));
+			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.shield.break"));
 		}
 
 		@Override
@@ -227,7 +228,7 @@ public class CursedArmorEntity extends MobsofMobsElements.ModElement {
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
 				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30);
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) != null)
-				this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5);
+				this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6);
 		}
 
 		public void livingTick() {

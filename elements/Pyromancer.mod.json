@@ -2,29 +2,29 @@
   "_fv": 6,
   "_type": "mob",
   "definition": {
-    "mobName": "Cursed Armor",
+    "mobName": "Pyromancer",
     "mobLabel": "",
-    "mobModelTexture": "fire_elemental.png",
-    "mobModelName": "Biped",
+    "mobModelTexture": "flaming_raider.png",
+    "mobModelName": "Modeltakencool",
     "modelWidth": 0.6,
     "modelHeight": 1.8,
     "modelShadowSize": 0.5,
-    "armorBaseValue": 0.0,
+    "armorBaseValue": 0.4,
     "hasSpawnEgg": true,
     "spawnEggBaseColor": {
-      "value": -10066330,
+      "value": -3454208,
       "falpha": 0.0
     },
     "spawnEggDotColor": {
-      "value": -530200,
+      "value": -598737,
       "falpha": 0.0
     },
     "creativeTab": {
       "value": "MISC"
     },
-    "isBoss": false,
-    "bossBarColor": "PINK",
-    "bossBarType": "PROGRESS",
+    "isBoss": true,
+    "bossBarColor": "RED",
+    "bossBarType": "NOTCHED_6",
     "equipmentMainHand": {
       "value": ""
     },
@@ -32,24 +32,24 @@
       "value": ""
     },
     "equipmentHelmet": {
-      "value": "Items.IRON_HELMET"
+      "value": ""
     },
     "equipmentBody": {
-      "value": "Items.IRON_CHESTPLATE"
+      "value": ""
     },
     "equipmentLeggings": {
-      "value": "Items.IRON_LEGGINGS"
+      "value": ""
     },
     "equipmentBoots": {
-      "value": "Items.IRON_BOOTS"
+      "value": ""
     },
     "mobBehaviourType": "Mob",
     "mobCreatureType": "UNDEFINED",
-    "attackStrength": 6,
-    "movementSpeed": 0.19999999999999998,
+    "attackStrength": 7,
+    "movementSpeed": 0.25,
     "trackingRange": 128,
-    "health": 30,
-    "xpAmount": 8,
+    "health": 120,
+    "xpAmount": 60,
     "waterMob": false,
     "flyingMob": false,
     "disableCollisions": false,
@@ -57,36 +57,33 @@
     "canControlForward": false,
     "canControlStrafe": false,
     "immuneToFire": true,
-    "immuneToArrows": true,
-    "immuneToFallDamage": true,
-    "immuneToCactus": true,
-    "immuneToDrowning": true,
-    "immuneToLightning": true,
-    "immuneToPotions": true,
+    "immuneToArrows": false,
+    "immuneToFallDamage": false,
+    "immuneToCactus": false,
+    "immuneToDrowning": false,
+    "immuneToLightning": false,
+    "immuneToPotions": false,
     "immuneToPlayer": false,
     "mobDrop": {
       "value": ""
     },
     "livingSound": {
-      "value": "block.anvil.land"
+      "value": "entity.blaze.ambient"
     },
     "hurtSound": {
-      "value": "item.shield.break"
+      "value": "entity.blaze.hurt"
     },
     "deathSound": {
-      "value": "item.trident.hit"
+      "value": "item.trident.hit_ground"
     },
     "spawnParticles": true,
     "particleToSpawn": {
-      "value": "ENCHANTMENT_TABLE"
+      "value": "FLAME"
     },
     "particleSpawningShape": "Spread",
     "particleSpawningRadious": 0.49999999850988386,
-    "particleAmount": 5,
+    "particleAmount": 1,
     "particleSpawningCondition": "ALWAYS",
-    "onInitialSpawn": {
-      "name": "CursedArmorOnInitialEntitySpawn"
-    },
     "hasAI": true,
     "aiBase": "(none)",
     "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"0\" y=\"0\"><next><block type=\"attack_action\"><field name=\"callhelp\">TRUE</field><next><block type=\"attack_entity\"><field name=\"insight\">FALSE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">EntityPlayer</field><next><block type=\"attack_on_collide\"><field name=\"speed\">1.2</field><field name=\"longmemory\">TRUE</field><next><block type=\"attack_action\"><field name=\"callhelp\">TRUE</field><next><block type=\"doors_break\"><next><block type=\"wander\"><field name=\"speed\">1.3</field><next><block type=\"look_around\"><next><block type=\"swim_in_water\"/></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
@@ -98,52 +95,13 @@
     },
     "spawnThisMob": true,
     "doesDespawnWhenIdle": true,
-    "spawningProbability": 6,
+    "spawningProbability": 10,
     "mobSpawningType": "monster",
     "minNumberOfMobsPerGroup": 1,
-    "maxNumberOfMobsPerGroup": 2,
+    "maxNumberOfMobsPerGroup": 1,
     "restrictionBiomes": [
       {
-        "value": "plains"
-      },
-      {
-        "value": "desert"
-      },
-      {
-        "value": "mountains"
-      },
-      {
-        "value": "forest"
-      },
-      {
-        "value": "taiga"
-      },
-      {
-        "value": "swamp"
-      },
-      {
-        "value": "frozen_ocean"
-      },
-      {
-        "value": "snowy_mountains"
-      },
-      {
-        "value": "snowy_tundra"
-      },
-      {
-        "value": "beaches"
-      },
-      {
-        "value": "jungle"
-      },
-      {
-        "value": "roofed_forest"
-      },
-      {
-        "value": "savanna"
-      },
-      {
-        "value": "badlands"
+        "value": "nether"
       }
     ],
     "spawnInDungeons": false

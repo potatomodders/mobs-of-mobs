@@ -10,7 +10,7 @@
     "modelHeight": 1.8,
     "modelShadowSize": 0.5,
     "armorBaseValue": 0.0,
-    "hasSpawnEgg": true,
+    "hasSpawnEgg": false,
     "spawnEggBaseColor": {
       "value": -2303784,
       "falpha": 0.0
@@ -44,7 +44,7 @@
       "value": "Items.IRON_BOOTS"
     },
     "mobBehaviourType": "Mob",
-    "mobCreatureType": "UNDEAD",
+    "mobCreatureType": "UNDEFINED",
     "attackStrength": 5,
     "movementSpeed": 0.19999999999999998,
     "trackingRange": 128,
@@ -71,7 +71,7 @@
       "value": "block.anvil.land"
     },
     "hurtSound": {
-      "value": "entity.blaze.hurt"
+      "value": "item.shield.break"
     },
     "deathSound": {
       "value": "item.trident.hit"

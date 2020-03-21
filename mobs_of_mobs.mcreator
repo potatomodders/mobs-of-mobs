@@ -132,6 +132,14 @@
           }
         ]
       }
+    },
+    {
+      "name": "Pyromancer",
+      "type": "mob",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
     }
   ],
   "variable_elements": [],
@@ -159,7 +167,9 @@
       "block.mobs_of_mobs.pyroforge": "PyroForge",
       "item.mobs_of_mobs.cursedarmor": "Cursed Armor Spawn Egg",
       "item.mobs_of_mobs.cursedarmorwithsword": "Cursed Armor Spawn Egg",
+      "item.mobs_of_mobs.pyromancer": "Pyromancer Spawn Egg",
       "entity.mobs_of_mobs.cursedarmorwithsword": "Cursed Armor",
+      "entity.mobs_of_mobs.pyromancer": "Pyromancer",
       "entity.mobs_of_mobs.taken": "Wight",
       "item.mobs_of_mobs.taken": "Wight Spawn Egg",
       "entity.mobs_of_mobs.stalker": "Stalker"

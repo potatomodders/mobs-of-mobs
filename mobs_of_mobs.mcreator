@@ -84,6 +84,14 @@
       "compiles": true,
       "locked_code": false,
       "ids": {}
+    },
+    {
+      "name": "CursedArmor",
+      "type": "mob",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
     }
   ],
   "variable_elements": [],
@@ -106,8 +114,10 @@
   ],
   "language_map": {
     "en_us": {
+      "entity.mobs_of_mobs.cursedarmor": "Cursed Armor",
       "item.mobs_of_mobs.stalker": "Stalker Spawn Egg",
       "block.mobs_of_mobs.pyroforge": "PyroForge",
+      "item.mobs_of_mobs.cursedarmor": "Cursed Armor Spawn Egg",
       "entity.mobs_of_mobs.taken": "Wight",
       "item.mobs_of_mobs.taken": "Wight Spawn Egg",
       "entity.mobs_of_mobs.stalker": "Stalker"

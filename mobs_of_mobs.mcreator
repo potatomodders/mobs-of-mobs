@@ -198,14 +198,6 @@
       "ids": {}
     },
     {
-      "name": "MithrilHoe",
-      "type": "tool",
-      "sortid": 17,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {}
-    },
-    {
       "name": "MithrilPickaxeRecipe",
       "type": "recipe",
       "sortid": 18,
@@ -233,14 +225,6 @@
       "name": "MithrilShovelRecipe",
       "type": "recipe",
       "sortid": 21,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {}
-    },
-    {
-      "name": "MithrilHoeRecipe",
-      "type": "recipe",
-      "sortid": 22,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -290,6 +274,14 @@
       "compiles": true,
       "locked_code": false,
       "ids": {}
+    },
+    {
+      "name": "MobsOfMobsStuff",
+      "type": "tab",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
     }
   ],
   "variable_elements": [],
@@ -325,14 +317,14 @@
       "item.mobs_of_mobs.mithrilarmorboots": "Mithril Boots",
       "block.mobs_of_mobs.pyroforge": "PyroForge",
       "item.mobs_of_mobs.cursedarmorwithsword": "Cursed Armor Spawn Egg",
-      "item.mobs_of_mobs.pyromancer": "Pyromancer Spawn Egg",
+      "itemGroup.tabmobsofmobsstuff": "§6Mobs of Mobs",
+      "item.mobs_of_mobs.pyromancer": "Flaming Raider Spawn Egg",
       "entity.mobs_of_mobs.cursedarmorwithsword": "Cursed Armor",
-      "entity.mobs_of_mobs.pyromancer": "Pyromancer",
+      "entity.mobs_of_mobs.pyromancer": "Flaming Raider",
       "entity.mobs_of_mobs.taken": "Wight",
       "item.mobs_of_mobs.taken": "Wight Spawn Egg",
       "item.mobs_of_mobs.mithrilsword": "Mithril Sword",
-      "entity.mobs_of_mobs.stalker": "Stalker",
-      "item.mobs_of_mobs.mithrilhoe": "Mithril Hoe"
+      "entity.mobs_of_mobs.stalker": "Stalker"
     }
   },
   "workspaceSettings": {

@@ -22,7 +22,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
@@ -50,6 +49,7 @@ import java.util.Random;
 
 import com.crispy.mobs_of_mobs.procedures.TakenOnEntityTickUpdateOnInitialEntitySpawnProcedure;
 import com.crispy.mobs_of_mobs.procedures.TakenOnEntityTickUpdateOnEntityTickUpdateProcedure;
+import com.crispy.mobs_of_mobs.itemgroup.MobsOfMobsStuffItemGroup;
 import com.crispy.mobs_of_mobs.MobsofMobsElements;
 
 @MobsofMobsElements.ModElement.Tag
@@ -66,7 +66,8 @@ public class StalkerEntity extends MobsofMobsElements.ModElement {
 				.setTrackingRange(128).setUpdateInterval(1).setCustomClientFactory(CustomEntity::new).size(0.6f, 1.8f)).build("stalker")
 						.setRegistryName("stalker");
 		elements.entities.add(() -> entity);
-		elements.items.add(() -> new SpawnEggItem(entity, -2303784, -1, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("stalker"));
+		elements.items.add(
+				() -> new SpawnEggItem(entity, -2303784, -1, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab)).setRegistryName("stalker"));
 	}
 
 	@Override

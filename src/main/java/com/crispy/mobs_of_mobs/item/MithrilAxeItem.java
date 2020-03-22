@@ -31,7 +31,7 @@ public class MithrilAxeItem extends MobsofMobsElements.ModElement {
 			}
 
 			public float getAttackDamage() {
-				return 4f;
+				return 16f;
 			}
 
 			public int getHarvestLevel() {

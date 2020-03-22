@@ -17,7 +17,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -41,6 +40,7 @@ import net.minecraft.client.renderer.entity.BipedRenderer;
 import java.util.Random;
 
 import com.crispy.mobs_of_mobs.procedures.PyromancerPlayerCollidesWithThisEntityProcedure;
+import com.crispy.mobs_of_mobs.itemgroup.MobsOfMobsStuffItemGroup;
 import com.crispy.mobs_of_mobs.MobsofMobsElements;
 
 @MobsofMobsElements.ModElement.Tag
@@ -57,8 +57,8 @@ public class PyromancerEntity extends MobsofMobsElements.ModElement {
 				.setTrackingRange(128).setUpdateInterval(1).setCustomClientFactory(CustomEntity::new).immuneToFire().size(0.6f, 1.8f))
 						.build("pyromancer").setRegistryName("pyromancer");
 		elements.entities.add(() -> entity);
-		elements.items
-				.add(() -> new SpawnEggItem(entity, -3454208, -598737, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("pyromancer"));
+		elements.items.add(() -> new SpawnEggItem(entity, -3454208, -598737, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab))
+				.setRegistryName("pyromancer"));
 	}
 
 	@SubscribeEvent

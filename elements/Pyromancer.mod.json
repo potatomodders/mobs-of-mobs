@@ -2,7 +2,7 @@
   "_fv": 6,
   "_type": "mob",
   "definition": {
-    "mobName": "Pyromancer",
+    "mobName": "Flaming Raider",
     "mobLabel": "",
     "mobModelTexture": "flaming_raider.png",
     "mobModelName": "Biped",
@@ -20,7 +20,7 @@
       "falpha": 0.0
     },
     "creativeTab": {
-      "value": "MISC"
+      "value": "CUSTOM:MobsOfMobsStuff"
     },
     "isBoss": true,
     "bossBarColor": "RED",

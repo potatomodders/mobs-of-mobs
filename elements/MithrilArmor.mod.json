@@ -11,7 +11,7 @@
     "enableBoots": true,
     "textureBoots": "mithrill_boots",
     "creativeTab": {
-      "value": "COMBAT"
+      "value": "CUSTOM:MobsOfMobsStuff"
     },
     "armorTextureFile": "mithrill_",
     "helmetName": "Mithril Helmet",

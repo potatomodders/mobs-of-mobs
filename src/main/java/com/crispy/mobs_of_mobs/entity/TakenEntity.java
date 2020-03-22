@@ -21,7 +21,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
@@ -43,6 +42,7 @@ import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
 
+import com.crispy.mobs_of_mobs.itemgroup.MobsOfMobsStuffItemGroup;
 import com.crispy.mobs_of_mobs.MobsofMobsElements;
 
 @MobsofMobsElements.ModElement.Tag
@@ -59,7 +59,8 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 				.setTrackingRange(128).setUpdateInterval(1).setCustomClientFactory(CustomEntity::new).size(0.6f, 1.8f)).build("taken")
 						.setRegistryName("taken");
 		elements.entities.add(() -> entity);
-		elements.items.add(() -> new SpawnEggItem(entity, -9470354, -7493982, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("taken"));
+		elements.items.add(() -> new SpawnEggItem(entity, -9470354, -7493982, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab))
+				.setRegistryName("taken"));
 	}
 
 	@Override

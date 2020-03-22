@@ -3,7 +3,7 @@
   "_type": "tool",
   "definition": {
     "renderType": 0,
-    "texture": "mithril_pickaxe",
+    "texture": "m_pickaxe",
     "customModelName": "Normal",
     "name": "Mithril Pickaxe",
     "creativeTab": {

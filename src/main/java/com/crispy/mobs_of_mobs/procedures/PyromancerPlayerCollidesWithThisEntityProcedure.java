@@ -7,7 +7,7 @@ import com.crispy.mobs_of_mobs.MobsofMobsElements;
 @MobsofMobsElements.ModElement.Tag
 public class PyromancerPlayerCollidesWithThisEntityProcedure extends MobsofMobsElements.ModElement {
 	public PyromancerPlayerCollidesWithThisEntityProcedure(MobsofMobsElements instance) {
-		super(instance, 11);
+		super(instance, 17);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

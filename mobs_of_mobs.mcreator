@@ -12,7 +12,7 @@
     {
       "name": "TakenOnEntityTickUpdate",
       "type": "procedure",
-      "sortid": 2,
+      "sortid": 13,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -28,7 +28,7 @@
     {
       "name": "Stalker",
       "type": "mob",
-      "sortid": 3,
+      "sortid": 2,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -36,7 +36,7 @@
     {
       "name": "TakenOnEntityTickUpdateOnEntityTickUpdate",
       "type": "procedure",
-      "sortid": 4,
+      "sortid": 14,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -64,7 +64,7 @@
     {
       "name": "TakenOnEntityTickUpdateOnInitialEntitySpawn",
       "type": "procedure",
-      "sortid": 5,
+      "sortid": 15,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -88,7 +88,7 @@
     {
       "name": "CursedArmor",
       "type": "mob",
-      "sortid": 7,
+      "sortid": 3,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -96,7 +96,7 @@
     {
       "name": "CursedArmorWithSword",
       "type": "mob",
-      "sortid": 8,
+      "sortid": 4,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -104,7 +104,7 @@
     {
       "name": "CursedArmorOnInitialEntitySpawn",
       "type": "procedure",
-      "sortid": 9,
+      "sortid": 16,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -136,7 +136,7 @@
     {
       "name": "Pyromancer",
       "type": "mob",
-      "sortid": 10,
+      "sortid": 5,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -144,7 +144,7 @@
     {
       "name": "PyromancerPlayerCollidesWithThisEntity",
       "type": "procedure",
-      "sortid": 11,
+      "sortid": 17,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -160,7 +160,7 @@
     {
       "name": "MithrilIngot",
       "type": "item",
-      "sortid": 12,
+      "sortid": 7,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -168,7 +168,7 @@
     {
       "name": "MithrilPickaxe",
       "type": "tool",
-      "sortid": 13,
+      "sortid": 10,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -176,7 +176,7 @@
     {
       "name": "MithrilAxe",
       "type": "tool",
-      "sortid": 14,
+      "sortid": 11,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -184,7 +184,7 @@
     {
       "name": "MithrilSword",
       "type": "tool",
-      "sortid": 15,
+      "sortid": 9,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -192,7 +192,7 @@
     {
       "name": "MithrilShovel",
       "type": "tool",
-      "sortid": 16,
+      "sortid": 12,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -232,7 +232,7 @@
     {
       "name": "MithrilArmor",
       "type": "armor",
-      "sortid": 23,
+      "sortid": 8,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -246,7 +246,7 @@
     {
       "name": "MithrilArmorHelmetRecipe",
       "type": "recipe",
-      "sortid": 24,
+      "sortid": 22,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -254,7 +254,7 @@
     {
       "name": "MithrilArmorBodyRecipe",
       "type": "recipe",
-      "sortid": 25,
+      "sortid": 23,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -262,7 +262,7 @@
     {
       "name": "MithrilArmorLeggingsRecipe",
       "type": "recipe",
-      "sortid": 26,
+      "sortid": 24,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -270,7 +270,7 @@
     {
       "name": "MithrilArmorBootsRecipe",
       "type": "recipe",
-      "sortid": 27,
+      "sortid": 25,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -278,7 +278,7 @@
     {
       "name": "MobsOfMobsStuff",
       "type": "tab",
-      "sortid": 28,
+      "sortid": 26,
       "compiles": true,
       "locked_code": false,
       "ids": {}

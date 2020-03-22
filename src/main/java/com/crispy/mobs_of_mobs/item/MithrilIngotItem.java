@@ -4,10 +4,10 @@ package com.crispy.mobs_of_mobs.item;
 import net.minecraftforge.registries.ObjectHolder;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.block.BlockState;
 
+import com.crispy.mobs_of_mobs.itemgroup.MobsOfMobsStuffItemGroup;
 import com.crispy.mobs_of_mobs.MobsofMobsElements;
 
 @MobsofMobsElements.ModElement.Tag
@@ -15,7 +15,7 @@ public class MithrilIngotItem extends MobsofMobsElements.ModElement {
 	@ObjectHolder("mobs_of_mobs:mithrilingot")
 	public static final Item block = null;
 	public MithrilIngotItem(MobsofMobsElements instance) {
-		super(instance, 12);
+		super(instance, 7);
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class MithrilIngotItem extends MobsofMobsElements.ModElement {
 	}
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
-			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64));
+			super(new Item.Properties().group(MobsOfMobsStuffItemGroup.tab).maxStackSize(64));
 			setRegistryName("mithrilingot");
 		}
 

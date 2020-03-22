@@ -7,7 +7,7 @@
     "customModelName": "Normal",
     "name": "Mithril Shovel",
     "creativeTab": {
-      "value": "TOOLS"
+      "value": "CUSTOM:MobsOfMobsStuff"
     },
     "toolType": "Spade",
     "harvestLevel": 6,

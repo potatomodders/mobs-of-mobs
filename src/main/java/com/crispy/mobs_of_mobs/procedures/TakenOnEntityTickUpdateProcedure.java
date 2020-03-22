@@ -10,7 +10,7 @@ import com.crispy.mobs_of_mobs.MobsofMobsElements;
 @MobsofMobsElements.ModElement.Tag
 public class TakenOnEntityTickUpdateProcedure extends MobsofMobsElements.ModElement {
 	public TakenOnEntityTickUpdateProcedure(MobsofMobsElements instance) {
-		super(instance, 2);
+		super(instance, 13);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

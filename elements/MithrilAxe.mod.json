@@ -7,7 +7,7 @@
     "customModelName": "Normal",
     "name": "Mithril Axe",
     "creativeTab": {
-      "value": "TOOLS"
+      "value": "CUSTOM:MobsOfMobsStuff"
     },
     "toolType": "Axe",
     "harvestLevel": 6,

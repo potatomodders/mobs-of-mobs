@@ -7,7 +7,7 @@
     "customModelName": "Normal",
     "name": "Mithril Sword",
     "creativeTab": {
-      "value": "COMBAT"
+      "value": "CUSTOM:MobsOfMobsStuff"
     },
     "toolType": "Sword",
     "harvestLevel": 6,

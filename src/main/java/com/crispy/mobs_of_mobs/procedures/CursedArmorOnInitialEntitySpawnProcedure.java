@@ -9,7 +9,7 @@ import com.crispy.mobs_of_mobs.MobsofMobsElements;
 @MobsofMobsElements.ModElement.Tag
 public class CursedArmorOnInitialEntitySpawnProcedure extends MobsofMobsElements.ModElement {
 	public CursedArmorOnInitialEntitySpawnProcedure(MobsofMobsElements instance) {
-		super(instance, 9);
+		super(instance, 16);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

@@ -7,7 +7,7 @@
     "customModelName": "Normal",
     "name": "Mithril Pickaxe",
     "creativeTab": {
-      "value": "TOOLS"
+      "value": "CUSTOM:MobsOfMobsStuff"
     },
     "toolType": "Pickaxe",
     "harvestLevel": 6,

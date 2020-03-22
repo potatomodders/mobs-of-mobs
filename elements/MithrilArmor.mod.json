@@ -1,0 +1,51 @@
+{
+  "_fv": 6,
+  "_type": "armor",
+  "definition": {
+    "enableHelmet": true,
+    "textureHelmet": "mithrill_helm",
+    "enableBody": true,
+    "textureBody": "mithrill_chestplate",
+    "enableLeggings": true,
+    "textureLeggings": "mithrill_leggings",
+    "enableBoots": true,
+    "textureBoots": "mithrill_boots",
+    "creativeTab": {
+      "value": "COMBAT"
+    },
+    "armorTextureFile": "mithrill_",
+    "helmetName": "Mithril Helmet",
+    "bodyName": "Mithril Chestplate",
+    "leggingsName": "Mithril Leggings",
+    "bootsName": "Mithril Boots",
+    "helmetModelName": "Default",
+    "helmetModelPart": "Helmet",
+    "helmetModelTexture": "From armor",
+    "bodyModelName": "Default",
+    "bodyModelPart": "Body",
+    "bodyModelTexture": "From armor",
+    "leggingsModelName": "Default",
+    "leggingsModelPartL": "Leggings L",
+    "leggingsModelPartR": "Leggings R",
+    "leggingsModelTexture": "From armor",
+    "bootsModelName": "Default",
+    "bootsModelPartL": "Boots L",
+    "bootsModelPartR": "Boots R",
+    "bootsModelTexture": "From armor",
+    "maxDamage": 28,
+    "damageValueHelmet": 4,
+    "damageValueBody": 9,
+    "damageValueLeggings": 10,
+    "damageValueBoots": 4,
+    "enchantability": 16,
+    "toughness": 2.0,
+    "equipSound": {
+      "value": "item.armor.equip_gold"
+    },
+    "repairItems": [
+      {
+        "value": "CUSTOM:MithrilIngot"
+      }
+    ]
+  }
+}

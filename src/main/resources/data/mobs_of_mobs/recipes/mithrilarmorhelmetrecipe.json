@@ -1,0 +1,29 @@
+{
+  "group": "mobs_of_mobs",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5"
+  ],
+  "key": {
+    "0": {
+      "item": "mobs_of_mobs:mithrilingot"
+    },
+    "1": {
+      "item": "mobs_of_mobs:mithrilingot"
+    },
+    "2": {
+      "item": "mobs_of_mobs:mithrilingot"
+    },
+    "3": {
+      "item": "mobs_of_mobs:mithrilingot"
+    },
+    "5": {
+      "item": "mobs_of_mobs:mithrilingot"
+    }
+  },
+  "result": {
+    "item": "mobs_of_mobs:mithrilarmorhelmet",
+    "count": 1
+  }
+}

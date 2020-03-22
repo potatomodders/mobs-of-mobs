@@ -156,6 +156,140 @@
           }
         ]
       }
+    },
+    {
+      "name": "MithrilIngot",
+      "type": "item",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "MithrilPickaxe",
+      "type": "tool",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "MithrilAxe",
+      "type": "tool",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "MithrilSword",
+      "type": "tool",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "MithrilShovel",
+      "type": "tool",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "MithrilHoe",
+      "type": "tool",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "MithrilPickaxeRecipe",
+      "type": "recipe",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "MithrilAxeRecipe",
+      "type": "recipe",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "MithrilSwordRecipe",
+      "type": "recipe",
+      "sortid": 20,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "MithrilShovelRecipe",
+      "type": "recipe",
+      "sortid": 21,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "MithrilHoeRecipe",
+      "type": "recipe",
+      "sortid": 22,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "MithrilArmor",
+      "type": "armor",
+      "sortid": 23,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "metadata": {
+        "eh": true,
+        "el": true,
+        "eb": true,
+        "ec": true
+      }
+    },
+    {
+      "name": "MithrilArmorHelmetRecipe",
+      "type": "recipe",
+      "sortid": 24,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "MithrilArmorBodyRecipe",
+      "type": "recipe",
+      "sortid": 25,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "MithrilArmorLeggingsRecipe",
+      "type": "recipe",
+      "sortid": 26,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "MithrilArmorBootsRecipe",
+      "type": "recipe",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
     }
   ],
   "variable_elements": [],
@@ -179,16 +313,26 @@
   "language_map": {
     "en_us": {
       "entity.mobs_of_mobs.cursedarmor": "Cursed Armor",
-      "item.mobs_of_mobs.stalker": "Stalker Spawn Egg",
-      "block.mobs_of_mobs.pyroforge": "PyroForge",
       "item.mobs_of_mobs.cursedarmor": "Cursed Armor Spawn Egg",
+      "item.mobs_of_mobs.mithrilingot": "Mithril Ingot",
+      "item.mobs_of_mobs.mithrilarmorbody": "Mithril Chestplate",
+      "item.mobs_of_mobs.mithrilarmorhelmet": "Mithril Helmet",
+      "item.mobs_of_mobs.mithrilarmorlegs": "Mithril Leggings",
+      "item.mobs_of_mobs.mithrilaxe": "Mithril Axe",
+      "item.mobs_of_mobs.mithrilshovel": "Mithril Shovel",
+      "item.mobs_of_mobs.stalker": "Stalker Spawn Egg",
+      "item.mobs_of_mobs.mithrilpickaxe": "Mithril Pickaxe",
+      "item.mobs_of_mobs.mithrilarmorboots": "Mithril Boots",
+      "block.mobs_of_mobs.pyroforge": "PyroForge",
       "item.mobs_of_mobs.cursedarmorwithsword": "Cursed Armor Spawn Egg",
       "item.mobs_of_mobs.pyromancer": "Pyromancer Spawn Egg",
       "entity.mobs_of_mobs.cursedarmorwithsword": "Cursed Armor",
       "entity.mobs_of_mobs.pyromancer": "Pyromancer",
       "entity.mobs_of_mobs.taken": "Wight",
       "item.mobs_of_mobs.taken": "Wight Spawn Egg",
-      "entity.mobs_of_mobs.stalker": "Stalker"
+      "item.mobs_of_mobs.mithrilsword": "Mithril Sword",
+      "entity.mobs_of_mobs.stalker": "Stalker",
+      "item.mobs_of_mobs.mithrilhoe": "Mithril Hoe"
     }
   },
   "workspaceSettings": {

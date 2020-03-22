@@ -1,0 +1,30 @@
+{
+  "group": "mobs_of_mobs",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    " 4 ",
+    " 7 "
+  ],
+  "key": {
+    "0": {
+      "item": "mobs_of_mobs:mithrilingot"
+    },
+    "1": {
+      "item": "mobs_of_mobs:mithrilingot"
+    },
+    "2": {
+      "item": "mobs_of_mobs:mithrilingot"
+    },
+    "4": {
+      "item": "minecraft:stick"
+    },
+    "7": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "mobs_of_mobs:mithrilpickaxe",
+    "count": 1
+  }
+}

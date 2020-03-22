@@ -1,0 +1,27 @@
+{
+  "group": "mobs_of_mobs",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    " 3",
+    " 5"
+  ],
+  "key": {
+    "0": {
+      "item": "mobs_of_mobs:mithrilingot"
+    },
+    "1": {
+      "item": "mobs_of_mobs:mithrilingot"
+    },
+    "3": {
+      "item": "minecraft:stick"
+    },
+    "5": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "mobs_of_mobs:mithrilhoe",
+    "count": 1
+  }
+}

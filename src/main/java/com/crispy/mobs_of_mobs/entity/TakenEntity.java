@@ -42,6 +42,7 @@ import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
 
+import com.crispy.mobs_of_mobs.procedures.TakenOnEntityTickUpdateProcedure;
 import com.crispy.mobs_of_mobs.itemgroup.MobsOfMobsStuffItemGroup;
 import com.crispy.mobs_of_mobs.MobsofMobsElements;
 
@@ -166,6 +167,20 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 		@Override
 		protected float getSoundVolume() {
 			return 1.0F;
+		}
+
+		@Override
+		public void baseTick() {
+			super.baseTick();
+			int x = (int) this.posX;
+			int y = (int) this.posY;
+			int z = (int) this.posZ;
+			Entity entity = this;
+			{
+				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
+				$_dependencies.put("entity", entity);
+				TakenOnEntityTickUpdateProcedure.executeProcedure($_dependencies);
+			}
 		}
 
 		@Override

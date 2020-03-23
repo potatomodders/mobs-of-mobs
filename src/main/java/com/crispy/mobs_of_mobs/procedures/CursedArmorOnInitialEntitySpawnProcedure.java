@@ -46,5 +46,13 @@ public class CursedArmorOnInitialEntitySpawnProcedure extends MobsofMobsElements
 			}
 			entity.remove();
 		}
+		if ((Math.random() < 0.1)) {
+			if (!world.isRemote) {
+				Entity entityToSpawn = new CursedArmorWithSwordEntity.CustomEntity(CursedArmorWithSwordEntity.entity, world);
+				entityToSpawn.setLocationAndAngles(x, y, z, world.rand.nextFloat() * 360F, 0);
+				world.addEntity(entityToSpawn);
+			}
+			entity.remove();
+		}
 	}
 }

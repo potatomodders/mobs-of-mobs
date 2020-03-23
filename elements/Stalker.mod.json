@@ -4,7 +4,7 @@
   "definition": {
     "mobName": "Stalker",
     "mobLabel": "",
-    "mobModelTexture": "stalkernew.png",
+    "mobModelTexture": "fire_elemental.png",
     "mobModelName": "Modeltakencool",
     "modelWidth": 0.6,
     "modelHeight": 1.8,
@@ -101,7 +101,7 @@
     },
     "spawnThisMob": true,
     "doesDespawnWhenIdle": true,
-    "spawningProbability": 8,
+    "spawningProbability": 11,
     "mobSpawningType": "monster",
     "minNumberOfMobsPerGroup": 1,
     "maxNumberOfMobsPerGroup": 1,

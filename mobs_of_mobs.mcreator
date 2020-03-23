@@ -282,6 +282,14 @@
       "compiles": true,
       "locked_code": false,
       "ids": {}
+    },
+    {
+      "name": "CursedArmorMithrilGear",
+      "type": "mob",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
     }
   ],
   "variable_elements": [],
@@ -308,6 +316,7 @@
       "item.mobs_of_mobs.cursedarmor": "Cursed Armor Spawn Egg",
       "item.mobs_of_mobs.mithrilingot": "Mithril Ingot",
       "item.mobs_of_mobs.mithrilarmorbody": "Mithril Chestplate",
+      "entity.mobs_of_mobs.cursedarmormithrilgear": "Cursed Armor",
       "item.mobs_of_mobs.mithrilarmorhelmet": "Mithril Helmet",
       "item.mobs_of_mobs.mithrilarmorlegs": "Mithril Leggings",
       "item.mobs_of_mobs.mithrilaxe": "Mithril Axe",
@@ -318,6 +327,7 @@
       "block.mobs_of_mobs.pyroforge": "PyroForge",
       "item.mobs_of_mobs.cursedarmorwithsword": "Cursed Armor Spawn Egg",
       "itemGroup.tabmobsofmobsstuff": "§6Mobs of Mobs",
+      "item.mobs_of_mobs.cursedarmormithrilgear": "Cursed Armor Spawn Egg",
       "item.mobs_of_mobs.pyromancer": "Flaming Raider Spawn Egg",
       "entity.mobs_of_mobs.cursedarmorwithsword": "Cursed Armor",
       "entity.mobs_of_mobs.pyromancer": "Flaming Raider",

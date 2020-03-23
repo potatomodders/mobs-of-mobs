@@ -19,6 +19,6 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInfo": [],
-    "hasGlow": false
+    "hasGlow": true
   }
 }

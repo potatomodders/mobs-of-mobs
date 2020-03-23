@@ -67,25 +67,25 @@ public class MithrilArmorItem extends MobsofMobsElements.ModElement {
 		elements.items.add(() -> new ArmorItem(armormaterial, EquipmentSlotType.HEAD, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab)) {
 			@Override
 			public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-				return "mobs_of_mobs:textures/models/armor/mithrill__layer_" + (slot == EquipmentSlotType.LEGS ? "2" : "1") + ".png";
+				return "mobs_of_mobs:textures/models/armor/mi__layer_" + (slot == EquipmentSlotType.LEGS ? "2" : "1") + ".png";
 			}
 		}.setRegistryName("mithrilarmorhelmet"));
 		elements.items.add(() -> new ArmorItem(armormaterial, EquipmentSlotType.CHEST, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab)) {
 			@Override
 			public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-				return "mobs_of_mobs:textures/models/armor/mithrill__layer_" + (slot == EquipmentSlotType.LEGS ? "2" : "1") + ".png";
+				return "mobs_of_mobs:textures/models/armor/mi__layer_" + (slot == EquipmentSlotType.LEGS ? "2" : "1") + ".png";
 			}
 		}.setRegistryName("mithrilarmorbody"));
 		elements.items.add(() -> new ArmorItem(armormaterial, EquipmentSlotType.LEGS, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab)) {
 			@Override
 			public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-				return "mobs_of_mobs:textures/models/armor/mithrill__layer_" + (slot == EquipmentSlotType.LEGS ? "2" : "1") + ".png";
+				return "mobs_of_mobs:textures/models/armor/mi__layer_" + (slot == EquipmentSlotType.LEGS ? "2" : "1") + ".png";
 			}
 		}.setRegistryName("mithrilarmorlegs"));
 		elements.items.add(() -> new ArmorItem(armormaterial, EquipmentSlotType.FEET, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab)) {
 			@Override
 			public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-				return "mobs_of_mobs:textures/models/armor/mithrill__layer_" + (slot == EquipmentSlotType.LEGS ? "2" : "1") + ".png";
+				return "mobs_of_mobs:textures/models/armor/mi__layer_" + (slot == EquipmentSlotType.LEGS ? "2" : "1") + ".png";
 			}
 		}.setRegistryName("mithrilarmorboots"));
 	}

@@ -330,9 +330,9 @@
   "workspaceSettings": {
     "modid": "mobs_of_mobs",
     "modName": "Mobs of Mobs",
-    "version": "R10",
-    "description": "More Mobs",
-    "author": "crispy_chips1234",
+    "version": "R11",
+    "description": "More Mobs and stuff",
+    "author": "crispy_chips1234,Aixiis",
     "websiteURL": "https://mcreator.net",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
@@ -341,9 +341,9 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "1.14.4",
-    "credits": "I don\u0027t want to credit anyone now go away",
+    "credits": "Karogath helped us a lot",
     "modElementsPackage": "com.crispy.mobs_of_mobs",
-    "lockBaseModFiles": false
+    "lockBaseModFiles": true
   },
   "mcreatorVersion": 202000211618
 }

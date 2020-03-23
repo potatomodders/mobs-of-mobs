@@ -56,7 +56,7 @@ import com.crispy.mobs_of_mobs.MobsofMobsElements;
 public class StalkerEntity extends MobsofMobsElements.ModElement {
 	public static EntityType entity = null;
 	public StalkerEntity(MobsofMobsElements instance) {
-		super(instance, 3);
+		super(instance, 2);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
@@ -116,7 +116,7 @@ public class StalkerEntity extends MobsofMobsElements.ModElement {
 		RenderingRegistry.registerEntityRenderingHandler(CustomEntity.class, renderManager -> {
 			return new MobRenderer(renderManager, new Modeltakencool(), 0.5f) {
 				protected ResourceLocation getEntityTexture(Entity entity) {
-					return new ResourceLocation("mobs_of_mobs:textures/talkerew.png");
+					return new ResourceLocation("mobs_of_mobs:textures/stalkernew.png");
 				}
 			};
 		});

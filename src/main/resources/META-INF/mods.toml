@@ -3,13 +3,13 @@ loaderVersion="[28,)"
 
 [[mods]]
 modId="mobs_of_mobs"
-version="R10"
+version="R11"
 displayName="Mobs of Mobs"
-credits="I don't want to credit anyone now go away"
+credits="Karogath helped us a lot"
 displayURL="https://mcreator.net"
-authors="crispy_chips1234, MCreator"
+authors="crispy_chips1234,Aixiis, MCreator"
 description='''
-More Mobs
+More Mobs and stuff
 '''
 
 [[dependencies.mobs_of_mobs]]

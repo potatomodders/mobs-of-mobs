@@ -47,7 +47,7 @@ import com.crispy.mobs_of_mobs.MobsofMobsElements;
 public class PyromancerEntity extends MobsofMobsElements.ModElement {
 	public static EntityType entity = null;
 	public PyromancerEntity(MobsofMobsElements instance) {
-		super(instance, 10);
+		super(instance, 5);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

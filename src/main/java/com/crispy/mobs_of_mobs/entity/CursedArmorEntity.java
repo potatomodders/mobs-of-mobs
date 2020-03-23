@@ -52,7 +52,7 @@ import com.crispy.mobs_of_mobs.MobsofMobsElements;
 public class CursedArmorEntity extends MobsofMobsElements.ModElement {
 	public static EntityType entity = null;
 	public CursedArmorEntity(MobsofMobsElements instance) {
-		super(instance, 7);
+		super(instance, 3);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

@@ -13,7 +13,7 @@ import com.crispy.mobs_of_mobs.MobsofMobsElements;
 @MobsofMobsElements.ModElement.Tag
 public class MobsOfMobsStuffItemGroup extends MobsofMobsElements.ModElement {
 	public MobsOfMobsStuffItemGroup(MobsofMobsElements instance) {
-		super(instance, 28);
+		super(instance, 26);
 	}
 
 	@Override

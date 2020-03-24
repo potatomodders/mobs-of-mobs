@@ -4,12 +4,15 @@ package com.crispy.mobs_of_mobs.entity;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.network.FMLPlayMessages;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
+import net.minecraft.world.gen.Heightmap;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.World;
 import net.minecraft.world.ServerBossInfo;
 import net.minecraft.world.BossInfo;
@@ -30,6 +33,7 @@ import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.BreakDoorGoal;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.CreatureAttribute;
@@ -40,6 +44,7 @@ import net.minecraft.client.renderer.entity.BipedRenderer;
 import java.util.Random;
 
 import com.crispy.mobs_of_mobs.procedures.PyromancerPlayerCollidesWithThisEntityProcedure;
+import com.crispy.mobs_of_mobs.procedures.PyromancerEntityDiesProcedure;
 import com.crispy.mobs_of_mobs.itemgroup.MobsOfMobsStuffItemGroup;
 import com.crispy.mobs_of_mobs.MobsofMobsElements;
 
@@ -59,6 +64,20 @@ public class PyromancerEntity extends MobsofMobsElements.ModElement {
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -3454208, -598737, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab))
 				.setRegistryName("pyromancer"));
+	}
+
+	@Override
+	public void init(FMLCommonSetupEvent event) {
+		for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
+			boolean biomeCriteria = false;
+			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("nether")))
+				biomeCriteria = true;
+			if (!biomeCriteria)
+				continue;
+			biome.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(entity, 5, 1, 1));
+		}
+		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+				MonsterEntity::func_223315_a);
 	}
 
 	@SubscribeEvent
@@ -124,6 +143,23 @@ public class PyromancerEntity extends MobsofMobsElements.ModElement {
 		@Override
 		protected float getSoundVolume() {
 			return 1.0F;
+		}
+
+		@Override
+		public void onDeath(DamageSource source) {
+			super.onDeath(source);
+			int x = (int) this.posX;
+			int y = (int) this.posY;
+			int z = (int) this.posZ;
+			Entity entity = this;
+			{
+				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
+				$_dependencies.put("x", x);
+				$_dependencies.put("y", y);
+				$_dependencies.put("z", z);
+				$_dependencies.put("world", world);
+				PyromancerEntityDiesProcedure.executeProcedure($_dependencies);
+			}
 		}
 
 		@Override

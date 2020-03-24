@@ -298,6 +298,80 @@
       "compiles": true,
       "locked_code": false,
       "ids": {}
+    },
+    {
+      "name": "MithrilArmorBootsTickEvent",
+      "type": "procedure",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "int"
+          },
+          {
+            "name": "y",
+            "type": "int"
+          },
+          {
+            "name": "z",
+            "type": "int"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BootsOfFire",
+      "type": "armor",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "metadata": {
+        "eh": false,
+        "el": false,
+        "eb": true,
+        "ec": false
+      }
+    },
+    {
+      "name": "PyromancerEntityDies",
+      "type": "procedure",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "int"
+          },
+          {
+            "name": "y",
+            "type": "int"
+          },
+          {
+            "name": "z",
+            "type": "int"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [],
@@ -327,22 +401,26 @@
       "item.mobs_of_mobs.mithrilarmorlegs": "Mithril Leggings",
       "item.mobs_of_mobs.mithrilaxe": "Mithril Axe",
       "item.mobs_of_mobs.mithrilshovel": "Mithril Shovel",
+      "item.mobs_of_mobs.bootsoffirebody": "Boots Of Fire Body",
       "item.mobs_of_mobs.stalker": "Stalker Spawn Egg",
       "block.mobs_of_mobs.pyroforge": "PyroForge",
-      "item.mobs_of_mobs.cursedarmormithrilgear": "Cursed Armor Spawn Egg",
       "item.mobs_of_mobs.flameessence": "Fiery Essence",
+      "item.mobs_of_mobs.cursedarmormithrilgear": "Cursed Armor Spawn Egg",
       "item.mobs_of_mobs.pyromancer": "Flaming Raider Spawn Egg",
       "entity.mobs_of_mobs.pyromancer": "Flaming Raider",
       "entity.mobs_of_mobs.taken": "Wight",
       "item.mobs_of_mobs.mithrilsword": "Mithril Sword",
+      "item.mobs_of_mobs.bootsoffirehelmet": "Boots Of Fire Helmet",
       "entity.mobs_of_mobs.stalker": "Stalker",
       "entity.mobs_of_mobs.cursedarmor": "Cursed Armor",
       "item.mobs_of_mobs.cursedarmor": "Cursed Armor Spawn Egg",
+      "item.mobs_of_mobs.bootsoffirelegs": "Boots Of Fire Leggings",
       "item.mobs_of_mobs.mithrilpickaxe": "Mithril Pickaxe",
       "item.mobs_of_mobs.mithrilarmorboots": "Mithril Boots",
       "itemGroup.tabmobsofmobsstuff": "§6Mobs of Mobs",
       "item.mobs_of_mobs.cursedarmorwithsword": "Cursed Armor Spawn Egg",
       "entity.mobs_of_mobs.cursedarmorwithsword": "Cursed Armor",
+      "item.mobs_of_mobs.bootsoffireboots": "Boots Of Fire ",
       "item.mobs_of_mobs.taken": "Wight Spawn Egg"
     }
   },
@@ -352,7 +430,7 @@
     "version": "R11",
     "description": "More Mobs and stuff",
     "author": "crispy_chips1234,Aixiis",
-    "websiteURL": "https://mcreator.net",
+    "websiteURL": "https://discord.gg/UNtBbx7",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
     "requiredMods": [],

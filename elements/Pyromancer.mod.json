@@ -84,6 +84,9 @@
     "particleSpawningRadious": 0.49999999850988386,
     "particleAmount": 1,
     "particleSpawningCondition": "ALWAYS",
+    "whenMobDies": {
+      "name": "PyromancerEntityDies"
+    },
     "onPlayerCollidesWith": {
       "name": "PyromancerPlayerCollidesWithThisEntity"
     },
@@ -96,9 +99,9 @@
     "rangedAttackItem": {
       "value": ""
     },
-    "spawnThisMob": false,
+    "spawnThisMob": true,
     "doesDespawnWhenIdle": true,
-    "spawningProbability": 10,
+    "spawningProbability": 5,
     "mobSpawningType": "monster",
     "minNumberOfMobsPerGroup": 1,
     "maxNumberOfMobsPerGroup": 1,

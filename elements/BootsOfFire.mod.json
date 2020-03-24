@@ -16,7 +16,7 @@
     "creativeTab": {
       "value": "CUSTOM:MobsOfMobsStuff"
     },
-    "armorTextureFile": "fiery_boots_",
+    "armorTextureFile": "lav_",
     "helmetName": "Boots Of Fire Helmet",
     "bodyName": "Boots Of Fire Body",
     "leggingsName": "Boots Of Fire Leggings",
@@ -35,7 +35,7 @@
     "bootsModelPartL": "Boots L",
     "bootsModelPartR": "Boots R",
     "bootsModelTexture": "From armor",
-    "maxDamage": 60,
+    "maxDamage": 50,
     "damageValueHelmet": 2,
     "damageValueBody": 6,
     "damageValueLeggings": 5,
@@ -45,6 +45,10 @@
     "equipSound": {
       "value": "entity.blaze.shoot"
     },
-    "repairItems": []
+    "repairItems": [
+      {
+        "value": "CUSTOM:FlameEssence"
+      }
+    ]
   }
 }

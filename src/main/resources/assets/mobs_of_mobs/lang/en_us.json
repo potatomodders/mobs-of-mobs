@@ -3,6 +3,7 @@
   "item.mobs_of_mobs.mithrilarmorbody": "Mithril Chestplate",
   "entity.mobs_of_mobs.cursedarmormithrilgear": "Cursed Armor",
   "item.mobs_of_mobs.mithrilarmorhelmet": "Mithril Helmet",
+  "entity.mobs_of_mobs.dynamite": "Dynamite",
   "item.mobs_of_mobs.mithrilarmorlegs": "Mithril Leggings",
   "item.mobs_of_mobs.mithrilaxe": "Mithril Axe",
   "item.mobs_of_mobs.mithrilshovel": "Mithril Shovel",
@@ -26,5 +27,6 @@
   "item.mobs_of_mobs.cursedarmorwithsword": "Cursed Armor Spawn Egg",
   "entity.mobs_of_mobs.cursedarmorwithsword": "Cursed Armor",
   "item.mobs_of_mobs.bootsoffireboots": "Boots Of Fire ",
-  "item.mobs_of_mobs.taken": "Wight Spawn Egg"
+  "item.mobs_of_mobs.taken": "Wight Spawn Egg",
+  "item.mobs_of_mobs.dynamite": "Dynamite Spawn Egg"
 }

@@ -39,7 +39,7 @@ public class BootsOfFireItem extends MobsofMobsElements.ModElement {
 	public void initElements() {
 		IArmorMaterial armormaterial = new IArmorMaterial() {
 			public int getDurability(EquipmentSlotType slot) {
-				return new int[]{13, 15, 16, 11}[slot.getIndex()] * 60;
+				return new int[]{13, 15, 16, 11}[slot.getIndex()] * 50;
 			}
 
 			public int getDamageReductionAmount(EquipmentSlotType slot) {
@@ -55,7 +55,7 @@ public class BootsOfFireItem extends MobsofMobsElements.ModElement {
 			}
 
 			public Ingredient getRepairMaterial() {
-				return null;
+				return Ingredient.fromStacks(new ItemStack(FlameEssenceItem.block, (int) (1)));
 			}
 
 			@OnlyIn(Dist.CLIENT)
@@ -70,7 +70,7 @@ public class BootsOfFireItem extends MobsofMobsElements.ModElement {
 		elements.items.add(() -> new ArmorItem(armormaterial, EquipmentSlotType.FEET, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab)) {
 			@Override
 			public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-				return "mobs_of_mobs:textures/models/armor/fiery_boots__layer_" + (slot == EquipmentSlotType.LEGS ? "2" : "1") + ".png";
+				return "mobs_of_mobs:textures/models/armor/lav__layer_" + (slot == EquipmentSlotType.LEGS ? "2" : "1") + ".png";
 			}
 
 			@Override

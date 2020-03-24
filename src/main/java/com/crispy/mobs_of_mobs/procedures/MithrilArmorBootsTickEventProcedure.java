@@ -1,7 +1,11 @@
 package com.crispy.mobs_of_mobs.procedures;
 
+import net.minecraftforge.fml.server.ServerLifecycleHooks;
+
 import net.minecraft.world.World;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -45,55 +49,72 @@ public class MithrilArmorBootsTickEventProcedure extends MobsofMobsElements.ModE
 		World world = (World) dependencies.get("world");
 		double dmgitemthis = 0;
 		dmgitemthis = (double) 1;
-		itemStack.addAttributeModifier("generic.maxHealth", new AttributeModifier("generic.maxHealth", 10, AttributeModifier.Operation.byId(0)),
-				EquipmentSlotType.FEET);
+		if ((((itemstack).getOrCreateTag().getBoolean("motretimes")) == (true))) {
+			itemstack.addAttributeModifier("generic.maxHealth", new AttributeModifier("generic.maxHealth", 2, AttributeModifier.Operation.byId(0)),
+					EquipmentSlotType.FEET);
+			{
+				MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+				if (mcserv != null)
+					mcserv.getPlayerList().sendMessage(new StringTextComponent("works"));
+			}
+		}
+		(itemstack).getOrCreateTag().putBoolean("moretimes", (true));
 		if ((((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
 				|| ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock()))) {
 			world.setBlockState(new BlockPos((int) x, (int) (y - 1), (int) z), Blocks.STONE.getDefaultState(), 3);
 			dmgitemthis = (double) ((dmgitemthis) + 1);
 		}
-		if ((((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
-				|| ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock()))) {
+		if ((((world.getBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
+				|| ((world.getBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState()
+						.getBlock()))) {
 			world.setBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) z), Blocks.STONE.getDefaultState(), 3);
 			dmgitemthis = (double) ((dmgitemthis) + 1);
 		}
-		if ((((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
-				|| ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock()))) {
+		if ((((world.getBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
+				|| ((world.getBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState()
+						.getBlock()))) {
 			world.setBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) z), Blocks.STONE.getDefaultState(), 3);
 			dmgitemthis = (double) ((dmgitemthis) + 1);
 		}
-		if ((((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
-				|| ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock()))) {
+		if ((((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) (z + 1)))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
+				|| ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) (z + 1)))).getBlock() == Blocks.LAVA.getDefaultState()
+						.getBlock()))) {
 			world.setBlockState(new BlockPos((int) x, (int) (y - 1), (int) (z + 1)), Blocks.STONE.getDefaultState(), 3);
 			dmgitemthis = (double) ((dmgitemthis) + 1);
 		}
-		if ((((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
-				|| ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock()))) {
+		if ((((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) (z - 1)))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
+				|| ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) (z - 1)))).getBlock() == Blocks.LAVA.getDefaultState()
+						.getBlock()))) {
 			world.setBlockState(new BlockPos((int) x, (int) (y - 1), (int) (z - 1)), Blocks.STONE.getDefaultState(), 3);
 			dmgitemthis = (double) ((dmgitemthis) + 1);
 		}
-		if ((((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
-				|| ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock()))) {
+		if ((((world.getBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) (z - 1)))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
+				|| ((world.getBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) (z - 1)))).getBlock() == Blocks.LAVA.getDefaultState()
+						.getBlock()))) {
 			world.setBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) (z - 1)), Blocks.STONE.getDefaultState(), 3);
 			dmgitemthis = (double) ((dmgitemthis) + 1);
 		}
-		if ((((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
-				|| ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock()))) {
+		if ((((world.getBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) (z + 1)))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
+				|| ((world.getBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) (z + 1)))).getBlock() == Blocks.LAVA.getDefaultState()
+						.getBlock()))) {
 			world.setBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) (z + 1)), Blocks.STONE.getDefaultState(), 3);
 			dmgitemthis = (double) ((dmgitemthis) + 1);
 		}
-		if ((((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
-				|| ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock()))) {
+		if ((((world.getBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) (z + 1)))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
+				|| ((world.getBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) (z + 1)))).getBlock() == Blocks.LAVA.getDefaultState()
+						.getBlock()))) {
 			world.setBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) (z + 1)), Blocks.STONE.getDefaultState(), 3);
 			dmgitemthis = (double) ((dmgitemthis) + 1);
 		}
-		if ((((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
-				|| ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock()))) {
+		if ((((world.getBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) (z - 1)))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
+				|| ((world.getBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) (z - 1)))).getBlock() == Blocks.LAVA.getDefaultState()
+						.getBlock()))) {
 			world.setBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) (z - 1)), Blocks.STONE.getDefaultState(), 3);
 			dmgitemthis = (double) ((dmgitemthis) + 1);
 		}
-		if ((((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
-				|| ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA.getDefaultState().getBlock()))) {
+		if ((((world.getBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) (z + 1)))).getBlock() == Blocks.LAVA.getDefaultState().getBlock())
+				|| ((world.getBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) (z + 1)))).getBlock() == Blocks.LAVA.getDefaultState()
+						.getBlock()))) {
 			world.setBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) (z + 1)), Blocks.STONE.getDefaultState(), 3);
 			dmgitemthis = (double) ((dmgitemthis) + 1);
 		}

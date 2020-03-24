@@ -5,7 +5,7 @@
       "name": "Taken",
       "type": "mob",
       "sortid": 1,
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "ids": {}
     },
@@ -89,7 +89,7 @@
       "name": "CursedArmor",
       "type": "mob",
       "sortid": 3,
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "ids": {}
     },
@@ -97,7 +97,7 @@
       "name": "CursedArmorWithSword",
       "type": "mob",
       "sortid": 4,
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "ids": {}
     },
@@ -421,7 +421,7 @@
       "name": "Dynamite",
       "type": "mob",
       "sortid": 31,
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "ids": {}
     }
@@ -494,7 +494,7 @@
     "currentGenerator": "1.14.4",
     "credits": "Karogath helped us a lot",
     "modElementsPackage": "com.crispy.mobs_of_mobs",
-    "lockBaseModFiles": true
+    "lockBaseModFiles": false
   },
   "mcreatorVersion": 202000211618
 }

@@ -1,17 +1,5 @@
 package com.crispy.mobs_of_mobs;
 
-import net.minecraftforge.fml.network.PacketDistributor;
-import net.minecraftforge.fml.network.NetworkEvent;
-import net.minecraftforge.fml.LogicalSide;
-
-import net.minecraft.world.storage.WorldSavedData;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.dimension.DimensionType;
-import net.minecraft.world.World;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.client.Minecraft;
-
 import java.util.function.Supplier;
 
 public class MobsofMobsVariables {

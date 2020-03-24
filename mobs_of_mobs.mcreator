@@ -494,7 +494,7 @@
     "currentGenerator": "1.14.4",
     "credits": "Karogath helped us a lot",
     "modElementsPackage": "com.crispy.mobs_of_mobs",
-    "lockBaseModFiles": false
+    "lockBaseModFiles": true
   },
   "mcreatorVersion": 202000211618
 }

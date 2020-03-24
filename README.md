@@ -1,3 +1,3 @@
 # mobs-of-mobs
-•Mod that adds a lot of mobs to make minecraft caving more rewarding and exciting.
-•Discord:
+- Minecraft mod that adds more mobs.
+- Licensed under CC BY-NC-SA 4.0.

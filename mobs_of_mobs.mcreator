@@ -424,6 +424,14 @@
       "compiles": true,
       "locked_code": false,
       "ids": {}
+    },
+    {
+      "name": "Penguin",
+      "type": "mob",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
     }
   ],
   "variable_elements": [],
@@ -446,6 +454,7 @@
   ],
   "language_map": {
     "en_us": {
+      "entity.mobs_of_mobs.penguin": "Wight",
       "item.mobs_of_mobs.mithrilingot": "Mithril Ingot",
       "item.mobs_of_mobs.mithrilarmorbody": "Mithril Chestplate",
       "entity.mobs_of_mobs.cursedarmormithrilgear": "Cursed Armor",
@@ -467,6 +476,7 @@
       "entity.mobs_of_mobs.stalker": "Stalker",
       "entity.mobs_of_mobs.cursedarmor": "Cursed Armor",
       "item.mobs_of_mobs.cursedarmor": "Cursed Armor Spawn Egg",
+      "item.mobs_of_mobs.penguin": "Wight Spawn Egg",
       "item.mobs_of_mobs.bootsoffirelegs": "Boots Of Fire Leggings",
       "item.mobs_of_mobs.mithrilpickaxe": "Mithril Pickaxe",
       "item.mobs_of_mobs.mithrilarmorboots": "Mithril Boots",

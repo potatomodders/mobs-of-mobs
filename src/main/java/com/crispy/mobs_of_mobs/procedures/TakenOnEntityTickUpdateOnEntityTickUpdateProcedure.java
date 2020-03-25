@@ -1,5 +1,9 @@
 package com.crispy.mobs_of_mobs.procedures;
 
+import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.Blocks;
+
 import com.crispy.mobs_of_mobs.MobsofMobsElements;
 
 @MobsofMobsElements.ModElement.Tag

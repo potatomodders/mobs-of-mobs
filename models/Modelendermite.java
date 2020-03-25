@@ -44,9 +44,13 @@ public static class Modelendermite extends ModelBase {
 
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity e) {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
-		this.body1.rotateAngleY = f4 / (180F / (float) Math.PI);
-		this.body2.rotateAngleY = f4 / (180F / (float) Math.PI);
-		this.body3.rotateAngleY = f4 / (180F / (float) Math.PI);
-		this.body4.rotateAngleY = f4 / (180F / (float) Math.PI);
+		this.body1.rotateAngleY = f3 / (180F / (float) Math.PI);
+		this.body1.rotateAngleX = f4 / (180F / (float) Math.PI);
+		this.body2.rotateAngleY = f3 / (180F / (float) Math.PI);
+		this.body2.rotateAngleX = f4 / (180F / (float) Math.PI);
+		this.body3.rotateAngleY = f3 / (180F / (float) Math.PI);
+		this.body3.rotateAngleX = f4 / (180F / (float) Math.PI);
+		this.body4.rotateAngleY = f3 / (180F / (float) Math.PI);
+		this.body4.rotateAngleX = f4 / (180F / (float) Math.PI);
 	}
 }

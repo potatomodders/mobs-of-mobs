@@ -1,5 +1,8 @@
 package com.crispy.mobs_of_mobs.procedures;
 
+import net.minecraft.world.World;
+import net.minecraft.entity.Entity;
+
 import com.crispy.mobs_of_mobs.entity.CursedArmorWithSwordEntity;
 import com.crispy.mobs_of_mobs.MobsofMobsElements;
 

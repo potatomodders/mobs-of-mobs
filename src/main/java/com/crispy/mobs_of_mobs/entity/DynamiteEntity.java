@@ -1,6 +1,44 @@
 
 package com.crispy.mobs_of_mobs.entity;
 
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.fml.network.FMLPlayMessages;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
+
+import net.minecraft.world.gen.Heightmap;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.World;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.DamageSource;
+import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.Item;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.CreeperEntity;
+import net.minecraft.entity.effect.LightningBoltEntity;
+import net.minecraft.entity.ai.goal.SwimGoal;
+import net.minecraft.entity.ai.goal.RandomWalkingGoal;
+import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.entity.ai.goal.LookRandomlyGoal;
+import net.minecraft.entity.ai.goal.HurtByTargetGoal;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EntitySpawnPlacementRegistry;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.CreatureAttribute;
+import net.minecraft.client.renderer.model.ModelBox;
+import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.MobRenderer;
+
 import com.crispy.mobs_of_mobs.procedures.DynamiteItIsStruckByLightningProcedure;
 import com.crispy.mobs_of_mobs.procedures.DynamiteEntityDiesProcedure;
 import com.crispy.mobs_of_mobs.itemgroup.MobsOfMobsStuffItemGroup;
@@ -62,13 +100,13 @@ public class DynamiteEntity extends MobsofMobsElements.ModElement {
 
 		@Override
 		protected void registerGoals() {
-			this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, CreeperEntity.class, true, true));
-			this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 2.8, false));
-			this.goalSelector.addGoal(4, new RandomWalkingGoal(this, 1));
-			this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(6, new SwimGoal(this));
-			this.goalSelector.addGoal(7, new LeapAtTargetGoal(this, (float) 0.8));
+			this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, CreeperEntity.class, true, true));
+			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, PlayerEntity.class, true, true));
+			this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 2.8, true));
+			this.targetSelector.addGoal(4, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
+			this.goalSelector.addGoal(5, new RandomWalkingGoal(this, 1));
+			this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
+			this.goalSelector.addGoal(7, new SwimGoal(this));
 		}
 
 		@Override
@@ -186,10 +224,14 @@ public class DynamiteEntity extends MobsofMobsElements.ModElement {
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4, float f5) {
 			super.setRotationAngles(e, f, f1, f2, f3, f4, f5);
-			this.body1.rotateAngleY = f4 / (180F / (float) Math.PI);
-			this.body2.rotateAngleY = f4 / (180F / (float) Math.PI);
-			this.body3.rotateAngleY = f4 / (180F / (float) Math.PI);
-			this.body4.rotateAngleY = f4 / (180F / (float) Math.PI);
+			this.body1.rotateAngleY = f3 / (180F / (float) Math.PI);
+			this.body1.rotateAngleX = f4 / (180F / (float) Math.PI);
+			this.body2.rotateAngleY = f3 / (180F / (float) Math.PI);
+			this.body2.rotateAngleX = f4 / (180F / (float) Math.PI);
+			this.body3.rotateAngleY = f3 / (180F / (float) Math.PI);
+			this.body3.rotateAngleX = f4 / (180F / (float) Math.PI);
+			this.body4.rotateAngleY = f3 / (180F / (float) Math.PI);
+			this.body4.rotateAngleX = f4 / (180F / (float) Math.PI);
 		}
 	}
 }

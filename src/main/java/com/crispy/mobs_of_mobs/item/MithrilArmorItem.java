@@ -1,7 +1,19 @@
 
 package com.crispy.mobs_of_mobs.item;
 
-import org.omg.CORBA.ObjectHolder;
+import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
+
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
+import net.minecraft.item.IArmorMaterial;
+import net.minecraft.item.ArmorItem;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.entity.Entity;
 
 import com.crispy.mobs_of_mobs.itemgroup.MobsOfMobsStuffItemGroup;
 import com.crispy.mobs_of_mobs.MobsofMobsElements;

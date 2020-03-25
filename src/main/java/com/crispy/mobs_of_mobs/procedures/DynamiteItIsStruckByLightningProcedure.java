@@ -1,5 +1,8 @@
 package com.crispy.mobs_of_mobs.procedures;
 
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
+
 import com.crispy.mobs_of_mobs.MobsofMobsElements;
 
 @MobsofMobsElements.ModElement.Tag

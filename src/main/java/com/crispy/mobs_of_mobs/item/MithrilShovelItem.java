@@ -1,7 +1,12 @@
 
 package com.crispy.mobs_of_mobs.item;
 
-import org.omg.CORBA.ObjectHolder;
+import net.minecraftforge.registries.ObjectHolder;
+
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.item.ShovelItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.IItemTier;
 
 import com.crispy.mobs_of_mobs.itemgroup.MobsOfMobsStuffItemGroup;
 import com.crispy.mobs_of_mobs.MobsofMobsElements;

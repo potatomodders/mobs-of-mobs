@@ -1,7 +1,11 @@
 
 package com.crispy.mobs_of_mobs.item;
 
-import org.omg.CORBA.ObjectHolder;
+import net.minecraftforge.registries.ObjectHolder;
+
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
+import net.minecraft.block.BlockState;
 
 import com.crispy.mobs_of_mobs.itemgroup.MobsOfMobsStuffItemGroup;
 import com.crispy.mobs_of_mobs.MobsofMobsElements;

@@ -1,5 +1,9 @@
 package com.crispy.mobs_of_mobs.procedures;
 
+import net.minecraft.world.World;
+import net.minecraft.item.ItemStack;
+import net.minecraft.entity.item.ItemEntity;
+
 import com.crispy.mobs_of_mobs.item.FlameEssenceItem;
 import com.crispy.mobs_of_mobs.item.BootsOfFireItem;
 import com.crispy.mobs_of_mobs.MobsofMobsElements;

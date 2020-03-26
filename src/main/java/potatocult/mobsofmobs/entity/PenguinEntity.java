@@ -2,6 +2,7 @@
 package potatocult.mobsofmobs.entity;
 
 import potatocult.mobsofmobs.itemgroup.MobsOfMobsStuffItemGroup;
+import potatocult.mobsofmobs.item.PenguinFeatherItem;
 import potatocult.mobsofmobs.MobsofMobsElements;
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -20,10 +21,8 @@ import net.minecraft.world.World;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
-import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
@@ -31,14 +30,12 @@ import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.Pose;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
-import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.CreatureAttribute;
-import net.minecraft.entity.AgeableEntity;
 import net.minecraft.client.renderer.model.ModelBox;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.client.renderer.entity.model.EntityModel;
@@ -58,8 +55,8 @@ public class PenguinEntity extends MobsofMobsElements.ModElement {
 				.setTrackingRange(64).setUpdateInterval(1).setCustomClientFactory(CustomEntity::new).size(0.6f, 1.8f)).build("penguin")
 						.setRegistryName("penguin");
 		elements.entities.add(() -> entity);
-		elements.items.add(() -> new SpawnEggItem(entity, -10066330, -154, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab))
-				.setRegistryName("penguin"));
+		elements.items
+				.add(() -> new SpawnEggItem(entity, -1, -154, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab)).setRegistryName("penguin"));
 	}
 
 	@Override
@@ -93,7 +90,7 @@ public class PenguinEntity extends MobsofMobsElements.ModElement {
 			};
 		});
 	}
-	public static class CustomEntity extends AnimalEntity {
+	public static class CustomEntity extends CreatureEntity {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -108,7 +105,7 @@ public class PenguinEntity extends MobsofMobsElements.ModElement {
 		protected void registerGoals() {
 			this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
 			this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2, true));
-			this.goalSelector.addGoal(3, new RandomWalkingGoal(this, 1.4));
+			this.goalSelector.addGoal(3, new RandomWalkingGoal(this, 1.2));
 			this.goalSelector.addGoal(4, new SwimGoal(this));
 			this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
 		}
@@ -120,6 +117,7 @@ public class PenguinEntity extends MobsofMobsElements.ModElement {
 
 		protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
 			super.dropSpecialItems(source, looting, recentlyHitIn);
+			this.entityDropItem(new ItemStack(PenguinFeatherItem.block, (int) (1)));
 		}
 
 		@Override
@@ -153,25 +151,6 @@ public class PenguinEntity extends MobsofMobsElements.ModElement {
 				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(15);
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) != null)
 				this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2);
-		}
-
-		@Override
-		public AgeableEntity createChild(AgeableEntity ageable) {
-			return (CustomEntity) entity.create(this.world);
-		}
-
-		@Override
-		public float getStandingEyeHeight(Pose pose, EntitySize size) {
-			return this.isChild() ? size.height : 1.3F;
-		}
-
-		@Override
-		public boolean isBreedingItem(ItemStack stack) {
-			if (stack == null)
-				return false;
-			if (new ItemStack(Items.COD, (int) (1)).getItem() == stack.getItem())
-				return true;
-			return false;
 		}
 	}
 

@@ -12,7 +12,7 @@
     "armorBaseValue": 0.0,
     "hasSpawnEgg": true,
     "spawnEggBaseColor": {
-      "value": -10066330,
+      "value": -1,
       "falpha": 0.0
     },
     "spawnEggDotColor": {
@@ -65,7 +65,7 @@
     "immuneToPotions": false,
     "immuneToPlayer": false,
     "mobDrop": {
-      "value": ""
+      "value": "CUSTOM:PenguinFeather"
     },
     "livingSound": {
       "value": ""
@@ -86,8 +86,8 @@
     "particleSpawningCondition": "ALWAYS",
     "hasAI": true,
     "aiBase": "(none)",
-    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"0\" y=\"0\"><next><block type=\"attack_action\"><field name=\"callhelp\">TRUE</field><next><block type=\"attack_on_collide\"><field name=\"speed\">1.2</field><field name=\"longmemory\">TRUE</field><next><block type=\"wander\"><field name=\"speed\">1.4</field><next><block type=\"swim_in_water\"><next><block type=\"look_around\"/></next></block></next></block></next></block></next></block></next></block></xml>",
-    "breedable": true,
+    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"0\" y=\"0\"><next><block type=\"attack_action\"><field name=\"callhelp\">TRUE</field><next><block type=\"attack_on_collide\"><field name=\"speed\">1.2</field><field name=\"longmemory\">TRUE</field><next><block type=\"wander\"><field name=\"speed\">1.2</field><next><block type=\"swim_in_water\"><next><block type=\"look_around\"/></next></block></next></block></next></block></next></block></next></block></xml>",
+    "breedable": false,
     "breedTriggerItems": [
       {
         "value": "Items.FISH#0"

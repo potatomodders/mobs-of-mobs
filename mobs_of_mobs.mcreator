@@ -432,6 +432,22 @@
       "compiles": true,
       "locked_code": false,
       "ids": {}
+    },
+    {
+      "name": "PenguinFeather",
+      "type": "item",
+      "sortid": 34,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "PenguinFeatherArrow",
+      "type": "recipe",
+      "sortid": 35,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
     }
   ],
   "variable_elements": [],
@@ -454,7 +470,7 @@
   ],
   "language_map": {
     "en_us": {
-      "entity.mobs_of_mobs.penguin": "Wight",
+      "entity.mobs_of_mobs.penguin": "Penguin",
       "item.mobs_of_mobs.mithrilingot": "Mithril Ingot",
       "item.mobs_of_mobs.mithrilarmorbody": "Mithril Chestplate",
       "entity.mobs_of_mobs.cursedarmormithrilgear": "Cursed Armor",
@@ -476,12 +492,13 @@
       "entity.mobs_of_mobs.stalker": "Stalker",
       "entity.mobs_of_mobs.cursedarmor": "Cursed Armor",
       "item.mobs_of_mobs.cursedarmor": "Cursed Armor Spawn Egg",
-      "item.mobs_of_mobs.penguin": "Wight Spawn Egg",
+      "item.mobs_of_mobs.penguin": "Penguin Spawn Egg",
       "item.mobs_of_mobs.bootsoffirelegs": "Boots Of Fire Leggings",
       "item.mobs_of_mobs.mithrilpickaxe": "Mithril Pickaxe",
       "item.mobs_of_mobs.mithrilarmorboots": "Mithril Boots",
       "itemGroup.tabmobsofmobsstuff": "§6Mobs of Mobs",
       "item.mobs_of_mobs.cursedarmorwithsword": "Cursed Armor Spawn Egg",
+      "item.mobs_of_mobs.penguinfeather": "Penguin Feather",
       "entity.mobs_of_mobs.cursedarmorwithsword": "Cursed Armor",
       "item.mobs_of_mobs.bootsoffireboots": "Boots Of Fire ",
       "item.mobs_of_mobs.taken": "Wight Spawn Egg",
@@ -493,7 +510,7 @@
     "modName": "Mobs of Mobs",
     "version": "R11",
     "description": "More Mobs and stuff",
-    "author": "crispy_chips1234,Aixiis",
+    "author": "crispy_chips1234,Aixiis,Blackout",
     "websiteURL": "https://discord.gg/UNtBbx7",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
@@ -502,8 +519,8 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "1.14.4",
-    "credits": "Karogath helped us a lot",
-    "modElementsPackage": "com.crispy.mobs_of_mobs",
+    "credits": "My discord server",
+    "modElementsPackage": "potatocult.mobsofmobs",
     "lockBaseModFiles": false
   },
   "mcreatorVersion": 202000211618

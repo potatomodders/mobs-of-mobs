@@ -16,7 +16,7 @@ public class MithrilAxeItem extends MobsofMobsElements.ModElement {
 	@ObjectHolder("mobs_of_mobs:mithrilaxe")
 	public static final Item block = null;
 	public MithrilAxeItem(MobsofMobsElements instance) {
-		super(instance, 11);
+		super(instance, 14);
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class MithrilAxeItem extends MobsofMobsElements.ModElement {
 			}
 
 			public int getHarvestLevel() {
-				return 6;
+				return 4;
 			}
 
 			public int getEnchantability() {

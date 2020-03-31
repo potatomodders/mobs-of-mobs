@@ -16,7 +16,7 @@ public class MithrilPickaxeItem extends MobsofMobsElements.ModElement {
 	@ObjectHolder("mobs_of_mobs:mithrilpickaxe")
 	public static final Item block = null;
 	public MithrilPickaxeItem(MobsofMobsElements instance) {
-		super(instance, 10);
+		super(instance, 13);
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class MithrilPickaxeItem extends MobsofMobsElements.ModElement {
 			}
 
 			public int getHarvestLevel() {
-				return 6;
+				return 4;
 			}
 
 			public int getEnchantability() {
@@ -45,7 +45,7 @@ public class MithrilPickaxeItem extends MobsofMobsElements.ModElement {
 			public Ingredient getRepairMaterial() {
 				return null;
 			}
-		}, 1, -3f, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab)) {
+		}, 1, -2.8f, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab)) {
 		}.setRegistryName("mithrilpickaxe"));
 	}
 }

@@ -16,7 +16,7 @@ public class MithrilSwordItem extends MobsofMobsElements.ModElement {
 	@ObjectHolder("mobs_of_mobs:mithrilsword")
 	public static final Item block = null;
 	public MithrilSwordItem(MobsofMobsElements instance) {
-		super(instance, 9);
+		super(instance, 12);
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class MithrilSwordItem extends MobsofMobsElements.ModElement {
 			}
 
 			public int getHarvestLevel() {
-				return 6;
+				return 4;
 			}
 
 			public int getEnchantability() {
@@ -45,7 +45,7 @@ public class MithrilSwordItem extends MobsofMobsElements.ModElement {
 			public Ingredient getRepairMaterial() {
 				return null;
 			}
-		}, 3, -3f, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab)) {
+		}, 3, -2.4f, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab)) {
 		}.setRegistryName("mithrilsword"));
 	}
 }

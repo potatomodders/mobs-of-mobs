@@ -10,9 +10,9 @@
       "value": "CUSTOM:MobsOfMobsStuff"
     },
     "toolType": "Sword",
-    "harvestLevel": 6,
+    "harvestLevel": 4,
     "efficiency": 12.0,
-    "attackSpeed": 1.0,
+    "attackSpeed": 1.6,
     "enchantability": 42,
     "damageVsEntity": 6.0,
     "usageCount": 1164,

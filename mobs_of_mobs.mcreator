@@ -474,9 +474,48 @@
       }
     },
     {
-      "name": "FireBallWand",
-      "type": "tool",
-      "sortid": 39,
+      "name": "FireBallWandRightClickedInAir",
+      "type": "procedure",
+      "sortid": 40,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "metadata": {
+        "dependencies": []
+      }
+    },
+    {
+      "name": "FireballWandBulletHitsBlock",
+      "type": "procedure",
+      "sortid": 41,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "int"
+          },
+          {
+            "name": "y",
+            "type": "int"
+          },
+          {
+            "name": "z",
+            "type": "int"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FireballWand",
+      "type": "gun",
+      "sortid": 41,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -523,7 +562,7 @@
       "item.mobs_of_mobs.bootsoffirehelmet": "Boots Of Fire Helmet",
       "entity.mobs_of_mobs.stalker": "Stalker",
       "entity.mobs_of_mobs.cursedarmor": "Cursed Armor",
-      "item.mobs_of_mobs.fireballwand": "Staff of Pyromancing",
+      "item.mobs_of_mobs.fireballwand": "Fireball Staff",
       "item.mobs_of_mobs.cursedarmor": "Cursed Armor Spawn Egg",
       "item.mobs_of_mobs.penguin": "Penguin Spawn Egg",
       "item.mobs_of_mobs.bootsoffirelegs": "Boots Of Fire Leggings",
@@ -541,7 +580,7 @@
   "workspaceSettings": {
     "modid": "mobs_of_mobs",
     "modName": "Mobs of Mobs",
-    "version": "R11",
+    "version": "R12",
     "description": "More Mobs and stuff",
     "author": "crispy_chips1234,Aixiis,Blackout",
     "websiteURL": "https://discord.gg/UNtBbx7",

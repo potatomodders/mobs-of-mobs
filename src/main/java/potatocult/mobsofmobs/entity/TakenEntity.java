@@ -28,6 +28,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
@@ -131,12 +132,13 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 		protected void registerGoals() {
 			this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
 			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, PlayerEntity.class, false, false));
-			this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.2, true));
-			this.targetSelector.addGoal(4, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
-			this.goalSelector.addGoal(5, new BreakDoorGoal(this, e -> true));
-			this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1.4));
-			this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(8, new SwimGoal(this));
+			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, VillagerEntity.class, false, false));
+			this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.2, true));
+			this.targetSelector.addGoal(5, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
+			this.goalSelector.addGoal(6, new BreakDoorGoal(this, e -> true));
+			this.goalSelector.addGoal(7, new RandomWalkingGoal(this, 1.4));
+			this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
+			this.goalSelector.addGoal(9, new SwimGoal(this));
 		}
 
 		@Override

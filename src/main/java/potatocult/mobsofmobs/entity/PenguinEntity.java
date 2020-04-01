@@ -5,54 +5,18 @@ import potatocult.mobsofmobs.itemgroup.MobsOfMobsStuffItemGroup;
 import potatocult.mobsofmobs.item.PenguinFeatherItem;
 import potatocult.mobsofmobs.MobsofMobsElements;
 
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.fml.network.FMLPlayMessages;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.World;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.DamageSource;
-import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.ai.goal.SwimGoal;
-import net.minecraft.entity.ai.goal.RandomWalkingGoal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.HurtByTargetGoal;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EntitySpawnPlacementRegistry;
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.CreatureEntity;
-import net.minecraft.entity.CreatureAttribute;
-import net.minecraft.client.renderer.model.ModelBox;
-import net.minecraft.client.renderer.entity.model.RendererModel;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.MobRenderer;
-
 @MobsofMobsElements.ModElement.Tag
 public class PenguinEntity extends MobsofMobsElements.ModElement {
 	public static EntityType entity = null;
 	public PenguinEntity(MobsofMobsElements instance) {
-		super(instance, 33);
+		super(instance, 6);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
 	@Override
 	public void initElements() {
 		entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER).setShouldReceiveVelocityUpdates(true)
-				.setTrackingRange(64).setUpdateInterval(1).setCustomClientFactory(CustomEntity::new).size(0.6f, 1.8f)).build("penguin")
+				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(0.6f, 1.8f)).build("penguin")
 						.setRegistryName("penguin");
 		elements.entities.add(() -> entity);
 		elements.items
@@ -103,6 +67,7 @@ public class PenguinEntity extends MobsofMobsElements.ModElement {
 
 		@Override
 		protected void registerGoals() {
+			super.registerGoals();
 			this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
 			this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2, true));
 			this.goalSelector.addGoal(3, new RandomWalkingGoal(this, 1.2));

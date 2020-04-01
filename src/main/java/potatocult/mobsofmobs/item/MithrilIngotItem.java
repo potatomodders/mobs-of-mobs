@@ -4,18 +4,14 @@ package potatocult.mobsofmobs.item;
 import potatocult.mobsofmobs.itemgroup.MobsOfMobsStuffItemGroup;
 import potatocult.mobsofmobs.MobsofMobsElements;
 
-import net.minecraftforge.registries.ObjectHolder;
-
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.block.BlockState;
+import org.omg.CORBA.ObjectHolder;
 
 @MobsofMobsElements.ModElement.Tag
 public class MithrilIngotItem extends MobsofMobsElements.ModElement {
 	@ObjectHolder("mobs_of_mobs:mithrilingot")
 	public static final Item block = null;
 	public MithrilIngotItem(MobsofMobsElements instance) {
-		super(instance, 7);
+		super(instance, 10);
 	}
 
 	@Override

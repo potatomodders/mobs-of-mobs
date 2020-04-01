@@ -6,56 +6,18 @@ import potatocult.mobsofmobs.procedures.DynamiteEntityDiesProcedure;
 import potatocult.mobsofmobs.itemgroup.MobsOfMobsStuffItemGroup;
 import potatocult.mobsofmobs.MobsofMobsElements;
 
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.fml.network.FMLPlayMessages;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.World;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.DamageSource;
-import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.Item;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.monster.CreeperEntity;
-import net.minecraft.entity.effect.LightningBoltEntity;
-import net.minecraft.entity.ai.goal.SwimGoal;
-import net.minecraft.entity.ai.goal.RandomWalkingGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.HurtByTargetGoal;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EntitySpawnPlacementRegistry;
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.CreatureAttribute;
-import net.minecraft.client.renderer.model.ModelBox;
-import net.minecraft.client.renderer.entity.model.RendererModel;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.MobRenderer;
-
 @MobsofMobsElements.ModElement.Tag
 public class DynamiteEntity extends MobsofMobsElements.ModElement {
 	public static EntityType entity = null;
 	public DynamiteEntity(MobsofMobsElements instance) {
-		super(instance, 31);
+		super(instance, 7);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
 	@Override
 	public void initElements() {
 		entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER).setShouldReceiveVelocityUpdates(true)
-				.setTrackingRange(64).setUpdateInterval(1).setCustomClientFactory(CustomEntity::new).size(0.4f, 0.3f)).build("dynamite")
+				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(0.4f, 0.3f)).build("dynamite")
 						.setRegistryName("dynamite");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -10066330, -8890311, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab))
@@ -100,6 +62,7 @@ public class DynamiteEntity extends MobsofMobsElements.ModElement {
 
 		@Override
 		protected void registerGoals() {
+			super.registerGoals();
 			this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, CreeperEntity.class, true, true));
 			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, PlayerEntity.class, true, true));
 			this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 2.8, true));

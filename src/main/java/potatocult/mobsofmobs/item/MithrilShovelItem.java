@@ -4,12 +4,7 @@ package potatocult.mobsofmobs.item;
 import potatocult.mobsofmobs.itemgroup.MobsOfMobsStuffItemGroup;
 import potatocult.mobsofmobs.MobsofMobsElements;
 
-import net.minecraftforge.registries.ObjectHolder;
-
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.ShovelItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.IItemTier;
+import org.omg.CORBA.ObjectHolder;
 
 @MobsofMobsElements.ModElement.Tag
 public class MithrilShovelItem extends MobsofMobsElements.ModElement {
@@ -43,7 +38,7 @@ public class MithrilShovelItem extends MobsofMobsElements.ModElement {
 			}
 
 			public Ingredient getRepairMaterial() {
-				return null;
+				return Ingredient.EMPTY;
 			}
 		}, 1, -3f, new Item.Properties().group(MobsOfMobsStuffItemGroup.tab)) {
 		}.setRegistryName("mithrilshovel"));

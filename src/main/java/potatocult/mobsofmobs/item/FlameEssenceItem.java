@@ -4,20 +4,14 @@ package potatocult.mobsofmobs.item;
 import potatocult.mobsofmobs.itemgroup.MobsOfMobsStuffItemGroup;
 import potatocult.mobsofmobs.MobsofMobsElements;
 
-import net.minecraftforge.registries.ObjectHolder;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.block.BlockState;
+import org.omg.CORBA.ObjectHolder;
 
 @MobsofMobsElements.ModElement.Tag
 public class FlameEssenceItem extends MobsofMobsElements.ModElement {
 	@ObjectHolder("mobs_of_mobs:flameessence")
 	public static final Item block = null;
 	public FlameEssenceItem(MobsofMobsElements instance) {
-		super(instance, 28);
+		super(instance, 17);
 	}
 
 	@Override

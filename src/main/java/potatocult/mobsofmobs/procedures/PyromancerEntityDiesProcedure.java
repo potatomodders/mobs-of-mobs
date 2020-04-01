@@ -4,14 +4,10 @@ import potatocult.mobsofmobs.item.FlameEssenceItem;
 import potatocult.mobsofmobs.item.BootsOfFireItem;
 import potatocult.mobsofmobs.MobsofMobsElements;
 
-import net.minecraft.world.World;
-import net.minecraft.item.ItemStack;
-import net.minecraft.entity.item.ItemEntity;
-
 @MobsofMobsElements.ModElement.Tag
 public class PyromancerEntityDiesProcedure extends MobsofMobsElements.ModElement {
 	public PyromancerEntityDiesProcedure(MobsofMobsElements instance) {
-		super(instance, 30);
+		super(instance, 34);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

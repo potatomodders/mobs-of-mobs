@@ -2,9 +2,6 @@ package potatocult.mobsofmobs.procedures;
 
 import potatocult.mobsofmobs.MobsofMobsElements;
 
-import net.minecraft.world.World;
-import net.minecraft.world.Explosion;
-
 @MobsofMobsElements.ModElement.Tag
 public class FireballWandBulletHitsBlockProcedure extends MobsofMobsElements.ModElement {
 	public FireballWandBulletHitsBlockProcedure(MobsofMobsElements instance) {

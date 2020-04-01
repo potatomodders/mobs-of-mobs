@@ -2,23 +2,12 @@ package potatocult.mobsofmobs.procedures;
 
 import potatocult.mobsofmobs.MobsofMobsElements;
 
-import net.minecraftforge.fml.server.ServerLifecycleHooks;
-
-import net.minecraft.world.World;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.block.Blocks;
-
 import java.util.Random;
 
 @MobsofMobsElements.ModElement.Tag
 public class MithrilArmorBootsTickEventProcedure extends MobsofMobsElements.ModElement {
 	public MithrilArmorBootsTickEventProcedure(MobsofMobsElements instance) {
-		super(instance, 29);
+		super(instance, 33);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

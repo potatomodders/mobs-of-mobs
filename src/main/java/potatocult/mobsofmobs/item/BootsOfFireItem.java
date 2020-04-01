@@ -5,21 +5,7 @@ import potatocult.mobsofmobs.procedures.MithrilArmorBootsTickEventProcedure;
 import potatocult.mobsofmobs.itemgroup.MobsOfMobsStuffItemGroup;
 import potatocult.mobsofmobs.MobsofMobsElements;
 
-import net.minecraftforge.registries.ObjectHolder;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.world.World;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.Entity;
+import org.omg.CORBA.ObjectHolder;
 
 @MobsofMobsElements.ModElement.Tag
 public class BootsOfFireItem extends MobsofMobsElements.ModElement {
@@ -32,7 +18,7 @@ public class BootsOfFireItem extends MobsofMobsElements.ModElement {
 	@ObjectHolder("mobs_of_mobs:bootsoffireboots")
 	public static final Item boots = null;
 	public BootsOfFireItem(MobsofMobsElements instance) {
-		super(instance, 29);
+		super(instance, 18);
 	}
 
 	@Override

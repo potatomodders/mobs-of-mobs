@@ -2,14 +2,10 @@ package potatocult.mobsofmobs.procedures;
 
 import potatocult.mobsofmobs.MobsofMobsElements;
 
-import net.minecraft.world.World;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.block.Blocks;
-
 @MobsofMobsElements.ModElement.Tag
 public class TakenOnEntityTickUpdateOnEntityTickUpdateProcedure extends MobsofMobsElements.ModElement {
 	public TakenOnEntityTickUpdateOnEntityTickUpdateProcedure(MobsofMobsElements instance) {
-		super(instance, 14);
+		super(instance, 20);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

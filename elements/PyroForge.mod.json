@@ -45,11 +45,15 @@
     "tickRate": 10,
     "tickRandomly": false,
     "isReplaceable": false,
-    "isFlammable": false,
     "colorOnMap": "RED",
     "creativePickItem": {
       "value": ""
     },
+    "flammability": 0,
+    "fireSpreadSpeed": 0,
+    "isLadder": false,
+    "slipperiness": 0.6,
+    "reactionToPushing": "NORMAL",
     "isNotColidable": false,
     "soundOnStep": {
       "value": "METAL"

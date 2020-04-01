@@ -4,45 +4,12 @@ package potatocult.mobsofmobs.block;
 import potatocult.mobsofmobs.itemgroup.MobsOfMobsStuffItemGroup;
 import potatocult.mobsofmobs.MobsofMobsElements;
 
-import net.minecraftforge.registries.ObjectHolder;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.common.ToolType;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.world.storage.loot.LootContext;
-import net.minecraft.world.World;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.LockableLootTileEntity;
-import net.minecraft.network.play.server.SUpdateTileEntityPacket;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.item.BlockItem;
-import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.ChestContainer;
-import net.minecraft.inventory.ItemStackHelper;
-import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.block.material.MaterialColor;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Block;
+import org.omg.CORBA.ObjectHolder;
 
 import java.util.List;
 import java.util.Collections;
+
+import java.awt.Container;
 
 @MobsofMobsElements.ModElement.Tag
 public class PyroForgeBlock extends MobsofMobsElements.ModElement {
@@ -51,7 +18,7 @@ public class PyroForgeBlock extends MobsofMobsElements.ModElement {
 	@ObjectHolder("mobs_of_mobs:pyroforge")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
 	public PyroForgeBlock(MobsofMobsElements instance) {
-		super(instance, 6);
+		super(instance, 9);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
@@ -77,6 +44,16 @@ public class PyroForgeBlock extends MobsofMobsElements.ModElement {
 		@Override
 		public BlockRenderLayer getRenderLayer() {
 			return BlockRenderLayer.CUTOUT;
+		}
+
+		@Override
+		public boolean isNormalCube(BlockState state, IBlockReader worldIn, BlockPos pos) {
+			return false;
+		}
+
+		@Override
+		public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
+			return true;
 		}
 
 		@Override

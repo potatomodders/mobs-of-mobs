@@ -3,42 +3,6 @@ package potatocult.mobsofmobs.entity;
 
 import potatocult.mobsofmobs.MobsofMobsElements;
 
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.fml.network.FMLPlayMessages;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.world.World;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.DamageSource;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.item.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.entity.projectile.PotionEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.ai.goal.SwimGoal;
-import net.minecraft.entity.ai.goal.RandomWalkingGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.HurtByTargetGoal;
-import net.minecraft.entity.ai.goal.BreakDoorGoal;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.CreatureAttribute;
-import net.minecraft.client.renderer.entity.model.BipedModel;
-import net.minecraft.client.renderer.entity.layers.BipedArmorLayer;
-import net.minecraft.client.renderer.entity.BipedRenderer;
-
 import java.util.Random;
 
 @MobsofMobsElements.ModElement.Tag
@@ -52,7 +16,7 @@ public class CursedArmorWithSwordEntity extends MobsofMobsElements.ModElement {
 	@Override
 	public void initElements() {
 		entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER).setShouldReceiveVelocityUpdates(true)
-				.setTrackingRange(128).setUpdateInterval(1).setCustomClientFactory(CustomEntity::new).immuneToFire().size(0.6f, 1.8f))
+				.setTrackingRange(128).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).immuneToFire().size(0.6f, 1.8f))
 						.build("cursedarmorwithsword").setRegistryName("cursedarmorwithsword");
 		elements.entities.add(() -> entity);
 	}
@@ -88,6 +52,7 @@ public class CursedArmorWithSwordEntity extends MobsofMobsElements.ModElement {
 
 		@Override
 		protected void registerGoals() {
+			super.registerGoals();
 			this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
 			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, PlayerEntity.class, false, false));
 			this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.2, true));

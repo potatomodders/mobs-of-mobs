@@ -2,12 +2,10 @@ package potatocult.mobsofmobs.procedures;
 
 import potatocult.mobsofmobs.MobsofMobsElements;
 
-import net.minecraft.entity.Entity;
-
 @MobsofMobsElements.ModElement.Tag
 public class PyromancerPlayerCollidesWithThisEntityProcedure extends MobsofMobsElements.ModElement {
 	public PyromancerPlayerCollidesWithThisEntityProcedure(MobsofMobsElements instance) {
-		super(instance, 17);
+		super(instance, 23);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

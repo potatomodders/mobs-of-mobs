@@ -4,6 +4,12 @@ package potatocult.mobsofmobs.itemgroup;
 import potatocult.mobsofmobs.block.PyroForgeBlock;
 import potatocult.mobsofmobs.MobsofMobsElements;
 
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
+
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemGroup;
+
 @MobsofMobsElements.ModElement.Tag
 public class MobsOfMobsStuffItemGroup extends MobsofMobsElements.ModElement {
 	public MobsOfMobsStuffItemGroup(MobsofMobsElements instance) {

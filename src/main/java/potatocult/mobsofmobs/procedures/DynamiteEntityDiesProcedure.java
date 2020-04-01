@@ -2,6 +2,13 @@ package potatocult.mobsofmobs.procedures;
 
 import potatocult.mobsofmobs.MobsofMobsElements;
 
+import net.minecraft.world.World;
+import net.minecraft.world.Explosion;
+import net.minecraft.item.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.block.Blocks;
+
 @MobsofMobsElements.ModElement.Tag
 public class DynamiteEntityDiesProcedure extends MobsofMobsElements.ModElement {
 	public DynamiteEntityDiesProcedure(MobsofMobsElements instance) {

@@ -4,7 +4,12 @@ package potatocult.mobsofmobs.item;
 import potatocult.mobsofmobs.itemgroup.MobsOfMobsStuffItemGroup;
 import potatocult.mobsofmobs.MobsofMobsElements;
 
-import org.omg.CORBA.ObjectHolder;
+import net.minecraftforge.registries.ObjectHolder;
+
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.IItemTier;
 
 @MobsofMobsElements.ModElement.Tag
 public class MithrilSwordItem extends MobsofMobsElements.ModElement {

@@ -4,7 +4,11 @@ package potatocult.mobsofmobs.item;
 import potatocult.mobsofmobs.itemgroup.MobsOfMobsStuffItemGroup;
 import potatocult.mobsofmobs.MobsofMobsElements;
 
-import org.omg.CORBA.ObjectHolder;
+import net.minecraftforge.registries.ObjectHolder;
+
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
+import net.minecraft.block.BlockState;
 
 @MobsofMobsElements.ModElement.Tag
 public class MithrilIngotItem extends MobsofMobsElements.ModElement {

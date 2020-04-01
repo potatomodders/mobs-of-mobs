@@ -3,6 +3,9 @@ package potatocult.mobsofmobs.procedures;
 import potatocult.mobsofmobs.entity.CursedArmorWithSwordEntity;
 import potatocult.mobsofmobs.MobsofMobsElements;
 
+import net.minecraft.world.World;
+import net.minecraft.entity.Entity;
+
 @MobsofMobsElements.ModElement.Tag
 public class CursedArmorOnInitialEntitySpawnProcedure extends MobsofMobsElements.ModElement {
 	public CursedArmorOnInitialEntitySpawnProcedure(MobsofMobsElements instance) {

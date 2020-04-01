@@ -2,6 +2,8 @@ package potatocult.mobsofmobs.procedures;
 
 import potatocult.mobsofmobs.MobsofMobsElements;
 
+import net.minecraft.entity.Entity;
+
 @MobsofMobsElements.ModElement.Tag
 public class PyromancerPlayerCollidesWithThisEntityProcedure extends MobsofMobsElements.ModElement {
 	public PyromancerPlayerCollidesWithThisEntityProcedure(MobsofMobsElements instance) {

@@ -2,6 +2,8 @@ package potatocult.mobsofmobs.procedures;
 
 import potatocult.mobsofmobs.MobsofMobsElements;
 
+import net.minecraft.entity.Entity;
+
 @MobsofMobsElements.ModElement.Tag
 public class FireBallWandMobIsHitWithToolProcedure extends MobsofMobsElements.ModElement {
 	public FireBallWandMobIsHitWithToolProcedure(MobsofMobsElements instance) {

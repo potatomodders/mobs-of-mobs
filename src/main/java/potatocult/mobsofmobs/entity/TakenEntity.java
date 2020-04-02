@@ -35,7 +35,6 @@ import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
-import net.minecraft.entity.ai.goal.BreakDoorGoal;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
@@ -135,10 +134,9 @@ public class TakenEntity extends MobsofMobsElements.ModElement {
 			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, PlayerEntity.class, false, false));
 			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, VillagerEntity.class, false, false));
 			this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.2, true));
-			this.goalSelector.addGoal(5, new BreakDoorGoal(this, e -> true));
-			this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1.4));
-			this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(8, new SwimGoal(this));
+			this.goalSelector.addGoal(5, new RandomWalkingGoal(this, 1.4));
+			this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
+			this.goalSelector.addGoal(7, new SwimGoal(this));
 		}
 
 		@Override

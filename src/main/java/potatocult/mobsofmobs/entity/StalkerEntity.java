@@ -138,11 +138,10 @@ public class StalkerEntity extends MobsofMobsElements.ModElement {
 			this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
 			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, PlayerEntity.class, false, false));
 			this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.2, true));
-			this.targetSelector.addGoal(4, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
-			this.goalSelector.addGoal(5, new BreakDoorGoal(this, e -> true));
-			this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1.3));
-			this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(8, new SwimGoal(this));
+			this.goalSelector.addGoal(4, new BreakDoorGoal(this, e -> true));
+			this.goalSelector.addGoal(5, new RandomWalkingGoal(this, 1.3));
+			this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
+			this.goalSelector.addGoal(7, new SwimGoal(this));
 		}
 
 		@Override

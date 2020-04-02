@@ -1,6 +1,7 @@
 
 package potatocult.mobsofmobs.item;
 
+import potatocult.mobsofmobs.procedures.FireballWandRangedItemUsedProcedure;
 import potatocult.mobsofmobs.procedures.FireballWandBulletHitsBlockProcedure;
 import potatocult.mobsofmobs.itemgroup.MobsOfMobsStuffItemGroup;
 import potatocult.mobsofmobs.MobsofMobsElements;
@@ -43,7 +44,7 @@ public class FireballWandItem extends MobsofMobsElements.ModElement {
 	@ObjectHolder("mobs_of_mobs:entitybulletfireballwand")
 	public static final EntityType arrow = null;
 	public FireballWandItem(MobsofMobsElements instance) {
-		super(instance, 41);
+		super(instance, 14);
 	}
 
 	@Override
@@ -90,7 +91,8 @@ public class FireballWandItem extends MobsofMobsElements.ModElement {
 		}
 
 		@Override
-		public void onPlayerStoppedUsing(ItemStack itemstack, World world, LivingEntity entityLiving, int timeLeft) {
+		public void onUsingTick(ItemStack itemstack, LivingEntity entityLiving, int count) {
+			World world = entityLiving.world;
 			if (!world.isRemote && entityLiving instanceof ServerPlayerEntity) {
 				ServerPlayerEntity entity = (ServerPlayerEntity) entityLiving;
 				float power = 3f;
@@ -110,6 +112,13 @@ public class FireballWandItem extends MobsofMobsElements.ModElement {
 						SoundCategory.PLAYERS, 1, 1f / (random.nextFloat() * 0.5f + 1) + (power / 2));
 				entityarrow.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
 				world.addEntity(entityarrow);
+				{
+					java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
+					$_dependencies.put("entity", entity);
+					$_dependencies.put("itemstack", itemstack);
+					FireballWandRangedItemUsedProcedure.executeProcedure($_dependencies);
+				}
+				entity.stopActiveHand();
 			}
 		}
 	}

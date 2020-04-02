@@ -13,7 +13,7 @@
     "ammoItem": {
       "value": ""
     },
-    "shootConstantly": false,
+    "shootConstantly": true,
     "usageCount": 0,
     "actionSound": {
       "value": "entity.blaze.shoot"
@@ -39,6 +39,9 @@
     },
     "onBulletHitsEntity": {
       "name": "FireballWandBulletHitsBlock"
+    },
+    "onRangedItemUsed": {
+      "name": "FireballWandRangedItemUsed"
     }
   }
 }

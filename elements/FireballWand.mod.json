@@ -21,7 +21,7 @@
     "hasGlow": true,
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
-    "bulletPower": 1.0,
+    "bulletPower": 3.0,
     "bulletDamage": 0.0,
     "bulletKnockback": 0,
     "bulletParticles": false,
@@ -32,6 +32,12 @@
     "bulletModel": "Default",
     "customBulletModelTexture": "",
     "onBulletHitsBlock": {
+      "name": "FireballWandBulletHitsBlock"
+    },
+    "onBulletHitsPlayer": {
+      "name": "FireballWandBulletHitsBlock"
+    },
+    "onBulletHitsEntity": {
       "name": "FireballWandBulletHitsBlock"
     }
   }

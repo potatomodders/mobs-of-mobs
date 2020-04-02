@@ -74,7 +74,7 @@
       "value": "item.shield.break"
     },
     "deathSound": {
-      "value": "block.anvil.hit"
+      "value": "entity.irongolem.death"
     },
     "spawnParticles": true,
     "particleToSpawn": {

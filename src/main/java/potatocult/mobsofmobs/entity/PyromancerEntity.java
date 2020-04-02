@@ -186,7 +186,7 @@ public class PyromancerEntity extends MobsofMobsElements.ModElement {
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
 				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(120);
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) != null)
-				this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7);
+				this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5);
 		}
 
 		@Override

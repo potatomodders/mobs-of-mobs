@@ -45,7 +45,7 @@
     },
     "mobBehaviourType": "Mob",
     "mobCreatureType": "UNDEFINED",
-    "attackStrength": 7,
+    "attackStrength": 5,
     "movementSpeed": 0.25,
     "trackingRange": 128,
     "health": 120,

@@ -12,7 +12,7 @@
     {
       "name": "TakenOnEntityTickUpdate",
       "type": "procedure",
-      "sortid": 19,
+      "sortid": 20,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -36,7 +36,7 @@
     {
       "name": "TakenOnEntityTickUpdateOnEntityTickUpdate",
       "type": "procedure",
-      "sortid": 20,
+      "sortid": 21,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -64,7 +64,7 @@
     {
       "name": "TakenOnEntityTickUpdateOnInitialEntitySpawn",
       "type": "procedure",
-      "sortid": 21,
+      "sortid": 22,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -80,7 +80,7 @@
     {
       "name": "PyroForge",
       "type": "block",
-      "sortid": 9,
+      "sortid": 19,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -104,7 +104,7 @@
     {
       "name": "CursedArmorOnInitialEntitySpawn",
       "type": "procedure",
-      "sortid": 22,
+      "sortid": 23,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -144,7 +144,7 @@
     {
       "name": "PyromancerPlayerCollidesWithThisEntity",
       "type": "procedure",
-      "sortid": 23,
+      "sortid": 24,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -160,7 +160,7 @@
     {
       "name": "MithrilIngot",
       "type": "item",
-      "sortid": 10,
+      "sortid": 16,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -168,7 +168,7 @@
     {
       "name": "MithrilPickaxe",
       "type": "tool",
-      "sortid": 13,
+      "sortid": 11,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -176,7 +176,7 @@
     {
       "name": "MithrilAxe",
       "type": "tool",
-      "sortid": 14,
+      "sortid": 12,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -184,7 +184,7 @@
     {
       "name": "MithrilSword",
       "type": "tool",
-      "sortid": 12,
+      "sortid": 10,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -192,7 +192,7 @@
     {
       "name": "MithrilShovel",
       "type": "tool",
-      "sortid": 15,
+      "sortid": 13,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -200,7 +200,7 @@
     {
       "name": "MithrilPickaxeRecipe",
       "type": "recipe",
-      "sortid": 24,
+      "sortid": 25,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -208,7 +208,7 @@
     {
       "name": "MithrilAxeRecipe",
       "type": "recipe",
-      "sortid": 25,
+      "sortid": 26,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -216,7 +216,7 @@
     {
       "name": "MithrilSwordRecipe",
       "type": "recipe",
-      "sortid": 26,
+      "sortid": 27,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -224,7 +224,7 @@
     {
       "name": "MithrilShovelRecipe",
       "type": "recipe",
-      "sortid": 27,
+      "sortid": 28,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -232,7 +232,7 @@
     {
       "name": "MithrilArmor",
       "type": "armor",
-      "sortid": 11,
+      "sortid": 9,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -246,7 +246,7 @@
     {
       "name": "MithrilArmorHelmetRecipe",
       "type": "recipe",
-      "sortid": 28,
+      "sortid": 29,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -254,7 +254,7 @@
     {
       "name": "MithrilArmorBodyRecipe",
       "type": "recipe",
-      "sortid": 29,
+      "sortid": 30,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -262,7 +262,7 @@
     {
       "name": "MithrilArmorLeggingsRecipe",
       "type": "recipe",
-      "sortid": 30,
+      "sortid": 31,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -270,7 +270,7 @@
     {
       "name": "MithrilArmorBootsRecipe",
       "type": "recipe",
-      "sortid": 31,
+      "sortid": 32,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -278,7 +278,7 @@
     {
       "name": "MobsOfMobsStuff",
       "type": "tab",
-      "sortid": 32,
+      "sortid": 33,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -302,7 +302,7 @@
     {
       "name": "MithrilArmorBootsTickEvent",
       "type": "procedure",
-      "sortid": 33,
+      "sortid": 34,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -334,7 +334,7 @@
     {
       "name": "BootsOfFire",
       "type": "armor",
-      "sortid": 18,
+      "sortid": 15,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -348,7 +348,7 @@
     {
       "name": "PyromancerEntityDies",
       "type": "procedure",
-      "sortid": 34,
+      "sortid": 35,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -376,7 +376,7 @@
     {
       "name": "DynamiteItIsStruckByLightning",
       "type": "procedure",
-      "sortid": 35,
+      "sortid": 36,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -392,7 +392,7 @@
     {
       "name": "DynamiteEntityDies",
       "type": "procedure",
-      "sortid": 36,
+      "sortid": 37,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -436,7 +436,7 @@
     {
       "name": "PenguinFeather",
       "type": "item",
-      "sortid": 16,
+      "sortid": 18,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -444,7 +444,7 @@
     {
       "name": "PenguinFeatherArrow",
       "type": "recipe",
-      "sortid": 37,
+      "sortid": 38,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -452,7 +452,7 @@
     {
       "name": "QuillBook",
       "type": "recipe",
-      "sortid": 38,
+      "sortid": 39,
       "compiles": true,
       "locked_code": false,
       "ids": {}
@@ -460,7 +460,7 @@
     {
       "name": "FireBallWandMobIsHitWithTool",
       "type": "procedure",
-      "sortid": 39,
+      "sortid": 40,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -476,7 +476,7 @@
     {
       "name": "FireBallWandRightClickedInAir",
       "type": "procedure",
-      "sortid": 40,
+      "sortid": 41,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -487,7 +487,7 @@
     {
       "name": "FireballWandBulletHitsBlock",
       "type": "procedure",
-      "sortid": 41,
+      "sortid": 42,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -515,7 +515,7 @@
     {
       "name": "FireballWand",
       "type": "gun",
-      "sortid": 41,
+      "sortid": 14,
       "compiles": true,
       "locked_code": false,
       "ids": {}

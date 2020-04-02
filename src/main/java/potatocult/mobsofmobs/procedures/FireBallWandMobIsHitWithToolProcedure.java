@@ -7,7 +7,7 @@ import net.minecraft.entity.Entity;
 @MobsofMobsElements.ModElement.Tag
 public class FireBallWandMobIsHitWithToolProcedure extends MobsofMobsElements.ModElement {
 	public FireBallWandMobIsHitWithToolProcedure(MobsofMobsElements instance) {
-		super(instance, 39);
+		super(instance, 40);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

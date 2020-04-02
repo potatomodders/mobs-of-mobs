@@ -16,7 +16,7 @@ public class MithrilShovelItem extends MobsofMobsElements.ModElement {
 	@ObjectHolder("mobs_of_mobs:mithrilshovel")
 	public static final Item block = null;
 	public MithrilShovelItem(MobsofMobsElements instance) {
-		super(instance, 15);
+		super(instance, 13);
 	}
 
 	@Override

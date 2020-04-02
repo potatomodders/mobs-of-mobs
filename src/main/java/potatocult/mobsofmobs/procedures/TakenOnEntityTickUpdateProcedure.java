@@ -10,7 +10,7 @@ import net.minecraft.entity.Entity;
 @MobsofMobsElements.ModElement.Tag
 public class TakenOnEntityTickUpdateProcedure extends MobsofMobsElements.ModElement {
 	public TakenOnEntityTickUpdateProcedure(MobsofMobsElements instance) {
-		super(instance, 19);
+		super(instance, 20);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

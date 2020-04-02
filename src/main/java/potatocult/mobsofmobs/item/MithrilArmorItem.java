@@ -29,7 +29,7 @@ public class MithrilArmorItem extends MobsofMobsElements.ModElement {
 	@ObjectHolder("mobs_of_mobs:mithrilarmorboots")
 	public static final Item boots = null;
 	public MithrilArmorItem(MobsofMobsElements instance) {
-		super(instance, 11);
+		super(instance, 9);
 	}
 
 	@Override

@@ -16,7 +16,7 @@ public class MithrilPickaxeItem extends MobsofMobsElements.ModElement {
 	@ObjectHolder("mobs_of_mobs:mithrilpickaxe")
 	public static final Item block = null;
 	public MithrilPickaxeItem(MobsofMobsElements instance) {
-		super(instance, 13);
+		super(instance, 11);
 	}
 
 	@Override

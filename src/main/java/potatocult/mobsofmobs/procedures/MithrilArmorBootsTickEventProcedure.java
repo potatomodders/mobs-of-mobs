@@ -18,7 +18,7 @@ import java.util.Random;
 @MobsofMobsElements.ModElement.Tag
 public class MithrilArmorBootsTickEventProcedure extends MobsofMobsElements.ModElement {
 	public MithrilArmorBootsTickEventProcedure(MobsofMobsElements instance) {
-		super(instance, 33);
+		super(instance, 34);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

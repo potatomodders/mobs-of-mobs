@@ -12,7 +12,7 @@ import net.minecraft.block.Blocks;
 @MobsofMobsElements.ModElement.Tag
 public class DynamiteEntityDiesProcedure extends MobsofMobsElements.ModElement {
 	public DynamiteEntityDiesProcedure(MobsofMobsElements instance) {
-		super(instance, 36);
+		super(instance, 37);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

@@ -9,7 +9,7 @@ import net.minecraft.block.Blocks;
 @MobsofMobsElements.ModElement.Tag
 public class TakenOnEntityTickUpdateOnEntityTickUpdateProcedure extends MobsofMobsElements.ModElement {
 	public TakenOnEntityTickUpdateOnEntityTickUpdateProcedure(MobsofMobsElements instance) {
-		super(instance, 20);
+		super(instance, 21);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

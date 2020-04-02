@@ -11,7 +11,7 @@ import net.minecraft.entity.item.ItemEntity;
 @MobsofMobsElements.ModElement.Tag
 public class PyromancerEntityDiesProcedure extends MobsofMobsElements.ModElement {
 	public PyromancerEntityDiesProcedure(MobsofMobsElements instance) {
-		super(instance, 34);
+		super(instance, 35);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

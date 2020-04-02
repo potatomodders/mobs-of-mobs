@@ -8,7 +8,7 @@ import net.minecraft.entity.Entity;
 @MobsofMobsElements.ModElement.Tag
 public class DynamiteItIsStruckByLightningProcedure extends MobsofMobsElements.ModElement {
 	public DynamiteItIsStruckByLightningProcedure(MobsofMobsElements instance) {
-		super(instance, 35);
+		super(instance, 36);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

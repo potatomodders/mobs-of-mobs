@@ -13,7 +13,7 @@ import net.minecraft.item.ItemGroup;
 @MobsofMobsElements.ModElement.Tag
 public class MobsOfMobsStuffItemGroup extends MobsofMobsElements.ModElement {
 	public MobsOfMobsStuffItemGroup(MobsofMobsElements instance) {
-		super(instance, 32);
+		super(instance, 33);
 	}
 
 	@Override

@@ -9,7 +9,7 @@ import net.minecraft.entity.Entity;
 @MobsofMobsElements.ModElement.Tag
 public class CursedArmorOnInitialEntitySpawnProcedure extends MobsofMobsElements.ModElement {
 	public CursedArmorOnInitialEntitySpawnProcedure(MobsofMobsElements instance) {
-		super(instance, 22);
+		super(instance, 23);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

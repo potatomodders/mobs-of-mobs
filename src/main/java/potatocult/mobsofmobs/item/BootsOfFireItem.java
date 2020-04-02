@@ -32,7 +32,7 @@ public class BootsOfFireItem extends MobsofMobsElements.ModElement {
 	@ObjectHolder("mobs_of_mobs:bootsoffireboots")
 	public static final Item boots = null;
 	public BootsOfFireItem(MobsofMobsElements instance) {
-		super(instance, 18);
+		super(instance, 15);
 	}
 
 	@Override

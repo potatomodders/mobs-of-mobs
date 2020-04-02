@@ -8,7 +8,7 @@ import net.minecraft.world.Explosion;
 @MobsofMobsElements.ModElement.Tag
 public class FireballWandBulletHitsBlockProcedure extends MobsofMobsElements.ModElement {
 	public FireballWandBulletHitsBlockProcedure(MobsofMobsElements instance) {
-		super(instance, 41);
+		super(instance, 42);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {

@@ -51,7 +51,7 @@ public class PyroForgeBlock extends MobsofMobsElements.ModElement {
 	@ObjectHolder("mobs_of_mobs:pyroforge")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
 	public PyroForgeBlock(MobsofMobsElements instance) {
-		super(instance, 9);
+		super(instance, 19);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

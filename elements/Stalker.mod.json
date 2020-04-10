@@ -49,7 +49,7 @@
     "movementSpeed": 0.3,
     "trackingRange": 128,
     "health": 15,
-    "xpAmount": 8,
+    "xpAmount": 11,
     "waterMob": false,
     "flyingMob": false,
     "disableCollisions": false,

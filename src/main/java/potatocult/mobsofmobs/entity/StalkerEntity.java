@@ -128,7 +128,7 @@ public class StalkerEntity extends MobsofMobsElements.ModElement {
 
 		public CustomEntity(EntityType<CustomEntity> type, World world) {
 			super(type, world);
-			experienceValue = 8;
+			experienceValue = 11;
 			setNoAI(false);
 		}
 

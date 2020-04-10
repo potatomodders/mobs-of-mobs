@@ -1,4 +1,5 @@
 {
+  "entity.mobs_of_mobs.aquaslime": "Aqua Slime",
   "entity.mobs_of_mobs.penguin": "Penguin",
   "item.mobs_of_mobs.mithrilingot": "Mithril Ingot",
   "item.mobs_of_mobs.mithrilarmorbody": "Mithril Chestplate",
@@ -8,6 +9,7 @@
   "item.mobs_of_mobs.mithrilarmorlegs": "Mithril Leggings",
   "item.mobs_of_mobs.mithrilaxe": "Mithril Axe",
   "item.mobs_of_mobs.mithrilshovel": "Mithril Shovel",
+  "item.mobs_of_mobs.aquaslime": "Aqua Slime Spawn Egg",
   "item.mobs_of_mobs.bootsoffirebody": "Boots Of Fire Body",
   "item.mobs_of_mobs.stalker": "Stalker Spawn Egg",
   "block.mobs_of_mobs.pyroforge": "PyroForge",

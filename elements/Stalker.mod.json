@@ -48,7 +48,7 @@
     "attackStrength": 2,
     "movementSpeed": 0.3,
     "trackingRange": 128,
-    "health": 20,
+    "health": 15,
     "xpAmount": 8,
     "waterMob": false,
     "flyingMob": false,

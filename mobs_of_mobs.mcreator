@@ -544,8 +544,8 @@
       "name": "AquaSlime",
       "type": "mob",
       "sortid": 44,
-      "compiles": true,
-      "locked_code": false,
+      "compiles": false,
+      "locked_code": true,
       "ids": {}
     }
   ],

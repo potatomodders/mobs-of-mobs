@@ -44,6 +44,8 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 
 import java.util.Random;
 import java.util.EnumSet;
+import net.minecraft.pathfinding.SwimmerPathNavigator;
+import net.minecraft.entity.ai.goal.RandomSwimmingGoal;
 
 @MobsofMobsElements.ModElement.Tag
 public class AquaSlimeEntity extends MobsofMobsElements.ModElement {
@@ -98,47 +100,8 @@ public class AquaSlimeEntity extends MobsofMobsElements.ModElement {
 		protected void registerGoals() {
 			super.registerGoals();
 			this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
-			this.goalSelector.addGoal(2, new Goal() {
-				{
-					this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
-				}
-				public boolean shouldExecute() {
-					if (CustomEntity.this.getAttackTarget() != null && !CustomEntity.this.getMoveHelper().isUpdating()) {
-						return true;
-					} else {
-						return false;
-					}
-				}
-
-				@Override
-				public boolean shouldContinueExecuting() {
-					return CustomEntity.this.getMoveHelper().isUpdating() && CustomEntity.this.getAttackTarget() != null
-							&& CustomEntity.this.getAttackTarget().isAlive();
-				}
-
-				@Override
-				public void startExecuting() {
-					LivingEntity livingentity = CustomEntity.this.getAttackTarget();
-					Vec3d vec3d = livingentity.getEyePosition(1);
-					CustomEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 1.2);
-				}
-
-				@Override
-				public void tick() {
-					LivingEntity livingentity = CustomEntity.this.getAttackTarget();
-					if (CustomEntity.this.getBoundingBox().intersects(livingentity.getBoundingBox())) {
-						CustomEntity.this.attackEntityAsMob(livingentity);
-					} else {
-						double d0 = CustomEntity.this.getDistanceSq(livingentity);
-						if (d0 < 32) {
-							Vec3d vec3d = livingentity.getEyePosition(1);
-							CustomEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 1.2);
-						}
-					}
-				}
-			});
+			this.goalSelector.addGoal(2, new RandomSwimmingGoal(this, 0.8, 20));
 			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, PlayerEntity.class, false, false));
-			this.goalSelector.addGoal(4, new RandomWalkingGoal(this, 0.8, 20) {
 				@Override
 				protected Vec3d getPosition() {
 					Random random = CustomEntity.this.getRNG();
@@ -147,10 +110,10 @@ public class AquaSlimeEntity extends MobsofMobsElements.ModElement {
 					double dir_z = CustomEntity.this.posZ + ((random.nextFloat() * 2 - 1) * 16);
 					return new Vec3d(dir_x, dir_y, dir_z);
 				}
-			});
-			this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(6, new LeapAtTargetGoal(this, (float) 0.5));
-			this.goalSelector.addGoal(7, new RandomWalkingGoal(this, 1));
+			this.goalSelector.addGoal(4, new LookRandomlyGoal(this));
+			this.goalSelector.addGoal(5, new LeapAtTargetGoal(this, (float) 0.5));
+			}
+
 		}
 
 		@Override

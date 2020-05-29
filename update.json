@@ -1,10 +1,10 @@
 {
   "homepage": "https://www.curseforge.com/minecraft/mc-mods/mobs-of-mobs/",
   "promos": {
-    "1.15.2-latest": "1.1.0",
-    "1.15.2-recommended": "1.1.0"
+    "1.15.2-latest": "1.0.0",
+    "1.15.2-recommended": "1.0.0"
   },
   "1.15.2": {
-    "1.1.0": "Update to 1.15.2\nTBA"
+    "1.0.0": "Update to 1.15.2\nTBA"
   }
 }

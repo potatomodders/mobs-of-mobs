@@ -1,23 +1,28 @@
 modLoader="javafml"
-loaderVersion="[28,)"
+loaderVersion="[31,)"
+issueTrackerURL="https://github.com/CrispyChips6660/mobs-of-mobs/issues"
 
 [[mods]]
-modId="mobs_of_mobs"
-version="R12"
-displayName="Mobs of Mobs"
-credits="My discord server"
-displayURL="https://discord.gg/UNtBbx7"
-authors="crispy_chips1234,Aixiis,Blackout"
-description='''
-More Mobs and stuff
-'''
+modId="mobs-of-mobs"
+version="${file.jarVersion}"
+displayName="Mobs Of Mobs"
+updateJSONURL="http://myurl.me/"
+displayURL="http://example.com/"
+logoFile="examplemod.png"
+credits="Crispy, Blackout"
+authors="Potatocult"
+description='''A mod that adds more mobs'''
 
-[[dependencies.mobs_of_mobs]]
-    modId="minecraft"
+[[dependencies.mobs-of-mobs]]
+    modId="forge"
     mandatory=true
-    versionRange="[1.14.4]"
+    versionRange="[31,)"
     ordering="NONE"
     side="BOTH"
 
-
-
+[[dependencies.mobs-of-mobs]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.2]"
+    ordering="NONE"
+    side="BOTH"

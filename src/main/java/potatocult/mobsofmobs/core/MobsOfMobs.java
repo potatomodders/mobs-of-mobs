@@ -1,13 +1,14 @@
-package potatocult.mobsofmobs;
+package potatocult.mobsofmobs.core;
 
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import potatocult.mobsofmobs.group.CreativeTab;
 
 @Mod(MobsOfMobs.MODID)
 public class MobsOfMobs
@@ -16,7 +17,9 @@ public class MobsOfMobs
     public static final String MODID = "mobs-of-mobs";
     public static final String MODNAME = "Mobs Of Mobs";
     public static final String VERSION = "1.0.0";
+
     public static final Logger LOGGER = LogManager.getLogger(MODID);
+    public static final ItemGroup GROUP = new CreativeTab();
 
     public static MobsOfMobs INSTANCE;
 
@@ -27,6 +30,8 @@ public class MobsOfMobs
         MinecraftForge.EVENT_BUS.register(this);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::OnLoadComplete);
+
+        MinecraftForge.EVENT_BUS.register(EventHandler.INSTANCE);
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {

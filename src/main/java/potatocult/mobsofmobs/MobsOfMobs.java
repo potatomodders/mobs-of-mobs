@@ -1,4 +1,4 @@
-package potatocult.mobsofmobs.core;
+package potatocult.mobsofmobs;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DistExecutor;
@@ -20,8 +20,6 @@ public class MobsOfMobs
 
     public static MobsOfMobs INSTANCE;
 
-    public static CommonProxy PROXY = DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new);
-
     public MobsOfMobs() {
         INSTANCE = this;
         LOGGER.debug("Mobs Of Mobs Loaded!");
@@ -32,9 +30,11 @@ public class MobsOfMobs
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
+
     }
 
     private void OnLoadComplete(final FMLLoadCompleteEvent event) {
-        PROXY.init();
+
     }
 }
+

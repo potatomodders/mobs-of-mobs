@@ -13,8 +13,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import potatocult.mobsofmobs.group.CreativeTab;
 
-import javax.xml.soap.Text;
-
 @Mod(MobsOfMobs.MODID)
 public class MobsOfMobs
 {

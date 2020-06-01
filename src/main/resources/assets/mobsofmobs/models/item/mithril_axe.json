@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "mobsofmobs:items/mithril_axe"
+  }
+}

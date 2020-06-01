@@ -1,1 +1,12 @@
-block.custom_block=Custom Block
+{
+  "item.mobsofmobs.penguin_feather": "Penguin Feather",
+  "item.mobsofmobs.mithril_ingot": "Mithril Ingot",
+  "item.mobsofmobs.mithril_sword": "Mithril Sword",
+  "item.mobsofmobs.mithril_pickaxe": "Mithril Pickaxe",
+  "item.mobsofmobs.mithril_shovel": "Mithril Shovel",
+  "item.mobsofmobs.mithril_axe": "Mithril Axe",
+  "item.mobsofmobs.mithril_hoe": "Mithril Hoe",
+  "item.mobsofmobs.mithril_shears": "Mithril Shears",
+
+  "itemGroup.mobsofmobs": "Mobs Of Mobs"
+}

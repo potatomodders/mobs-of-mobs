@@ -2,8 +2,8 @@ package potatocult.mobsofmobs.group;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import potatocult.mobsofmobs.core.MobsOfMobs;
+import potatocult.mobsofmobs.items.ItemHolder;
 
 public class CreativeTab extends ItemGroup {
     public CreativeTab() {
@@ -12,20 +12,20 @@ public class CreativeTab extends ItemGroup {
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(Items.BLUE_WOOL.getItem());
+        return new ItemStack(ItemHolder.MITHRIL_INGOT);
     }
 
     @Override
     public boolean hasSearchBar() {
-        return true;
+        return false;
     }
 
     public int getSearchbarWidth() {
-        return 89;
+        return 80;
     }
 
     /* public net.minecraft.util.ResourceLocation getBackgroundImage() {
-        return new net.minecraft.util.ResourceLocation("mobsofmobs:textures/gui/container/creative_inventory/tab_extendedslabs.png");
+        return new net.minecraft.util.ResourceLocation("mobsofmobs:textures/gui/container/creative_inventory/tab_mobsofmobs.png");
     };
 
     public net.minecraft.util.ResourceLocation getTabsImage() {

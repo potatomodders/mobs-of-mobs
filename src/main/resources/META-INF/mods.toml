@@ -3,7 +3,7 @@ loaderVersion="[31,)"
 issueTrackerURL="https://github.com/CrispyChips6660/mobs-of-mobs/issues"
 
 [[mods]]
-modId="mobs-of-mobs"
+modId="mobsofmobs"
 version="${file.jarVersion}"
 displayName="Mobs Of Mobs"
 updateJSONURL="https://raw.githubusercontent.com/potatomodders/mobs-of-mobs/1.15.2-Forge/update.json"
@@ -13,14 +13,14 @@ credits="Crispy, Blackout"
 authors="Potatocult"
 description='''A mod that adds more mobs'''
 
-[[dependencies.mobs-of-mobs]]
+[[dependencies.mobsofmobs]]
     modId="forge"
     mandatory=true
     versionRange="[31,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.mobs-of-mobs]]
+[[dependencies.mobsofmobs]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.15.2]"

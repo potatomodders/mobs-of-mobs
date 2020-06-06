@@ -1,12 +1,12 @@
 {
-  "group": "mobs_of_mobs",
+  "group": "mobsofmobs",
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
       "item": "minecraft:book"
     },
     {
-      "item": "mobs_of_mobs:penguinfeather"
+      "item": "mobsofmobs:penguin_feather"
     }
   ],
   "result": {

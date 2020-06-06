@@ -1,5 +1,5 @@
 {
-  "group": "mobs_of_mobs",
+  "group": "mobsofmobs",
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "0",
@@ -14,7 +14,7 @@
       "item": "minecraft:stick"
     },
     "2": {
-      "item": "mobs_of_mobs:penguinfeather"
+      "item": "mobsofmobs:penguin_feather"
     }
   },
   "result": {

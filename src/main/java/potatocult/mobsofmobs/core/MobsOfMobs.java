@@ -14,6 +14,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import potatocult.mobsofmobs.client.entity.render.PenguinRenderer;
 import potatocult.mobsofmobs.client.entity.render.PyromancerRenderer;
 import potatocult.mobsofmobs.group.CreativeTab;
 import potatocult.mobsofmobs.registry.ModEntityTypes;
@@ -54,6 +55,7 @@ public class MobsOfMobs
 
     private void clientSetup(final FMLClientSetupEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PYROMANCER_ENTITY.get(), PyromancerRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PENGUIN_ENTITY.get(), PenguinRenderer::new);
 
     }
 

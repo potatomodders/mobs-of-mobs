@@ -10,7 +10,7 @@ import potatocult.mobsofmobs.entities.boss.PyromancerEntity;
 public class PyromancerRenderer extends MobRenderer<PyromancerEntity, PyromancerModel<PyromancerEntity>> {
 
     protected static final ResourceLocation PYROMANCER_TEXTURE = new ResourceLocation(MobsOfMobs.MODID,
-            "textures/entity/pyromancer_entity.png");
+            "textures/entity/pyromancer.png");
 
     public PyromancerRenderer(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new PyromancerModel<PyromancerEntity>(0.5F, true), 0.5f);

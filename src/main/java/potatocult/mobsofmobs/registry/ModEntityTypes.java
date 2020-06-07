@@ -7,6 +7,7 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import potatocult.mobsofmobs.core.MobsOfMobs;
+import potatocult.mobsofmobs.entities.PenguinEntity;
 import potatocult.mobsofmobs.entities.boss.PyromancerEntity;
 
 public class ModEntityTypes {
@@ -17,4 +18,10 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.<PyromancerEntity>create(PyromancerEntity::new, EntityClassification.MONSTER)
                             .size(0.6f, 1.95f)
                             .build(new ResourceLocation(MobsOfMobs.MODID, "pyromancer").toString()));
+
+    public static final RegistryObject<EntityType<PenguinEntity>> PENGUIN_ENTITY = ENTITY_TYPES
+            .register("penguin",
+                    () -> EntityType.Builder.<PenguinEntity>create(PenguinEntity::new, EntityClassification.CREATURE)
+                            .size(0.6f, 1.5f)
+                            .build(new ResourceLocation(MobsOfMobs.MODID, "penguin").toString()));
 }

@@ -4,7 +4,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
@@ -25,6 +24,7 @@ import potatocult.mobsofmobs.entities.ai.goal.PyromancerAttackGoal;
 import potatocult.mobsofmobs.items.ItemHolder;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 import java.util.function.Predicate;
 
 public class PyromancerEntity extends MonsterEntity {
@@ -63,6 +63,10 @@ public class PyromancerEntity extends MonsterEntity {
         this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
     }
 
+    public static boolean func_223337_b(EntityType<PyromancerEntity> p_223337_0_, IWorld p_223337_1_, SpawnReason reason, BlockPos p_223337_3_, Random p_223337_4_) {
+        return p_223337_1_.getDifficulty() != Difficulty.PEACEFUL;
+    }
+
     protected void registerAttributes() {
         super.registerAttributes();
         this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
@@ -70,6 +74,10 @@ public class PyromancerEntity extends MonsterEntity {
         this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
         this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(160.0D);
+    }
+
+    protected boolean shouldDrown() {
+        return true;
     }
 
     protected SoundEvent getAmbientSound() {
@@ -92,17 +100,10 @@ public class PyromancerEntity extends MonsterEntity {
         this.playSound(this.getStepSound(), 0.15F, 1.0F);
     }
 
-    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
-        super.setEquipmentBasedOnDifficulty(difficulty);
-        if (this.rand.nextFloat() < (this.world.getDifficulty() == Difficulty.HARD ? 0.05F : 0.01F)) {
-            int i = this.rand.nextInt(3);
-            if (i == 0) {
-                this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(ItemHolder.MITHRIL_SWORD));
-            } else {
-                this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(ItemHolder.MITHRIL_SHOVEL));
-            }
-        }
 
+
+    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
+        this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(ItemHolder.MITHRIL_SWORD));
     }
 
     public void readAdditional(CompoundNBT compound) {
@@ -150,6 +151,18 @@ public class PyromancerEntity extends MonsterEntity {
 
         public double getTargetDistanceSq() {
             return 1.14D;
+        }
+    }
+
+    public boolean isPreventingPlayerRest(PlayerEntity playerIn) {
+        return true;
+    }
+
+    public void checkDespawn() {
+        if (this.world.getDifficulty() == Difficulty.PEACEFUL && this.isDespawnPeaceful()) {
+            this.remove();
+        } else {
+            this.idleTime = 0;
         }
     }
 }

@@ -8,7 +8,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ObjectHolder;
 import potatocult.mobsofmobs.core.MobsOfMobs;
-import potatocult.mobsofmobs.entities.boss.PyromancerEntity;
 import potatocult.mobsofmobs.items.ItemTier;
 
 import static potatocult.mobsofmobs.core.MobsOfMobs.LOGGER;

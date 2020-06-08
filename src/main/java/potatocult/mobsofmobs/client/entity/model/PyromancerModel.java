@@ -13,4 +13,8 @@ public class PyromancerModel<T extends PyromancerEntity> extends AbstractPyroman
      protected PyromancerModel(float p_i48914_1_, float p_i48914_2_, int p_i48914_3_, int p_i48914_4_) {
          super(p_i48914_1_, p_i48914_2_, p_i48914_3_, p_i48914_4_);
      }
+
+    public boolean isAggressive(T entityIn) {
+        return entityIn.isAggressive();
+    }
 }

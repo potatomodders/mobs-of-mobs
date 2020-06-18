@@ -12,6 +12,7 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import potatocult.mobsofmobs.core.MobsOfMobs;
+import potatocult.mobsofmobs.entities.passive.GoldGolemEntity;
 import potatocult.mobsofmobs.entities.passive.PenguinEntity;
 import potatocult.mobsofmobs.entities.boss.PyromancerEntity;
 import potatocult.mobsofmobs.entities.monster.WightEntity;
@@ -22,6 +23,12 @@ public class ModEntityTypes {
     private static List<EntityType<?>> entities = Lists.newArrayList();
     private static List<EntityType<?>> mobs = Lists.newArrayList();
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES, MobsOfMobs.MODID);
+
+    public static final RegistryObject<EntityType<GoldGolemEntity>> GOLD_GOLEM_ENTITY = ENTITY_TYPES
+            .register("gold_golem",
+                    () -> EntityType.Builder.<GoldGolemEntity>create(GoldGolemEntity::new, EntityClassification.MONSTER)
+                            .size(1.4f, 2.7f)
+                            .build(new ResourceLocation(MobsOfMobs.MODID, "gold_golem").toString()));
 
     public static final RegistryObject<EntityType<PenguinEntity>> PENGUIN_ENTITY = ENTITY_TYPES
             .register("penguin",
@@ -43,9 +50,10 @@ public class ModEntityTypes {
                             .build(new ResourceLocation(MobsOfMobs.MODID, "wight").toString()));
 
     public static void registerEntityWorldSpawns() {
+        registerEntityWorldSpawn(GOLD_GOLEM_ENTITY.get(), 10, 4, 11);
         registerEntityWorldSpawn(PENGUIN_ENTITY.get(), 21, 2, 5, Biomes.SNOWY_TUNDRA, Biomes.ICE_SPIKES, Biomes.FROZEN_RIVER, Biomes.FROZEN_OCEAN, Biomes.DEEP_FROZEN_OCEAN);
-        registerEntityWorldSpawn(PYROMANCER_ENTITY.get(), 1, 1, 1);
-        registerEntityWorldSpawn(WIGHT_ENTITY.get(), 20, 4, 11);
+        registerEntityWorldSpawn(PYROMANCER_ENTITY.get(), 1, 1, 1, Biomes.NETHER);
+        registerEntityWorldSpawn(WIGHT_ENTITY.get(), 10, 4, 11, Biomes.PLAINS);
     }
 
     public static void registerEntityWorldSpawn(EntityType<?> entity, int weight, int minGroup, int maxGroup, Biome... biomes) {

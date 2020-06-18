@@ -1,4 +1,6 @@
 {
+  "itemGroup.mobsofmobs": "Mobs Of Mobs",
+
   "item.mobsofmobs.penguin_feather": "Penguin Feather",
   "item.mobsofmobs.mithril_ingot": "Mithril Ingot",
   "item.mobsofmobs.mithril_sword": "Mithril Sword",
@@ -7,14 +9,13 @@
   "item.mobsofmobs.mithril_axe": "Mithril Axe",
   "item.mobsofmobs.mithril_hoe": "Mithril Hoe",
   "item.mobsofmobs.mithril_shears": "Mithril Shears",
+
+  "item.mobsofmobs.gold_golem_spawn_egg": "Gold Golem Spawn Egg",
   "item.mobsofmobs.penguin_spawn_egg": "Penguin Spawn Egg",
   "item.mobsofmobs.pyromancer_spawn_egg": "Pyromancer Spawn Egg",
   "item.mobsofmobs.wight_spawn_egg": "Wight Spawn Egg",
 
-
-
-  "itemGroup.mobsofmobs": "Mobs Of Mobs",
-
+  "entity.mobsofmobs.gold_golem": "Gold Golem",
   "entity.mobsofmobs.pyromancer": "Pyromancer",
   "entity.mobsofmobs.penguin": "Penguin",
   "entity.mobsofmobs.wight": "Wight"

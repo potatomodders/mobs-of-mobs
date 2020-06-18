@@ -24,6 +24,7 @@ import net.minecraftforge.registries.ObjectHolder;
 import potatocult.mobsofmobs.core.MobsOfMobs;
 import potatocult.mobsofmobs.items.ItemHolder;
 import potatocult.mobsofmobs.items.ItemTier;
+import potatocult.mobsofmobs.items.eggs.GoldGolemSpawnEgg;
 import potatocult.mobsofmobs.items.eggs.PenguinSpawnEgg;
 import potatocult.mobsofmobs.items.eggs.PyromancerSpawnEgg;
 import potatocult.mobsofmobs.items.eggs.WightSpawnEgg;
@@ -51,6 +52,8 @@ public class ItemRegistry {
                     // Wait for 1.16 // new HoeItem(ItemTier.MITHRIL, (float) -1.5, new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity())).setRegistryName(MobsOfMobs.location("mithril_hoe")),
                     ItemHolder.MITHRIL_SHEARS = new ShearsItem(new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity())).setRegistryName(MobsOfMobs.location("mithril_shears")),
                     new Item(new Item.Properties().group(MobsOfMobs.GROUP).rarity(MobsOfMobs.getRarity())).setRegistryName(MobsOfMobs.location("penguin_feather")),
+
+                    new GoldGolemSpawnEgg(16500000, 11998228).setRegistryName(MobsOfMobs.location("gold_golem_spawn_egg")),
                     new PenguinSpawnEgg(16500000, 11998228).setRegistryName(MobsOfMobs.location("penguin_spawn_egg")),
                     new PyromancerSpawnEgg(11998228, 16500000).setRegistryName(MobsOfMobs.location("pyromancer_spawn_egg")),
                     new WightSpawnEgg(16500000, 11998228).setRegistryName(MobsOfMobs.location("wight_spawn_egg"))

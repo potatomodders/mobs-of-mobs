@@ -1,6 +1,8 @@
 package potatocult.mobsofmobs.core;
 
 import net.minecraft.util.text.*;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent.LoggedInEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -14,6 +16,7 @@ public class EventHandler {
 
     public static final EventHandler INSTANCE = new EventHandler();
 
+    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public void handlePlayerLoggedInEvent(LoggedInEvent event)
     {

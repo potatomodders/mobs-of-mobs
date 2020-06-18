@@ -19,7 +19,6 @@ import net.minecraft.tags.Tag;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.*;
-import net.minecraftforge.fml.network.FMLPlayMessages;
 import potatocult.mobsofmobs.common.ModTags;
 import potatocult.mobsofmobs.core.MobsOfMobs;
 
@@ -44,7 +43,7 @@ public class PenguinEntity extends AnimalEntity {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new PenguinLandSwimGoal());
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.20D));
-        this.goalSelector.addGoal(2, new BreedGoal(this, 0.55D));
+        this.goalSelector.addGoal(2, new BreedGoal(this, 0.88D));
         this.goalSelector.addGoal(3, new TemptGoal(this, 1.45D, false, Ingredient.fromTag(ModTags.Items.PENGUIN_TEMPTATION)));
         this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.10D));
         this.goalSelector.addGoal(5, new GetOutOfWaterGoal(this));
@@ -56,7 +55,7 @@ public class PenguinEntity extends AnimalEntity {
     protected void registerAttributes() {
         super.registerAttributes();
         this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(8.0D);
-        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.18F);
+        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.38F);
         this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(0.5D);
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(8.0D);
     }

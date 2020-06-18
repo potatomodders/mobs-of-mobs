@@ -7,7 +7,6 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
@@ -16,7 +15,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
@@ -115,15 +113,44 @@ public class PyromancerEntity extends MonsterEntity {
     @Override
     protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
         super.setEquipmentBasedOnDifficulty(difficulty);
-        ItemStack itemstack = new ItemStack(ItemHolder.MITHRIL_SWORD, 1);
-        if (this.rand.nextInt(1) == 0) {
-            Map<Enchantment, Integer> map = Maps.newHashMap();
-            map.put(Enchantments.SHARPNESS, 5);
-            EnchantmentHelper.setEnchantments(map, itemstack);
+        if (this.rand.nextInt(30) == 0) {
+            ItemStack itemstack = new ItemStack(ItemHolder.MITHRIL_AXE, 1);
+            if (this.rand.nextInt(2) == 0) {
+                Map<Enchantment, Integer> map = Maps.newHashMap();
+                map.put(Enchantments.EFFICIENCY, 5);
+                EnchantmentHelper.setEnchantments(map, itemstack);
+            }
+            this.setItemStackToSlot(EquipmentSlotType.MAINHAND, itemstack);
+            this.inventoryHandsDropChances[EquipmentSlotType.MAINHAND.getSlotIndex()] = 1.0f;
+        } else if (this.rand.nextInt(30) == 0) {
+            ItemStack itemstack = new ItemStack(ItemHolder.MITHRIL_SHOVEL, 1);
+            if (this.rand.nextInt(2) == 0) {
+                Map<Enchantment, Integer> map = Maps.newHashMap();
+                map.put(Enchantments.EFFICIENCY, 5);
+                EnchantmentHelper.setEnchantments(map, itemstack);
+            }
+            this.setItemStackToSlot(EquipmentSlotType.MAINHAND, itemstack);
+            this.inventoryHandsDropChances[EquipmentSlotType.MAINHAND.getSlotIndex()] = 1.0f;
+        } else if (this.rand.nextInt(50) == 0) {
+            ItemStack itemstack = new ItemStack(ItemHolder.MITHRIL_PICKAXE, 1);
+            if (this.rand.nextInt(2) == 0) {
+                Map<Enchantment, Integer> map = Maps.newHashMap();
+                map.put(Enchantments.EFFICIENCY, 5);
+                map.put(Enchantments.UNBREAKING, 3);
+                EnchantmentHelper.setEnchantments(map, itemstack);
+            }
+            this.setItemStackToSlot(EquipmentSlotType.MAINHAND, itemstack);
+            this.inventoryHandsDropChances[EquipmentSlotType.MAINHAND.getSlotIndex()] = 1.0f;
+        } else {
+            ItemStack itemstack = new ItemStack(ItemHolder.MITHRIL_SWORD, 1);
+            if (this.rand.nextInt(2) == 0) {
+                Map<Enchantment, Integer> map = Maps.newHashMap();
+                map.put(Enchantments.SHARPNESS, 5);
+                EnchantmentHelper.setEnchantments(map, itemstack);
+            }
+            this.setItemStackToSlot(EquipmentSlotType.MAINHAND, itemstack);
+            this.inventoryHandsDropChances[EquipmentSlotType.MAINHAND.getSlotIndex()] = 0.015f;
         }
-
-        this.setItemStackToSlot(EquipmentSlotType.MAINHAND, itemstack);
-        this.inventoryHandsDropChances[EquipmentSlotType.MAINHAND.getSlotIndex()] = 1.0f;
         if (this.rand.nextInt(100) == 0) {
             this.setItemStackToSlot(EquipmentSlotType.OFFHAND, new ItemStack(ItemHolder.MITHRIL_INGOT, 1));
             this.inventoryHandsDropChances[EquipmentSlotType.OFFHAND.getSlotIndex()] = 1.0f;

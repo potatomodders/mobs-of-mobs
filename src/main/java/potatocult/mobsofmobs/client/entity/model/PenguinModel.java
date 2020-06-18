@@ -1,6 +1,6 @@
 package potatocult.mobsofmobs.client.entity.model;
 
-import potatocult.mobsofmobs.entities.PenguinEntity;
+import potatocult.mobsofmobs.entities.passive.PenguinEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;

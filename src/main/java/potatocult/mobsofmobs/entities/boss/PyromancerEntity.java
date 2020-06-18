@@ -1,8 +1,13 @@
 package potatocult.mobsofmobs.entities.boss;
 
+import com.google.common.collect.Maps;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
@@ -11,11 +16,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.*;
@@ -24,6 +27,7 @@ import potatocult.mobsofmobs.entities.ai.goal.PyromancerAttackGoal;
 import potatocult.mobsofmobs.items.ItemHolder;
 
 import javax.annotation.Nullable;
+import java.util.Map;
 import java.util.Random;
 import java.util.function.Predicate;
 
@@ -42,6 +46,7 @@ public class PyromancerEntity extends MonsterEntity {
     public PyromancerEntity(EntityType<? extends MonsterEntity> type, World worldIn) {
         super(type, worldIn);
         this.setHealth(this.getMaxHealth());
+        this.experienceValue = 30;
     }
 
     protected void registerGoals() {
@@ -69,7 +74,7 @@ public class PyromancerEntity extends MonsterEntity {
 
     protected void registerAttributes() {
         super.registerAttributes();
-        this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
+        this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(36.0D);
         this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.36F);
         this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
         this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
@@ -100,10 +105,29 @@ public class PyromancerEntity extends MonsterEntity {
         this.playSound(this.getStepSound(), 0.15F, 1.0F);
     }
 
+    @Nullable
+    public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
+        this.setEquipmentBasedOnDifficulty(difficultyIn);
+        this.setEnchantmentBasedOnDifficulty(difficultyIn);
+        return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
+    }
 
-
+    @Override
     protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
-        this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(ItemHolder.MITHRIL_SWORD));
+        super.setEquipmentBasedOnDifficulty(difficulty);
+        ItemStack itemstack = new ItemStack(ItemHolder.MITHRIL_SWORD, 1);
+        if (this.rand.nextInt(1) == 0) {
+            Map<Enchantment, Integer> map = Maps.newHashMap();
+            map.put(Enchantments.SHARPNESS, 5);
+            EnchantmentHelper.setEnchantments(map, itemstack);
+        }
+
+        this.setItemStackToSlot(EquipmentSlotType.MAINHAND, itemstack);
+        this.inventoryHandsDropChances[EquipmentSlotType.MAINHAND.getSlotIndex()] = 1.0f;
+        if (this.rand.nextInt(100) == 0) {
+            this.setItemStackToSlot(EquipmentSlotType.OFFHAND, new ItemStack(ItemHolder.MITHRIL_INGOT, 1));
+            this.inventoryHandsDropChances[EquipmentSlotType.OFFHAND.getSlotIndex()] = 1.0f;
+        }
     }
 
     public void readAdditional(CompoundNBT compound) {

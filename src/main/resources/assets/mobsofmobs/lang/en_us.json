@@ -7,9 +7,15 @@
   "item.mobsofmobs.mithril_axe": "Mithril Axe",
   "item.mobsofmobs.mithril_hoe": "Mithril Hoe",
   "item.mobsofmobs.mithril_shears": "Mithril Shears",
+  "item.mobsofmobs.penguin_spawn_egg": "Penguin Spawn Egg",
+  "item.mobsofmobs.pyromancer_spawn_egg": "Pyromancer Spawn Egg",
+  "item.mobsofmobs.wight_spawn_egg": "Wight Spawn Egg",
+
+
 
   "itemGroup.mobsofmobs": "Mobs Of Mobs",
 
   "entity.mobsofmobs.pyromancer": "Pyromancer",
-  "entity.mobsofmobs.penguin": "Penguin"
+  "entity.mobsofmobs.penguin": "Penguin",
+  "entity.mobsofmobs.wight": "Wight"
 }

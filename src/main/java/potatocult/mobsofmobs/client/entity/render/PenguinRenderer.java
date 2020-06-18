@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
 import potatocult.mobsofmobs.client.entity.model.PenguinModel;
 import potatocult.mobsofmobs.core.MobsOfMobs;
-import potatocult.mobsofmobs.entities.PenguinEntity;
+import potatocult.mobsofmobs.entities.passive.PenguinEntity;
 
 public class PenguinRenderer extends MobRenderer<PenguinEntity, PenguinModel<PenguinEntity>> {
 

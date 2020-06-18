@@ -12,7 +12,13 @@ public class CreativeTab extends ItemGroup {
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(ItemHolder.MITHRIL_INGOT);
+        if(ItemHolder.MITHRIL_INGOT != null)
+            return new ItemStack(ItemHolder.MITHRIL_INGOT);
+        else if(ItemHolder.PENGUIN_FEATHER != null)
+            return new ItemStack(ItemHolder.PENGUIN_FEATHER);
+        else
+            return new ItemStack(ItemHolder.MITHRIL_SWORD);
+
     }
 
     @Override

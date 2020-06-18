@@ -4,11 +4,11 @@ import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import potatocult.mobsofmobs.entities.boss.PyromancerEntity;
+import potatocult.mobsofmobs.entities.monster.WightEntity;
 
 @OnlyIn(Dist.CLIENT)
-public abstract class AbstractPyromancerModel<T extends PyromancerEntity> extends BipedModel<T> {
-    protected AbstractPyromancerModel(float modelSize, float yOffsetIn, int textureWidthIn, int textureHeightIn) {
+public abstract class AbstractWightModel<T extends WightEntity> extends BipedModel<T> {
+    protected AbstractWightModel(float modelSize, float yOffsetIn, int textureWidthIn, int textureHeightIn) {
         super(modelSize, yOffsetIn, textureWidthIn, textureHeightIn);
     }
 

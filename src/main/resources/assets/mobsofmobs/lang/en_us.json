@@ -1,6 +1,9 @@
 {
   "itemGroup.mobsofmobs": "Mobs Of Mobs",
 
+  "block.mobsofmobs.carved_melon": "Carved Melon",
+  "block.mobsofmobs.jack_o_melon": "Jack O' Melon",
+
   "item.mobsofmobs.penguin_feather": "Penguin Feather",
   "item.mobsofmobs.mithril_ingot": "Mithril Ingot",
   "item.mobsofmobs.mithril_sword": "Mithril Sword",

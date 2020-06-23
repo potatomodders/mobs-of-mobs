@@ -1,5 +1,6 @@
 package potatocult.mobsofmobs.entities.passive;
 
+import com.google.common.collect.Lists;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowingFluidBlock;
@@ -9,6 +10,7 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.pathfinding.PathNodeType;
@@ -28,9 +30,10 @@ import java.util.Random;
 
 public class PenguinEntity extends AnimalEntity {
     ResourceLocation penguinAllergicTag = new ResourceLocation(MobsOfMobs.MODID, "penguinallergic");
-    ResourceLocation penguinTemptationTag = new ResourceLocation(MobsOfMobs.MODID, "penguintemptation");
     private final Tag DEADLY_ITEM = ItemTags.getCollection().get(penguinAllergicTag);
-    private final Tag BREED_ITEM = ItemTags.getCollection().get(penguinTemptationTag);
+    private static final Ingredient BREED_ITEM_TAG = Ingredient.merge(Lists.newArrayList(
+            Ingredient.fromTag(ModTags.Items.PENGUIN_TEMPTATION)
+    ));
 
     public PenguinEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
         super(type, worldIn);
@@ -42,9 +45,9 @@ public class PenguinEntity extends AnimalEntity {
 
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new PenguinLandSwimGoal());
-        this.goalSelector.addGoal(1, new PanicGoal(this, 1.20D));
-        this.goalSelector.addGoal(2, new BreedGoal(this, 0.88D));
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.45D, false, Ingredient.fromTag(ModTags.Items.PENGUIN_TEMPTATION)));
+        this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
+        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 1.2D, false, BREED_ITEM_TAG));
         this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.10D));
         this.goalSelector.addGoal(5, new GetOutOfWaterGoal(this));
         this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1.00D));
@@ -55,7 +58,7 @@ public class PenguinEntity extends AnimalEntity {
     protected void registerAttributes() {
         super.registerAttributes();
         this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(8.0D);
-        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.38F);
+        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.27F);
         this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(0.5D);
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(8.0D);
     }
@@ -104,9 +107,9 @@ public class PenguinEntity extends AnimalEntity {
         }
     }
 
-    public static void playAmbientSound(World worldIn, Entity parrotIn) {
-        if (!parrotIn.isSilent() && worldIn.rand.nextInt(200) == 0) {
-            worldIn.playSound((PlayerEntity)null, parrotIn.getPosX(), parrotIn.getPosY(), parrotIn.getPosZ(), getAmbientSound(worldIn.rand), parrotIn.getSoundCategory(), 1.0F, getPitch(worldIn.rand));
+    public static void playAmbientSound(World worldIn, Entity penguinIn) {
+        if (!penguinIn.isSilent() && worldIn.rand.nextInt(200) == 0) {
+            worldIn.playSound((PlayerEntity)null, penguinIn.getPosX(), penguinIn.getPosY(), penguinIn.getPosZ(), getAmbientSound(worldIn.rand), penguinIn.getSoundCategory(), 1.0F, getPitch(worldIn.rand));
         }
 
     }
@@ -126,30 +129,40 @@ public class PenguinEntity extends AnimalEntity {
         return null;
     }
 
-    public boolean isBreedingItem(PlayerEntity player, Hand hand) {
-        ItemStack itemstack = player.getHeldItem(hand);
-        return BREED_ITEM.contains(itemstack.getItem());
+    @Override
+    public boolean isBreedingItem(ItemStack stack) {
+        return !stack.isEmpty() && BREED_ITEM_TAG.test(stack);
     }
 
-    @Override
     @Nullable
-    public AgeableEntity createChild(AgeableEntity ageable) {
+    @Override
+    public AgeableEntity createChild(@Nonnull AgeableEntity ageable) {
         return (AgeableEntity) this.getType().create(this.world);
     }
-
-        @Override
-        public boolean canBreatheUnderwater() {
-            return true;
-        }
-
-        @Override
-        protected float getWaterSlowDown() {
-            return 0.0F;
-        }
 
     @Override
     protected float getStandingEyeHeight(Pose pose, EntitySize size) {
         return this.isChild() ? size.height * 0.75F : size.height * 0.7F;
+    }
+
+    @Override
+    public boolean isPushedByWater() {
+        return false;
+    }
+
+    @Override
+    protected int decreaseAirSupply(int air) {
+        return air;
+    }
+
+    @Override
+    public boolean canBreatheUnderwater() {
+        return true;
+    }
+
+    @Override
+    protected float getWaterSlowDown() {
+        return 0.0F;
     }
 
     public class PenguinLandSwimGoal extends SwimGoal {

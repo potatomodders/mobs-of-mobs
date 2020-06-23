@@ -1,118 +1,65 @@
 package potatocult.mobsofmobs.registry;
 
-import com.google.common.base.Preconditions;
-import net.minecraft.block.BeehiveBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.DispenserBlock;
-import net.minecraft.dispenser.IBlockSource;
-import net.minecraft.dispenser.OptionalDispenseBehavior;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.*;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tileentity.BeehiveTileEntity;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.common.IShearable;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 import potatocult.mobsofmobs.core.MobsOfMobs;
-import potatocult.mobsofmobs.items.ItemHolder;
 import potatocult.mobsofmobs.items.ItemTier;
 import potatocult.mobsofmobs.items.eggs.GoldGolemSpawnEgg;
 import potatocult.mobsofmobs.items.eggs.PenguinSpawnEgg;
 import potatocult.mobsofmobs.items.eggs.PyromancerSpawnEgg;
 import potatocult.mobsofmobs.items.eggs.WightSpawnEgg;
 
-import javax.annotation.Nonnull;
-
-import java.util.List;
-import java.util.Random;
-
-import static potatocult.mobsofmobs.core.MobsOfMobs.LOGGER;
-
-@ObjectHolder(MobsOfMobs.MODID)
 public class ItemRegistry {
-    @Mod.EventBusSubscriber(modid = MobsOfMobs.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class Register {
 
-        @SubscribeEvent
-        public static void RegisterItems(final RegistryEvent.Register<Item> event) {
-            final Item[] items = {
-                    new Item(new Item.Properties().group(MobsOfMobs.GROUP).maxStackSize(64).rarity(MobsOfMobs.getRarity())).setRegistryName(MobsOfMobs.location("mithril_ingot")),
-                    new SwordItem(ItemTier.MITHRIL, (int) 2.5, (float) -2.4, new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().rarity(MobsOfMobs.getRarity())).setRegistryName(MobsOfMobs.location("mithril_sword")),
-                    new PickaxeItem(ItemTier.MITHRIL, (int) 0.85, (float) -2.8, new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity())).setRegistryName(MobsOfMobs.location("mithril_pickaxe")),
-                    new ShovelItem(ItemTier.MITHRIL, (float) 0.70, (float) -3.0, new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity())).setRegistryName(MobsOfMobs.location("mithril_shovel")),
-                    new AxeItem(ItemTier.MITHRIL, (float) 3.25, (float) -3.1, new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity())).setRegistryName(MobsOfMobs.location("mithril_axe")),
-                    // Wait for 1.16 // new HoeItem(ItemTier.MITHRIL, (float) -1.5, new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity())).setRegistryName(MobsOfMobs.location("mithril_hoe")),
-                    ItemHolder.MITHRIL_SHEARS = new ShearsItem(new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity())).setRegistryName(MobsOfMobs.location("mithril_shears")),
-                    new Item(new Item.Properties().group(MobsOfMobs.GROUP).rarity(MobsOfMobs.getRarity())).setRegistryName(MobsOfMobs.location("penguin_feather")),
+    public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS,
+            MobsOfMobs.MODID);
 
-                    new GoldGolemSpawnEgg(16500000, 11998228).setRegistryName(MobsOfMobs.location("gold_golem_spawn_egg")),
-                    new PenguinSpawnEgg(16500000, 11998228).setRegistryName(MobsOfMobs.location("penguin_spawn_egg")),
-                    new PyromancerSpawnEgg(11998228, 16500000).setRegistryName(MobsOfMobs.location("pyromancer_spawn_egg")),
-                    new WightSpawnEgg(16500000, 11998228).setRegistryName(MobsOfMobs.location("wight_spawn_egg"))
-            };
+    public static final RegistryObject<Item> MITHRIL_INGOT = ITEMS.register("mithril_ingot",
+            () -> new Item(new Item.Properties().group(MobsOfMobs.GROUP).maxStackSize(64).rarity(MobsOfMobs.getRarity())));
 
-            DispenserBlock.registerDispenseBehavior(ItemHolder.MITHRIL_SHEARS.asItem(), new OptionalDispenseBehavior() {
+    public static final RegistryObject<SwordItem> MITHRIL_SWORD = ITEMS.register("mithril_sword",
+            () -> new SwordItem(ItemTier.MITHRIL, (int) 2.5F, (float) -2.4,
+                    new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity())));
 
-                @SuppressWarnings("deprecation")
-                public @Nonnull
-                ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
-                    World world = source.getWorld();
-                    if (!world.isRemote()) {
-                        this.successful = false;
-                        BlockPos blockpos = source.getBlockPos().offset(source.getBlockState().get(DispenserBlock.FACING));
+    public static final RegistryObject<PickaxeItem> MITHRIL_PICKAXE = ITEMS.register("mithril_pickaxe",
+            () -> new PickaxeItem(ItemTier.MITHRIL, (int) 0.85F, (float) -2.8,
+                    new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity())));
 
-                        for (Entity entity : world.getEntitiesInAABBexcluding(null, new AxisAlignedBB(blockpos), e -> !e.isSpectator() && e instanceof IShearable)) {
-                            IShearable target = (IShearable) entity;
-                            if (target.isShearable(stack, world, blockpos)) {
-                                List<ItemStack> drops = target.onSheared(stack, entity.world, blockpos,
-                                        EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack));
-                                Random rand = new Random();
-                                drops.forEach(d -> {
-                                    ItemEntity ent = entity.entityDropItem(d, 1.0F);
-                                    if (ent == null) return;
-                                    ent.setMotion(ent.getMotion().add(((rand.nextFloat() - rand.nextFloat()) * 0.1F), (rand.nextFloat() * 0.05F), ((rand.nextFloat() - rand.nextFloat()) * 0.1F)));
-                                });
-                                if (stack.attemptDamageItem(1, world.rand, null)) {
-                                    stack.setCount(0);
-                                }
+    public static final RegistryObject<ShovelItem> MITHRIL_SHOVEL = ITEMS.register("mithril_shovel",
+            () -> new ShovelItem(ItemTier.MITHRIL, (float) 0.70, (float) -3.0,
+                    new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity())));
 
-                                this.successful = true;
-                                break;
-                            }
-                            if (!this.successful) {
-                                BlockState blockstate = world.getBlockState(blockpos);
-                                if (blockstate.isIn(BlockTags.BEEHIVES)) {
-                                    int i = blockstate.get(BeehiveBlock.HONEY_LEVEL);
-                                    if (i >= 5) {
-                                        if (stack.attemptDamageItem(1, world.rand, null)) {
-                                            stack.setCount(0);
-                                        }
+    public static final RegistryObject<AxeItem> MITHRIL_AXE = ITEMS.register("mithril_axe",
+            () -> new AxeItem(ItemTier.MITHRIL, (float) 3.25, (float) -3.1, new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity())));
 
-                                        BeehiveBlock.dropHoneyComb(world, blockpos);
-                                        ((BeehiveBlock) blockstate.getBlock()).takeHoney(world, blockstate, blockpos, null, BeehiveTileEntity.State.BEE_RELEASED);
-                                        this.successful = true;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    return stack;
-                }
-            });
+    /* public static final RegistryObject<HoeItem> MITHRIL_HOE = ITEMS.register("mithril_hoe",
+            () -> new HoeItem(ItemTier.MITHRIL, 5.0f, new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity()));
+     */
 
-            for (final Item item: items) {
-                Preconditions.checkNotNull(item.getRegistryName(), "Block: %s has a NULL registry name", item);
-                event.getRegistry().register(item);
-            }
-            LOGGER.debug("Registered Entities");
-        }
-    }
+    public static final RegistryObject<ShearsItem> MITHRIL_SHEARS = ITEMS.register("mithril_shears",
+            () -> new ShearsItem(new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity())));
+
+
+    public static final RegistryObject<Item> PENGUIN_FEATHER = ITEMS.register("penguin_feather",
+            () -> new Item(new Item.Properties().group(MobsOfMobs.GROUP).maxStackSize(64).rarity(MobsOfMobs.getRarity())));
+
+    public static final RegistryObject<Item> GOLD_GOLEM_SPAWN_EGG = ITEMS.register("gold_golem_spawn_egg",
+            () -> new GoldGolemSpawnEgg(new Item.Properties().group(MobsOfMobs.GROUP).maxStackSize(64).rarity(MobsOfMobs.getRarity()), 0xffffff, 0xffffff));
+
+
+    public static final RegistryObject<Item> PENGUIN_SPAWN_EGG = ITEMS.register("penguin_spawn_egg",
+            () -> new PenguinSpawnEgg(new Item.Properties().group(MobsOfMobs.GROUP).maxStackSize(64).rarity(MobsOfMobs.getRarity()), 0xffffff, 0xffffff));
+
+
+    public static final RegistryObject<Item> PYROMANCER_SPAWN_EGG = ITEMS.register("pyromancer_spawn_egg",
+            () -> new PyromancerSpawnEgg(new Item.Properties().group(MobsOfMobs.GROUP).maxStackSize(64).rarity(MobsOfMobs.getRarity()), 0xfca103, 0xfc3503));
+
+
+    public static final RegistryObject<Item> WIGHT_SPAWN_EGG = ITEMS.register("wight_spawn_egg",
+            () -> new WightSpawnEgg(new Item.Properties().group(MobsOfMobs.GROUP).maxStackSize(64).rarity(MobsOfMobs.getRarity()), 0xffffff, 0xffffff));
+
+
+
 }

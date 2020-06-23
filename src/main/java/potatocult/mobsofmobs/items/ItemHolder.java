@@ -1,10 +1,6 @@
 package potatocult.mobsofmobs.items;
 
-import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Rarity;
-import net.minecraft.item.WallOrFloorItem;
 import net.minecraftforge.registries.ObjectHolder;
 import potatocult.mobsofmobs.core.MobsOfMobs;
 

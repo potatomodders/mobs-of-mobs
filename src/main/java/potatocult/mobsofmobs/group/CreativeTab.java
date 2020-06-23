@@ -2,23 +2,28 @@ package potatocult.mobsofmobs.group;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import potatocult.mobsofmobs.blocks.BlockHolder;
 import potatocult.mobsofmobs.core.MobsOfMobs;
 import potatocult.mobsofmobs.items.ItemHolder;
 
+import java.util.Random;
+
 public class CreativeTab extends ItemGroup {
+    protected final Random rand = new Random();
+
     public CreativeTab() {
         super(MobsOfMobs.MODID);
     }
 
     @Override
     public ItemStack createIcon() {
-        if(ItemHolder.MITHRIL_INGOT != null)
-            return new ItemStack(ItemHolder.MITHRIL_INGOT);
-        else if(ItemHolder.PENGUIN_FEATHER != null)
+        if (this.rand.nextInt(2) == 0) {
             return new ItemStack(ItemHolder.PENGUIN_FEATHER);
-        else
-            return new ItemStack(ItemHolder.MITHRIL_SWORD);
-
+        } else if (this.rand.nextInt(2) == 0) {
+            return new ItemStack(ItemHolder.MITHRIL_INGOT);
+        } else {
+            return new ItemStack(BlockHolder.CARVED_MELON);
+        }
     }
 
     @Override

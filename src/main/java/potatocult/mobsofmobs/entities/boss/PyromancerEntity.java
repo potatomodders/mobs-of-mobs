@@ -3,6 +3,7 @@ package potatocult.mobsofmobs.entities.boss;
 import com.google.common.collect.Maps;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -45,6 +46,10 @@ public class PyromancerEntity extends MonsterEntity {
         super(type, worldIn);
         this.setHealth(this.getMaxHealth());
         this.experienceValue = 30;
+    }
+
+    public static boolean spawnPredicate(EntityType<? extends MonsterEntity> type, IWorld world, SpawnReason reason, BlockPos pos, Random random) {
+        return world.getBlockState(pos.down()).getBlock() == Blocks.NETHERRACK;
     }
 
     protected void registerGoals() {

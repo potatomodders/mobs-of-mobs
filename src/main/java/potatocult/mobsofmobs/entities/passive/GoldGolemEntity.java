@@ -62,7 +62,7 @@ public class GoldGolemEntity extends GolemEntity {
 
     protected void registerData() {
         super.registerData();
-        this.dataManager.register(PLAYER_CREATED, (byte)0);
+        this.dataManager.register(PLAYER_CREATED, (byte) 0);
     }
 
     protected void registerAttributes() {
@@ -83,7 +83,7 @@ public class GoldGolemEntity extends GolemEntity {
 
     protected void collideWithEntity(Entity entityIn) {
         if (entityIn instanceof IMob && !(entityIn instanceof CreeperEntity) && this.getRNG().nextInt(20) == 0) {
-            this.setAttackTarget((LivingEntity)entityIn);
+            this.setAttackTarget((LivingEntity) entityIn);
         }
 
         super.collideWithEntity(entityIn);
@@ -103,14 +103,14 @@ public class GoldGolemEntity extends GolemEntity {
             --this.holdRoseTick;
         }
 
-        if (horizontalMag(this.getMotion()) > (double)2.5000003E-7F && this.rand.nextInt(5) == 0) {
+        if (horizontalMag(this.getMotion()) > (double) 2.5000003E-7F && this.rand.nextInt(5) == 0) {
             int i = MathHelper.floor(this.getPosX());
-            int j = MathHelper.floor(this.getPosY() - (double)0.2F);
+            int j = MathHelper.floor(this.getPosY() - (double) 0.2F);
             int k = MathHelper.floor(this.getPosZ());
             BlockPos pos = new BlockPos(i, j, k);
             BlockState blockstate = this.world.getBlockState(pos);
             if (!blockstate.isAir(this.world, pos)) {
-                this.world.addParticle(new BlockParticleData(ParticleTypes.BLOCK, blockstate).setPos(pos), this.getPosX() + ((double)this.rand.nextFloat() - 0.5D) * (double)this.getWidth(), this.getPosY() + 0.1D, this.getPosZ() + ((double)this.rand.nextFloat() - 0.5D) * (double)this.getWidth(), 4.0D * ((double)this.rand.nextFloat() - 0.5D), 0.5D, ((double)this.rand.nextFloat() - 0.5D) * 4.0D);
+                this.world.addParticle(new BlockParticleData(ParticleTypes.BLOCK, blockstate).setPos(pos), this.getPosX() + ((double) this.rand.nextFloat() - 0.5D) * (double) this.getWidth(), this.getPosY() + 0.1D, this.getPosZ() + ((double) this.rand.nextFloat() - 0.5D) * (double) this.getWidth(), 4.0D * ((double) this.rand.nextFloat() - 0.5D), 0.5D, ((double) this.rand.nextFloat() - 0.5D) * 4.0D);
             }
         }
 
@@ -120,7 +120,7 @@ public class GoldGolemEntity extends GolemEntity {
         if (this.isPlayerCreated() && typeIn == EntityType.PLAYER) {
             return false;
         } else {
-            return typeIn == EntityType.CREEPER ? false : super.canAttack(typeIn);
+            return typeIn != EntityType.CREEPER && super.canAttack(typeIn);
         }
     }
 
@@ -138,17 +138,17 @@ public class GoldGolemEntity extends GolemEntity {
     }
 
     private float func_226511_et_() {
-        return (float)this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getValue();
+        return (float) this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getValue();
     }
 
     public boolean attackEntityAsMob(Entity entityIn) {
         this.attackTimer = 10;
-        this.world.setEntityState(this, (byte)4);
+        this.world.setEntityState(this, (byte) 4);
         float f = this.func_226511_et_();
-        float f1 = f > 0.0F ? f / 2.0F + (float)this.rand.nextInt((int)f) : 0.0F;
+        float f1 = f > 0.0F ? f / 2.0F + (float) this.rand.nextInt((int) f) : 0.0F;
         boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), f1);
         if (flag) {
-            entityIn.setMotion(entityIn.getMotion().add(0.0D, (double)0.4F, 0.0D));
+            entityIn.setMotion(entityIn.getMotion().add(0.0D, 0.4F, 0.0D));
             this.applyEnchantments(this, entityIn);
         }
 
@@ -196,10 +196,10 @@ public class GoldGolemEntity extends GolemEntity {
     public void setHoldingRose(boolean holdingRose) {
         if (holdingRose) {
             this.holdRoseTick = 400;
-            this.world.setEntityState(this, (byte)11);
+            this.world.setEntityState(this, (byte) 11);
         } else {
             this.holdRoseTick = 0;
-            this.world.setEntityState(this, (byte)34);
+            this.world.setEntityState(this, (byte) 34);
         }
 
     }
@@ -282,9 +282,9 @@ public class GoldGolemEntity extends GolemEntity {
     public void setPlayerCreated(boolean playerCreated) {
         byte b0 = this.dataManager.get(PLAYER_CREATED);
         if (playerCreated) {
-            this.dataManager.set(PLAYER_CREATED, (byte)(b0 | 1));
+            this.dataManager.set(PLAYER_CREATED, (byte) (b0 | 1));
         } else {
-            this.dataManager.set(PLAYER_CREATED, (byte)(b0 & -2));
+            this.dataManager.set(PLAYER_CREATED, (byte) (b0 & -2));
         }
 
     }
@@ -303,7 +303,7 @@ public class GoldGolemEntity extends GolemEntity {
         if (!blockstate.isTopSolid(worldIn, blockpos1, this)) {
             return false;
         } else {
-            for(int i = 1; i < 3; ++i) {
+            for (int i = 1; i < 3; ++i) {
                 BlockPos blockpos2 = blockpos.up(i);
                 BlockState blockstate1 = worldIn.getBlockState(blockpos2);
                 if (!WorldEntitySpawner.isSpawnableSpace(worldIn, blockpos2, blockstate1, blockstate1.getFluidState())) {
@@ -315,23 +315,23 @@ public class GoldGolemEntity extends GolemEntity {
         }
     }
 
-    public static enum Cracks {
+    public enum Cracks {
         NONE(1.0F),
         LOW(0.75F),
         MEDIUM(0.5F),
         HIGH(0.25F);
 
         private static final List<GoldGolemEntity.Cracks> field_226513_e_ = Stream.of(values()).sorted(Comparator.comparingDouble((p_226516_0_) -> {
-            return (double)p_226516_0_.field_226514_f_;
+            return (double) p_226516_0_.field_226514_f_;
         })).collect(ImmutableList.toImmutableList());
         private final float field_226514_f_;
 
-        private Cracks(float p_i225732_3_) {
+        Cracks(float p_i225732_3_) {
             this.field_226514_f_ = p_i225732_3_;
         }
 
         public static Cracks func_226515_a_(float p_226515_0_) {
-            for(GoldGolemEntity.Cracks goldgolementity$cracks : field_226513_e_) {
+            for (GoldGolemEntity.Cracks goldgolementity$cracks : field_226513_e_) {
                 if (p_226515_0_ < goldgolementity$cracks.field_226514_f_) {
                     return goldgolementity$cracks;
                 }

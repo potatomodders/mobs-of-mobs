@@ -10,7 +10,6 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.pathfinding.PathNodeType;
@@ -20,7 +19,8 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.*;
+import net.minecraft.world.IWorldReader;
+import net.minecraft.world.World;
 import potatocult.mobsofmobs.common.ModTags;
 import potatocult.mobsofmobs.core.MobsOfMobs;
 
@@ -29,11 +29,11 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class PenguinEntity extends AnimalEntity {
-    ResourceLocation penguinAllergicTag = new ResourceLocation(MobsOfMobs.MODID, "penguinallergic");
-    private final Tag DEADLY_ITEM = ItemTags.getCollection().get(penguinAllergicTag);
     private static final Ingredient BREED_ITEM_TAG = Ingredient.merge(Lists.newArrayList(
             Ingredient.fromTag(ModTags.Items.PENGUIN_TEMPTATION)
     ));
+    ResourceLocation penguinAllergicTag = new ResourceLocation(MobsOfMobs.MODID, "penguinallergic");
+    private final Tag DEADLY_ITEM = ItemTags.getCollection().get(penguinAllergicTag);
 
     public PenguinEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
         super(type, worldIn);
@@ -41,6 +41,24 @@ public class PenguinEntity extends AnimalEntity {
         this.experienceValue = 5;
         this.moveController = new PenguinLandMovementController(this);
         this.setPathPriority(PathNodeType.WATER, 0.2F);
+    }
+
+    public static void playAmbientSound(World worldIn, Entity penguinIn) {
+        if (!penguinIn.isSilent() && worldIn.rand.nextInt(200) == 0) {
+            worldIn.playSound(null, penguinIn.getPosX(), penguinIn.getPosY(), penguinIn.getPosZ(), getAmbientSound(worldIn.rand), penguinIn.getSoundCategory(), 1.0F, getPitch(worldIn.rand));
+        }
+
+    }
+
+    private static float getPitch(Random rand) {
+        return 0;
+    }
+
+    private static SoundEvent getAmbientSound(Random random) {
+        if (random.nextInt(1000) == 0) {
+            return SoundEvents.ENTITY_PARROT_AMBIENT;
+        }
+        return null;
     }
 
     protected void registerGoals() {
@@ -107,26 +125,8 @@ public class PenguinEntity extends AnimalEntity {
         }
     }
 
-    public static void playAmbientSound(World worldIn, Entity penguinIn) {
-        if (!penguinIn.isSilent() && worldIn.rand.nextInt(200) == 0) {
-            worldIn.playSound((PlayerEntity)null, penguinIn.getPosX(), penguinIn.getPosY(), penguinIn.getPosZ(), getAmbientSound(worldIn.rand), penguinIn.getSoundCategory(), 1.0F, getPitch(worldIn.rand));
-        }
-
-    }
-
-    private static float getPitch(Random rand) {
-        return 0;
-    }
-
     public boolean attackEntityAsMob(Entity entityIn) {
         return entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), 3.0F);
-    }
-
-    private static SoundEvent getAmbientSound(Random random) {
-        if (random.nextInt(1000) == 0) {
-            return SoundEvents.ENTITY_PARROT_AMBIENT;
-        }
-        return null;
     }
 
     @Override
@@ -163,18 +163,6 @@ public class PenguinEntity extends AnimalEntity {
     @Override
     protected float getWaterSlowDown() {
         return 0.0F;
-    }
-
-    public class PenguinLandSwimGoal extends SwimGoal {
-
-        public PenguinLandSwimGoal() {
-            super(PenguinEntity.this);
-        }
-
-        @Override
-        public boolean shouldExecute() {
-            return PenguinEntity.this.isInWater() && PenguinEntity.this.getSubmergedHeight() > 1.45D * 0.55D || PenguinEntity.this.isInLava();
-        }
     }
 
     static class PenguinLandMovementController extends MovementController {
@@ -232,6 +220,18 @@ public class PenguinEntity extends AnimalEntity {
         protected boolean shouldMoveTo(IWorldReader reader, @Nonnull BlockPos pos) {
             Block block = reader.getBlockState(pos).getBlock();
             return !(block instanceof FlowingFluidBlock);
+        }
+    }
+
+    public class PenguinLandSwimGoal extends SwimGoal {
+
+        public PenguinLandSwimGoal() {
+            super(PenguinEntity.this);
+        }
+
+        @Override
+        public boolean shouldExecute() {
+            return PenguinEntity.this.isInWater() && PenguinEntity.this.getSubmergedHeight() > 1.45D * 0.55D || PenguinEntity.this.isInLava();
         }
     }
 }

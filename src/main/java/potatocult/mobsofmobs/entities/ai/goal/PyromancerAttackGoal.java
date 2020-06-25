@@ -1,7 +1,6 @@
 package potatocult.mobsofmobs.entities.ai.goal;
 
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.monster.ZombieEntity;
 import potatocult.mobsofmobs.entities.boss.PyromancerEntity;
 
 public class PyromancerAttackGoal extends MeleeAttackGoal {
@@ -35,11 +34,7 @@ public class PyromancerAttackGoal extends MeleeAttackGoal {
     public void tick() {
         super.tick();
         ++this.raiseArmTicks;
-        if (this.raiseArmTicks >= 5 && this.attackTick < 10) {
-            this.pyromancer.setAggroed(true);
-        } else {
-            this.pyromancer.setAggroed(false);
-        }
+        this.pyromancer.setAggroed(this.raiseArmTicks >= 5 && this.attackTick < 10);
 
     }
 }

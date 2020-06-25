@@ -1,19 +1,15 @@
 package potatocult.mobsofmobs.core;
 
-import net.minecraft.block.ComposterBlock;
-import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Rarity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -27,8 +23,7 @@ import potatocult.mobsofmobs.registry.ItemRegistry;
 import potatocult.mobsofmobs.registry.ModEntityTypes;
 
 @Mod(MobsOfMobs.MODID)
-public class MobsOfMobs
-{
+public class MobsOfMobs {
 
     public static final String MODID = "mobsofmobs";
     public static final String MODNAME = "Mobs Of Mobs";
@@ -58,6 +53,14 @@ public class MobsOfMobs
         MinecraftForge.EVENT_BUS.register(EventHandler.INSTANCE);
     }
 
+    public static ResourceLocation location(String name) {
+        return new ResourceLocation(MobsOfMobs.MODID, name);
+    }
+
+    public static Rarity getRarity() {
+        return rarity != null ? rarity : Rarity.EPIC;
+    }
+
     @SubscribeEvent
     public void onRegisterItems(final RegistryEvent.Register<Item> event) {
         final IForgeRegistry<Item> registry = event.getRegistry();
@@ -83,14 +86,6 @@ public class MobsOfMobs
          * biome.getSpawns(EntityClassification.MONSTER) .add(new
          * Biome.SpawnListEntry(EntityType.ZOMBIE, 1000, 1, 4)); } } });
          */
-    }
-
-    public static ResourceLocation location(String name) {
-        return new ResourceLocation(MobsOfMobs.MODID, name);
-    }
-
-    public static Rarity getRarity() {
-        return rarity != null ? rarity : Rarity.EPIC;
     }
 }
 

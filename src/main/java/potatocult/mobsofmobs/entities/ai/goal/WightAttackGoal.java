@@ -34,11 +34,7 @@ public class WightAttackGoal extends MeleeAttackGoal {
     public void tick() {
         super.tick();
         ++this.raiseArmTicks;
-        if (this.raiseArmTicks >= 5 && this.attackTick < 10) {
-            this.wight.setAggroed(true);
-        } else {
-            this.wight.setAggroed(false);
-        }
+        this.wight.setAggroed(this.raiseArmTicks >= 5 && this.attackTick < 10);
 
     }
 }

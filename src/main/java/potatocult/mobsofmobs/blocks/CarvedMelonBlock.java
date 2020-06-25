@@ -11,8 +11,6 @@ import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.block.pattern.BlockPatternBuilder;
 import net.minecraft.block.pattern.BlockStateMatcher;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
@@ -31,6 +29,9 @@ import java.util.function.Predicate;
 
 public class CarvedMelonBlock extends HorizontalBlock {
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+    private static final Predicate<BlockState> IS_MELON = (p_210301_0_) -> {
+        return p_210301_0_ != null && (p_210301_0_.getBlock() == BlockHolder.CARVED_MELON || p_210301_0_.getBlock() == BlockHolder.JACK_O_MELON);
+    };
     @Nullable
     private BlockPattern snowmanBasePattern;
     @Nullable
@@ -39,9 +40,6 @@ public class CarvedMelonBlock extends HorizontalBlock {
     private BlockPattern golemBasePattern;
     @Nullable
     private BlockPattern golemPattern;
-    private static final Predicate<BlockState> IS_MELON = (p_210301_0_) -> {
-        return p_210301_0_ != null && (p_210301_0_.getBlock() == BlockHolder.CARVED_MELON || p_210301_0_.getBlock() == BlockHolder.JACK_O_MELON);
-    };
 
     public CarvedMelonBlock(Block.Properties properties) {
         super(properties);
@@ -63,8 +61,8 @@ public class CarvedMelonBlock extends HorizontalBlock {
         if (blockpattern$patternhelper != null) {
             blockpattern$patternhelper = this.getGolemPattern().match(p_196358_1_, p_196358_2_);
             if (blockpattern$patternhelper != null) {
-                for(int j = 0; j < this.getGolemPattern().getPalmLength(); ++j) {
-                    for(int k = 0; k < this.getGolemPattern().getThumbLength(); ++k) {
+                for (int j = 0; j < this.getGolemPattern().getPalmLength(); ++j) {
+                    for (int k = 0; k < this.getGolemPattern().getThumbLength(); ++k) {
                         CachedBlockInfo cachedblockinfo2 = blockpattern$patternhelper.translateOffset(j, k, 0);
                         p_196358_1_.setBlockState(cachedblockinfo2.getPos(), Blocks.AIR.getDefaultState(), 2);
                         p_196358_1_.playEvent(2001, cachedblockinfo2.getPos(), Block.getStateId(cachedblockinfo2.getBlockState()));
@@ -74,15 +72,15 @@ public class CarvedMelonBlock extends HorizontalBlock {
                 BlockPos blockpos = blockpattern$patternhelper.translateOffset(1, 2, 0).getPos();
                 GoldGolemEntity goldgolementity = ModEntityTypes.GOLD_GOLEM_ENTITY.create(p_196358_1_);
                 goldgolementity.setPlayerCreated(true);
-                goldgolementity.setLocationAndAngles((double)blockpos.getX() + 0.5D, (double)blockpos.getY() + 0.05D, (double)blockpos.getZ() + 0.5D, 0.0F, 0.0F);
+                goldgolementity.setLocationAndAngles((double) blockpos.getX() + 0.5D, (double) blockpos.getY() + 0.05D, (double) blockpos.getZ() + 0.5D, 0.0F, 0.0F);
                 p_196358_1_.addEntity(goldgolementity);
 
-                for(ServerPlayerEntity serverplayerentity1 : p_196358_1_.getEntitiesWithinAABB(ServerPlayerEntity.class, goldgolementity.getBoundingBox().grow(5.0D))) {
+                for (ServerPlayerEntity serverplayerentity1 : p_196358_1_.getEntitiesWithinAABB(ServerPlayerEntity.class, goldgolementity.getBoundingBox().grow(5.0D))) {
                     CriteriaTriggers.SUMMONED_ENTITY.trigger(serverplayerentity1, goldgolementity);
                 }
 
-                for(int i1 = 0; i1 < this.getGolemPattern().getPalmLength(); ++i1) {
-                    for(int j1 = 0; j1 < this.getGolemPattern().getThumbLength(); ++j1) {
+                for (int i1 = 0; i1 < this.getGolemPattern().getPalmLength(); ++i1) {
+                    for (int j1 = 0; j1 < this.getGolemPattern().getThumbLength(); ++j1) {
                         CachedBlockInfo cachedblockinfo1 = blockpattern$patternhelper.translateOffset(i1, j1, 0);
                         p_196358_1_.notifyNeighbors(cachedblockinfo1.getPos(), Blocks.AIR);
                     }

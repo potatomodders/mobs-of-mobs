@@ -61,5 +61,4 @@ public class ItemRegistry {
             () -> new WightSpawnEgg(new Item.Properties().group(MobsOfMobs.GROUP).maxStackSize(64).rarity(MobsOfMobs.getRarity()), 0xffffff, 0xffffff));
 
 
-
 }

@@ -3,7 +3,6 @@ package potatocult.mobsofmobs.entities.boss;
 import com.google.common.collect.Maps;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -17,7 +16,10 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.*;
@@ -52,6 +54,10 @@ public class PyromancerEntity extends MonsterEntity {
         return world.getBlockState(pos.down()).getBlock() == Blocks.NETHERRACK;
     }
 
+    public static boolean func_223337_b(EntityType<PyromancerEntity> p_223337_0_, IWorld p_223337_1_, SpawnReason reason, BlockPos p_223337_3_, Random p_223337_4_) {
+        return p_223337_1_.getDifficulty() != Difficulty.PEACEFUL;
+    }
+
     protected void registerGoals() {
         this.goalSelector.addGoal(4, new PyromancerEntity.AttackTurtleEggGoal(this, 1.0D, 3));
         this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 8.0F));
@@ -69,10 +75,6 @@ public class PyromancerEntity extends MonsterEntity {
 
     protected void updateAITasks() {
         this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
-    }
-
-    public static boolean func_223337_b(EntityType<PyromancerEntity> p_223337_0_, IWorld p_223337_1_, SpawnReason reason, BlockPos p_223337_3_, Random p_223337_4_) {
-        return p_223337_1_.getDifficulty() != Difficulty.PEACEFUL;
     }
 
     protected void registerAttributes() {
@@ -192,6 +194,18 @@ public class PyromancerEntity extends MonsterEntity {
         return false;
     }
 
+    public boolean isPreventingPlayerRest(PlayerEntity playerIn) {
+        return true;
+    }
+
+    public void checkDespawn() {
+        if (this.world.getDifficulty() == Difficulty.PEACEFUL && this.isDespawnPeaceful()) {
+            this.remove();
+        } else {
+            this.idleTime = 0;
+        }
+    }
+
     class AttackTurtleEggGoal extends BreakBlockGoal {
         AttackTurtleEggGoal(CreatureEntity creatureIn, double speed, int yMax) {
             super(Blocks.TURTLE_EGG, creatureIn, speed, yMax);
@@ -207,18 +221,6 @@ public class PyromancerEntity extends MonsterEntity {
 
         public double getTargetDistanceSq() {
             return 1.14D;
-        }
-    }
-
-    public boolean isPreventingPlayerRest(PlayerEntity playerIn) {
-        return true;
-    }
-
-    public void checkDespawn() {
-        if (this.world.getDifficulty() == Difficulty.PEACEFUL && this.isDespawnPeaceful()) {
-            this.remove();
-        } else {
-            this.idleTime = 0;
         }
     }
 }

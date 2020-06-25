@@ -8,7 +8,6 @@ import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.monster.*;
-import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -22,19 +21,20 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.Hand;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import potatocult.mobsofmobs.entities.ai.goal.WightAttackGoal;
-import potatocult.mobsofmobs.items.ItemHolder;
 
 import javax.annotation.Nullable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
-import java.util.List;
 import java.util.Random;
 
 public class WightEntity extends MonsterEntity {
@@ -47,6 +47,10 @@ public class WightEntity extends MonsterEntity {
         super(type, worldIn);
         this.setHealth(this.getMaxHealth());
         this.experienceValue = 5;
+    }
+
+    public static boolean func_223337_b(EntityType<WightEntity> p_223337_0_, IWorld p_223337_1_, SpawnReason reason, BlockPos p_223337_3_, Random p_223337_4_) {
+        return p_223337_1_.getDifficulty() != Difficulty.PEACEFUL;
     }
 
     protected void registerGoals() {
@@ -69,14 +73,10 @@ public class WightEntity extends MonsterEntity {
         return CreatureAttribute.UNDEAD;
     }
 
-    public static boolean func_223337_b(EntityType<WightEntity> p_223337_0_, IWorld p_223337_1_, SpawnReason reason, BlockPos p_223337_3_, Random p_223337_4_) {
-        return p_223337_1_.getDifficulty() != Difficulty.PEACEFUL;
-    }
-
     protected void registerAttributes() {
         super.registerAttributes();
         this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(23.0D);
-        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue((double)0.21F);
+        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.21F);
         this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3.5D);
         this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6.0D);
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
@@ -117,7 +117,6 @@ public class WightEntity extends MonsterEntity {
     }
 
 
-
     @Nullable
     public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
         spawnDataIn = super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
@@ -125,7 +124,7 @@ public class WightEntity extends MonsterEntity {
         this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * f);
 
         if (spawnDataIn instanceof ZombieEntity.GroupData) {
-            ZombieEntity.GroupData zombieentity$groupdata = (ZombieEntity.GroupData)spawnDataIn;
+            ZombieEntity.GroupData zombieentity$groupdata = (ZombieEntity.GroupData) spawnDataIn;
 
             this.setEquipmentBasedOnDifficulty(difficultyIn);
             this.setEnchantmentBasedOnDifficulty(difficultyIn);
@@ -165,6 +164,7 @@ public class WightEntity extends MonsterEntity {
             this.inventoryHandsDropChances[EquipmentSlotType.OFFHAND.getSlotIndex()] = 1.0f;
         }
     }
+
     public void tick() {
         if (!this.world.isRemote && this.isAlive()) {
             if (this.isDrowning()) {
@@ -186,6 +186,7 @@ public class WightEntity extends MonsterEntity {
 
         super.tick();
     }
+
     public void livingTick() {
         if (this.isAlive()) {
             boolean flag = this.shouldBurnInDay() && this.isInDaylight();
@@ -219,7 +220,7 @@ public class WightEntity extends MonsterEntity {
 
     protected void onDrowned() {
         this.func_213698_b(EntityType.DROWNED);
-        this.world.playEvent((PlayerEntity)null, 1040, new BlockPos(this), 0);
+        this.world.playEvent(null, 1040, new BlockPos(this), 0);
     }
 
     protected void func_213698_b(EntityType<? extends DrownedEntity> p_213698_1_) {
@@ -229,7 +230,7 @@ public class WightEntity extends MonsterEntity {
             wightentity.setCanPickUpLoot(this.canPickUpLoot());
             wightentity.setNoAI(this.isAIDisabled());
 
-            for(EquipmentSlotType equipmentslottype : EquipmentSlotType.values()) {
+            for (EquipmentSlotType equipmentslottype : EquipmentSlotType.values()) {
                 ItemStack itemstack = this.getItemStackFromSlot(equipmentslottype);
                 if (!itemstack.isEmpty()) {
                     wightentity.setItemStackToSlot(equipmentslottype, itemstack.copy());
@@ -256,7 +257,7 @@ public class WightEntity extends MonsterEntity {
     public boolean processInteract(PlayerEntity player, Hand hand) {
         ItemStack itemstack = player.getHeldItem(hand);
         Item item = itemstack.getItem();
-        if (item instanceof SpawnEggItem && ((SpawnEggItem)item).hasType(itemstack.getTag(), this.getType())) {
+        if (item instanceof SpawnEggItem && ((SpawnEggItem) item).hasType(itemstack.getTag(), this.getType())) {
             if (!this.world.isRemote) {
                 WightEntity wightentity = (WightEntity) this.getType().create(this.world);
                 if (wightentity != null) {
@@ -307,11 +308,11 @@ public class WightEntity extends MonsterEntity {
                 return;
             }
 
-            VillagerEntity villagerentity = (VillagerEntity)entityLivingIn;
+            VillagerEntity villagerentity = (VillagerEntity) entityLivingIn;
             ZombieVillagerEntity zombievillagerentity = EntityType.ZOMBIE_VILLAGER.create(this.world);
             zombievillagerentity.copyLocationAndAnglesFrom(villagerentity);
             villagerentity.remove();
-            zombievillagerentity.onInitialSpawn(this.world, this.world.getDifficultyForLocation(new BlockPos(zombievillagerentity)), SpawnReason.CONVERSION, null, (CompoundNBT)null);
+            zombievillagerentity.onInitialSpawn(this.world, this.world.getDifficultyForLocation(new BlockPos(zombievillagerentity)), SpawnReason.CONVERSION, null, null);
             zombievillagerentity.setVillagerData(villagerentity.getVillagerData());
             zombievillagerentity.setGossips(villagerentity.getGossip().serialize(NBTDynamicOps.INSTANCE).getValue());
             zombievillagerentity.setOffers(villagerentity.getOffers().write());
@@ -328,7 +329,7 @@ public class WightEntity extends MonsterEntity {
 
             zombievillagerentity.setInvulnerable(this.isInvulnerable());
             this.world.addEntity(zombievillagerentity);
-            this.world.playEvent((PlayerEntity)null, 1026, new BlockPos(this), 0);
+            this.world.playEvent(null, 1026, new BlockPos(this), 0);
         }
 
     }

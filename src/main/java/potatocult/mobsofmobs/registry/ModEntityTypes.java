@@ -11,22 +11,21 @@ import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import potatocult.mobsofmobs.core.MobsOfMobs;
-import potatocult.mobsofmobs.entities.passive.GoldGolemEntity;
-import potatocult.mobsofmobs.entities.passive.PenguinEntity;
 import potatocult.mobsofmobs.entities.boss.PyromancerEntity;
 import potatocult.mobsofmobs.entities.monster.WightEntity;
+import potatocult.mobsofmobs.entities.passive.GoldGolemEntity;
+import potatocult.mobsofmobs.entities.passive.PenguinEntity;
 
 import java.util.List;
 
 public class ModEntityTypes {
-    private static List<EntityType<?>> entities = Lists.newArrayList();
-    private static List<EntityType<?>> mobs = Lists.newArrayList();
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES, MobsOfMobs.MODID);
-
     public static final EntityType<GoldGolemEntity> GOLD_GOLEM_ENTITY = register(new ResourceLocation(MobsOfMobs.MODID, "gold_golem").toString(), EntityType.Builder.create(GoldGolemEntity::new, EntityClassification.MISC).size(1.4F, 2.7F));
     public static final EntityType<PenguinEntity> PENGUIN_ENTITY = register(new ResourceLocation(MobsOfMobs.MODID, "penguin").toString(), EntityType.Builder.create(PenguinEntity::new, EntityClassification.CREATURE).size(0.6F, 1.5F));
     public static final EntityType<PyromancerEntity> PYROMANCER_ENTITY = register(new ResourceLocation(MobsOfMobs.MODID, "pyromancer").toString(), EntityType.Builder.create(PyromancerEntity::new, EntityClassification.MONSTER).size(0.6F, 1.95F));
     public static final EntityType<WightEntity> WIGHT_ENTITY = register(new ResourceLocation(MobsOfMobs.MODID, "wight").toString(), EntityType.Builder.create(WightEntity::new, EntityClassification.MONSTER).size(0.6F, 1.95F));
+    private static final List<EntityType<?>> entities = Lists.newArrayList();
+    private static final List<EntityType<?>> mobs = Lists.newArrayList();
 
     private static <T extends Entity> EntityType<T> register(String key, EntityType.Builder<T> builder) {
         return Registry.register(Registry.ENTITY_TYPE, key, builder.build(key));

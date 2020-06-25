@@ -1,6 +1,7 @@
 package potatocult.mobsofmobs.core;
 
-import net.minecraft.util.text.*;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent.LoggedInEvent;
@@ -18,8 +19,7 @@ public class EventHandler {
 
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public void handlePlayerLoggedInEvent(LoggedInEvent event)
-    {
+    public void handlePlayerLoggedInEvent(LoggedInEvent event) {
         CheckResult versionRAW = VersionChecker.getResult(ModList.get().getModFileById(MobsOfMobs.MODID).getMods().get(0));
         Status result = versionRAW.status;
 

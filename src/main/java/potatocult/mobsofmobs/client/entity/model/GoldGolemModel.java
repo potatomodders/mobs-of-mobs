@@ -47,8 +47,8 @@ public class GoldGolemModel<T extends GoldGolemEntity> extends SegmentedModel<T>
      * Sets this entity's model rotation angles
      */
     public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.goldGolemHead.rotateAngleY = netHeadYaw * ((float)Math.PI / 180F);
-        this.goldGolemHead.rotateAngleX = headPitch * ((float)Math.PI / 180F);
+        this.goldGolemHead.rotateAngleY = netHeadYaw * ((float) Math.PI / 180F);
+        this.goldGolemHead.rotateAngleX = headPitch * ((float) Math.PI / 180F);
         this.goldGolemLeftLeg.rotateAngleX = -1.5F * this.triangleWave(limbSwing, 13.0F) * limbSwingAmount;
         this.goldGolemRightLeg.rotateAngleX = 1.5F * this.triangleWave(limbSwing, 13.0F) * limbSwingAmount;
         this.goldGolemLeftLeg.rotateAngleY = 0.0F;
@@ -58,12 +58,12 @@ public class GoldGolemModel<T extends GoldGolemEntity> extends SegmentedModel<T>
     public void setLivingAnimations(T entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
         int i = entityIn.getAttackTimer();
         if (i > 0) {
-            this.goldGolemRightArm.rotateAngleX = -2.0F + 1.5F * this.triangleWave((float)i - partialTick, 10.0F);
-            this.goldGolemLeftArm.rotateAngleX = -2.0F + 1.5F * this.triangleWave((float)i - partialTick, 10.0F);
+            this.goldGolemRightArm.rotateAngleX = -2.0F + 1.5F * this.triangleWave((float) i - partialTick, 10.0F);
+            this.goldGolemLeftArm.rotateAngleX = -2.0F + 1.5F * this.triangleWave((float) i - partialTick, 10.0F);
         } else {
             int j = entityIn.getHoldRoseTick();
             if (j > 0) {
-                this.goldGolemRightArm.rotateAngleX = -0.8F + 0.025F * this.triangleWave((float)j, 70.0F);
+                this.goldGolemRightArm.rotateAngleX = -0.8F + 0.025F * this.triangleWave((float) j, 70.0F);
                 this.goldGolemLeftArm.rotateAngleX = 0.0F;
             } else {
                 this.goldGolemRightArm.rotateAngleX = (-0.2F + 1.5F * this.triangleWave(limbSwing, 13.0F)) * limbSwingAmount;

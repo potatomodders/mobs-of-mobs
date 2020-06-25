@@ -18,13 +18,8 @@ public class ItemHolder {
     public static final Item MITHRIL_SHOVEL = Null();
     @ObjectHolder("mithril_axe")
     public static final Item MITHRIL_AXE = Null();
-    // @ObjectHolder("mithril_hoe")
-    // public static final Item MITHRIL_HOE = Null();
-    public static Item MITHRIL_SHEARS;
     @ObjectHolder("penguin_feather")
     public static final Item PENGUIN_FEATHER = Null();
-
-
     @ObjectHolder("gold_golem_spawn_egg")
     public static final Item GOLD_GOLEM_SPAWN_EGG = Null();
     @ObjectHolder("penguin_spawn_egg")
@@ -33,4 +28,7 @@ public class ItemHolder {
     public static final Item PYROMANCER_SPAWN_EGG = Null();
     @ObjectHolder("wight_spawn_egg")
     public static final Item WIGHT_SPAWN_EGG = Null();
+    // @ObjectHolder("mithril_hoe")
+    // public static final Item MITHRIL_HOE = Null();
+    public static Item MITHRIL_SHEARS;
 }

@@ -54,8 +54,8 @@ public class PyromancerEntity extends MonsterEntity {
         return world.getBlockState(pos.down()).getBlock() == Blocks.NETHERRACK;
     }
 
-    public static boolean func_223337_b(EntityType<PyromancerEntity> p_223337_0_, IWorld p_223337_1_, SpawnReason reason, BlockPos p_223337_3_, Random p_223337_4_) {
-        return p_223337_1_.getDifficulty() != Difficulty.PEACEFUL;
+    public static boolean spawning(EntityType<PyromancerEntity> type, IWorld world, SpawnReason reason, BlockPos pos, Random random) {
+        return world.getDifficulty() != Difficulty.PEACEFUL;
     }
 
     protected void registerGoals() {

@@ -11,6 +11,7 @@ import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.block.pattern.BlockPatternBuilder;
 import net.minecraft.block.pattern.BlockStateMatcher;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
@@ -26,6 +27,7 @@ import potatocult.mobsofmobs.registry.ModEntityTypes;
 
 import javax.annotation.Nullable;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class CarvedMelonBlock extends HorizontalBlock {
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
@@ -48,7 +50,7 @@ public class CarvedMelonBlock extends HorizontalBlock {
 
     public void onBlockAdded(BlockState state, World worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
         if (oldState.getBlock() != state.getBlock()) {
-            this.trySpawnGolem(worldIn, pos);
+            this.trySpawnGolem(ModEntityTypes.GOLD_GOLEM_ENTITY, worldIn, pos);
         }
     }
 
@@ -56,7 +58,7 @@ public class CarvedMelonBlock extends HorizontalBlock {
         return this.getGolemBasePattern().match(p_196354_1_, p_196354_2_) != null;
     }
 
-    private void trySpawnGolem(World p_196358_1_, BlockPos p_196358_2_) {
+    private void trySpawnGolem(Supplier<? extends EntityType<?>> typeIn, World p_196358_1_, BlockPos p_196358_2_) {
         BlockPattern.PatternHelper blockpattern$patternhelper = this.getGolemPattern().match(p_196358_1_, p_196358_2_);
         if (blockpattern$patternhelper != null) {
             blockpattern$patternhelper = this.getGolemPattern().match(p_196358_1_, p_196358_2_);
@@ -70,7 +72,7 @@ public class CarvedMelonBlock extends HorizontalBlock {
                 }
 
                 BlockPos blockpos = blockpattern$patternhelper.translateOffset(1, 2, 0).getPos();
-                GoldGolemEntity goldgolementity = ModEntityTypes.GOLD_GOLEM_ENTITY.create(p_196358_1_);
+                GoldGolemEntity goldgolementity = null;
                 goldgolementity.setPlayerCreated(true);
                 goldgolementity.setLocationAndAngles((double) blockpos.getX() + 0.5D, (double) blockpos.getY() + 0.05D, (double) blockpos.getZ() + 0.5D, 0.0F, 0.0F);
                 p_196358_1_.addEntity(goldgolementity);

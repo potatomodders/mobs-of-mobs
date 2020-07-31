@@ -1,15 +1,15 @@
 package potatocult.mobsofmobs.registry;
 
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import potatocult.mobsofmobs.core.MobsOfMobs;
 import potatocult.mobsofmobs.items.ItemTier;
-import potatocult.mobsofmobs.items.eggs.GoldGolemSpawnEgg;
-import potatocult.mobsofmobs.items.eggs.PenguinSpawnEgg;
-import potatocult.mobsofmobs.items.eggs.PyromancerSpawnEgg;
-import potatocult.mobsofmobs.items.eggs.WightSpawnEgg;
+import potatocult.mobsofmobs.items.eggs.*;
+
+import java.util.function.Supplier;
 
 public class ItemRegistry {
 
@@ -46,19 +46,15 @@ public class ItemRegistry {
             () -> new Item(new Item.Properties().group(MobsOfMobs.GROUP).maxStackSize(64).rarity(MobsOfMobs.getRarity())));
 
     public static final RegistryObject<Item> GOLD_GOLEM_SPAWN_EGG = ITEMS.register("gold_golem_spawn_egg",
-            () -> new GoldGolemSpawnEgg(new Item.Properties().group(MobsOfMobs.GROUP).maxStackSize(64).rarity(MobsOfMobs.getRarity()), 0xffffff, 0xffffff));
-
+            () -> new MobSpawnEgg(ModEntityTypes.GOLD_GOLEM_ENTITY, 0xffffff, 0xffffff));
 
     public static final RegistryObject<Item> PENGUIN_SPAWN_EGG = ITEMS.register("penguin_spawn_egg",
-            () -> new PenguinSpawnEgg(new Item.Properties().group(MobsOfMobs.GROUP).maxStackSize(64).rarity(MobsOfMobs.getRarity()), 0xffffff, 0xffffff));
-
+            () -> new MobSpawnEgg(ModEntityTypes.PENGUIN_ENTITY, 0xffffff, 0xffffff));
 
     public static final RegistryObject<Item> PYROMANCER_SPAWN_EGG = ITEMS.register("pyromancer_spawn_egg",
-            () -> new PyromancerSpawnEgg(new Item.Properties().group(MobsOfMobs.GROUP).maxStackSize(64).rarity(MobsOfMobs.getRarity()), 0xfca103, 0xfc3503));
-
+            () -> new MobSpawnEgg(ModEntityTypes.PYROMANCER_ENTITY, 11035249, 11035249));
 
     public static final RegistryObject<Item> WIGHT_SPAWN_EGG = ITEMS.register("wight_spawn_egg",
-            () -> new WightSpawnEgg(new Item.Properties().group(MobsOfMobs.GROUP).maxStackSize(64).rarity(MobsOfMobs.getRarity()), 0xffffff, 0xffffff));
-
+            () -> new MobSpawnEgg(ModEntityTypes.WIGHT_ENTITY, 16556291, 16528643));
 
 }

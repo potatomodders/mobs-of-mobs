@@ -10,6 +10,7 @@ public class ModTags {
     public static class Items {
         public static final Tag<Item> PENGUIN_TEMPTATION = tag("penguintemptation");
         public static final Tag<Item> PENGUIN_DEADLY = tag("penguindeadly");
+        public static final Tag<Item> PENGUIN_FEATHER = tag("penguinfeather");
 
         private static Tag<Item> tag(String name) {
             return new ItemTags.Wrapper(new ResourceLocation(MobsOfMobs.MODID, name));

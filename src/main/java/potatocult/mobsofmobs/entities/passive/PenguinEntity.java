@@ -3,10 +3,12 @@ package potatocult.mobsofmobs.entities.passive;
 import com.google.common.collect.Lists;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -19,10 +21,13 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import potatocult.mobsofmobs.common.ModTags;
 import potatocult.mobsofmobs.core.MobsOfMobs;
+import potatocult.mobsofmobs.entities.boss.PyromancerEntity;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -41,6 +46,14 @@ public class PenguinEntity extends AnimalEntity {
         this.experienceValue = 5;
         this.moveController = new PenguinLandMovementController(this);
         this.setPathPriority(PathNodeType.WATER, 0.2F);
+    }
+
+    public static boolean spawnPredicate(EntityType<? extends MonsterEntity> type, IWorld world, SpawnReason reason, BlockPos pos, Random random) {
+        return world.getBlockState(pos.down()).getBlock() == Blocks.SNOW;
+    }
+
+    public static boolean spawning(EntityType<PenguinEntity> type, IWorld world, SpawnReason reason, BlockPos pos, Random random) {
+        return world.getBlockState(pos.down()).getBlock() == Blocks.SNOW;
     }
 
     public static void playAmbientSound(World worldIn, Entity penguinIn) {

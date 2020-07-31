@@ -31,6 +31,8 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import potatocult.mobsofmobs.entities.ai.goal.WightAttackGoal;
+import potatocult.mobsofmobs.entities.boss.PyromancerEntity;
+import potatocult.mobsofmobs.entities.passive.PenguinEntity;
 
 import javax.annotation.Nullable;
 import java.time.LocalDate;
@@ -49,8 +51,12 @@ public class WightEntity extends MonsterEntity {
         this.experienceValue = 5;
     }
 
-    public static boolean func_223337_b(EntityType<WightEntity> p_223337_0_, IWorld p_223337_1_, SpawnReason reason, BlockPos p_223337_3_, Random p_223337_4_) {
-        return p_223337_1_.getDifficulty() != Difficulty.PEACEFUL;
+    public static boolean spawnPredicate(EntityType<? extends MonsterEntity> type, IWorld world, SpawnReason reason, BlockPos pos, Random random) {
+        return world.getBlockState(pos.down()).getBlock() == Blocks.GRASS_BLOCK;
+    }
+
+    public static boolean spawning(EntityType<WightEntity> type, IWorld world, SpawnReason reason, BlockPos pos, Random random) {
+        return world.getDifficulty() != Difficulty.PEACEFUL;
     }
 
     protected void registerGoals() {

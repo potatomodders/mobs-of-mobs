@@ -2,10 +2,12 @@ package potatocult.mobsofmobs.entities.passive;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.GolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
@@ -24,6 +26,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.spawner.WorldEntitySpawner;
@@ -32,6 +35,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Stream;
 
 public class GoldGolemEntity extends GolemEntity {
@@ -42,6 +46,14 @@ public class GoldGolemEntity extends GolemEntity {
     public GoldGolemEntity(EntityType<? extends GoldGolemEntity> type, World worldIn) {
         super(type, worldIn);
         this.stepHeight = 1.0F;
+    }
+
+    public static boolean spawnPredicate(EntityType<? extends MonsterEntity> type, IWorld world, SpawnReason reason, BlockPos pos, Random random) {
+        return world.getBlockState(pos.down()).getBlock() == Blocks.AIR;
+    }
+
+    public static boolean spawning(EntityType<GoldGolemEntity> type, IWorld world, SpawnReason reason, BlockPos pos, Random random) {
+        return world.getBlockState(pos.down()).getBlock() == Blocks.AIR;
     }
 
     protected void registerGoals() {

@@ -40,7 +40,7 @@ public class CarvedMelonBlock extends HorizontalBlock {
     @Nullable
     private BlockPattern golemBasePattern;
     @Nullable
-    private BlockPattern golemPattern
+    private BlockPattern golemPattern;
 
     public CarvedMelonBlock(Block.Properties properties) {
         super(properties);

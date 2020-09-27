@@ -7,7 +7,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.potatocult.mobsofmobs.core.MobsOfMobs;
 import net.potatocult.mobsofmobs.items.ItemTier;
 import net.potatocult.mobsofmobs.items.eggs.MobSpawnEgg;
-import potatocult.mobsofmobs.items.eggs.*;
 
 public class ItemRegistry {
 
@@ -32,9 +31,8 @@ public class ItemRegistry {
     public static final RegistryObject<AxeItem> MITHRIL_AXE = ITEMS.register("mithril_axe",
             () -> new AxeItem(ItemTier.MITHRIL, (float) 3.25, (float) -3.1, new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity())));
 
-    /* public static final RegistryObject<HoeItem> MITHRIL_HOE = ITEMS.register("mithril_hoe",
-            () -> new HoeItem(ItemTier.MITHRIL, 5.0f, new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity()));
-     */
+    public static final RegistryObject<HoeItem> MITHRIL_HOE = ITEMS.register("mithril_hoe",
+            () -> new HoeItem(ItemTier.MITHRIL, 5.0f, new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity())));
 
     public static final RegistryObject<ShearsItem> MITHRIL_SHEARS = ITEMS.register("mithril_shears",
             () -> new ShearsItem(new Item.Properties().group(MobsOfMobs.GROUP).setNoRepair().maxDamage(763).rarity(MobsOfMobs.getRarity())));
